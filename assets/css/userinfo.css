@@ -1,0 +1,58 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("/assets/images/netflix_background.png");
+    color: white;
+  }
+  
+  .container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e5e5e5;
+  }
+  
+  input, select, p {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+  }
+  
+  button {
+    background-color: #e50914;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ff3e4d;
+  }
+  
+  .error {
+    border: 1px solid #e50914;
+  }
+  h1 {
+    color: #e50914;
+  }
+  .logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
