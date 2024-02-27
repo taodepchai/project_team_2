@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      .filmList {
+        display: flex;
+        overflow-x: hidden;
+        gap: 20px;
+        padding: 20px;
+        scroll-behavior: smooth;
+      }
+      .film-items {
+        border: 1px solid black;
+        min-width: 200px;
+        text-align: center;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+      .film-items img {
+        border-radius: 8px;
+        width: 160px;
+        height: auto;
+      }
+
+      .film-items:hover {
+        border-color: white;
+      }
+      .film-items h2 {
+        margin: 10px 0;
+      }
+      .nav-buttons {
+        display: flex;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        top: 160px;
+        justify-content: space-between;
+      }
+      .nav-buttons a {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        margin: 0 10px;
+        font-size: 24px;
+        border-radius: 50%;
+      }
+      .nav-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Film-Movie</h1>
+    <div class="filmList" id="filmList"></div>
+    <div class="nav-buttons">
+      <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
+      <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/bd9aef7112.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/temp.js"></script>
+    <script>
+      films = JSON.parse(localStorage.getItem("films"));
+      function renderFilm() {
+        let filmList = document.getElementById("filmList");
+        filmList.innerHTML = "";
+
+        films.forEach((film, index) => {
+          let filmElement = document.createElement("div");
+          filmElement.classList.add("film-items");
+
+          let imageElement = document.createElement("img");
+          imageElement.src = film.imageUrl;
+
+          let nameElement = document.createElement("h2");
+          nameElement.innerHTML = `${film.name}`;
+
+          filmElement.appendChild(imageElement);
+          filmElement.appendChild(nameElement);
+
+          filmList.appendChild(filmElement);
+        });
+      }
+
+      function scrollFilms(direction) {
+        let container = document.getElementById("filmList");
+        let scrollAmount = 400;
+        if (direction === -1) {
+          container.scrollLeft -= scrollAmount;
+        } else {
+          container.scrollLeft += scrollAmount;
+        }
+
+        let maxScrollLeft = container.scrollWidth - container.clientWidth;
+        if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        } else if (direction === -1 && container.scrollLeft === 0) {
+          container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+        }
+      }
+
+      renderFilm();
+    </script>
+  </body>
+</html>
