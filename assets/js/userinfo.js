@@ -1,9 +1,9 @@
-function editAvatar() {
+function editAvatar() { // Hàm sửa avatar
     var avatarInput = document.getElementById('avatar-input');
     avatarInput.click();
   }
   
-  function handleAvatarChange() {
+  function handleAvatarChange() { //Hàm lấy Avatar từ file máy tính
     var avatarInput = document.getElementById('avatar-input');
     var avatar = document.getElementById('avatar');
   
@@ -19,7 +19,7 @@ function editAvatar() {
     }
   }
   
-  function editInfo() {
+  function editInfo() { // Hàm sửa info của user
     document.getElementById('personal-info').style.display = 'none';
     document.getElementById('edit-form').style.display = 'block';
     document.getElementById('avatar-container').style.display = 'block';
@@ -36,14 +36,14 @@ function editAvatar() {
     document.getElementById('edit-buttons').style.display = 'block';
   }
   
-  function undoEdit() {
+  function undoEdit() { //Hàm hoàn tác chỉnh sửa
     document.getElementById('personal-info').style.display = 'block';
     document.getElementById('edit-form').style.display = 'none';
     document.getElementById('avatar-container').style.display = 'none';
     document.getElementById('edit-button').style.display = 'block';
   }
   
-  function saveInfo() {
+  function saveInfo() { //Hàm lưu thay đổi
     var avatarInput = document.getElementById('avatar-input');
     var avatar = document.getElementById('avatar');
   
