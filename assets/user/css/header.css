@@ -15,6 +15,9 @@ a{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 2 ;
 }
 
 .header-left {
@@ -41,8 +44,4 @@ a{
     display: flex;
     gap: 20px;
     align-items: center;
-}
-.header-main {
-    position: fixed;
-    z-index: 1;
 }

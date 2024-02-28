@@ -7,6 +7,7 @@
     <style>
       body {
         background-image: url("https://images.metahub.space/background/medium/tt15398776/img");
+        backdrop-filter: brightness(50%);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -14,24 +15,97 @@
         height: 100vh;
         display: flex;
       }
-      .info-container{
+      .info-container {
         display: flex;
+        position: relative;
       }
-      .film-title{
+      .info-left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        top: 30px;
+        left: 150px;
+        position: absolute;
+      }
+      .info-left .film-title {
         color: rgb(255, 0, 43);
-        margin-left: 10%;
-        margin-top: 5%;
       }
+
+      .info-left .release-info {
+        display: flex;
+        color: white;
+        gap: 30px;
+      }
+
+      .info-left .release-info p {
+        width: 150px;
+        font-size: 30px;
+      }
+
+
+
+      .info-left .genres {
+        display: block;
+        gap: 40px;
+      }
+      .info-left .genres h2 {
+        color: #816956;
+      }
+      .info-left .genres .genres-element {
+        display: flex;
+  
+      }
+      .info-left .genres .genres-element button{
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        background-color: #592a28;
+        opacity: 50%;
+        border-radius: 10px;
+        font-size: large;
+        border: none;
+        margin-left: 20px;
+      }
+      .info-left .genres .genres-element button:hover{
+        opacity: 90%;
+      }
+
+
+      
     </style>
   </head>
   <body>
-    
     <div class="info-container">
+      <div class="info-left">
         <div class="film-title">
-            <img width="250px" height="100px" src="https://images.metahub.space/logo/medium/tt15398776/img" alt="">
+          <img
+            width="300px"
+            height="145px"
+            src="https://images.metahub.space/logo/medium/tt15398776/img"
+            alt=""
+          />
         </div>
-        
+        <div class="release-info">
+          <p>181m</p>
+          <p>2023</p>
+          <p style="display: flex">
+            8.4 <i class="fa-brands fa-imdb" style="color: #ffd43b"></i>
+          </p>
+        </div>
+        <div class="genres">
+          <h2>GENRES</h2>
+          <div class="genres-element">
+            <button>Biograpphy</button>
+            <button>Drama</button>
+            <button>History</button>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
+    <script
+      src="https://kit.fontawesome.com/bd9aef7112.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

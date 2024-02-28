@@ -2,6 +2,7 @@ var films = [
   {
     imageUrl: "https://images.metahub.space/poster/small/tt15398776/img",
     name: "Oppenheimer",
+    genres: ["1","2","3"],
   },
   {
     imageUrl:

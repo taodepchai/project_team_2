@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/assets/user/css/footer.css">
+    <link rel="stylesheet" href="/assets/user/css/footer.css" />
     <style>
       body {
         background-color: black;
@@ -22,97 +22,87 @@
         position: relative;
       }
 
-      .header-main a{
-        color: #fff;
+      /* Thiết lập header */
+      .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
       }
 
+      .header-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-left img {
+        margin-right: 10px;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-right button {
+        margin-left: 10px;
+      }
+
+      /* Thiết lập slideshow */
       .slideshow {
         position: relative;
         overflow: hidden;
       }
 
-      .slideshow-item {
-        display: none;
-      }
-
-      .slideshow-item.active {
-        display: block;
-      }
-
       .slideshow img {
-        margin-top: 100px;
-        margin-left: 14%;
-        width: 70%;
-      }
-
-      .slideshow-content {
-        margin-left: 14%;
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: white;
-        z-index: 1;
-      }
-
-      .slideshow-content h1 {
-        font-size: 24px;
-        margin: 0;
-      }
-
-      .filmList {
-        display: flex;
-        overflow-x: hidden;
-        gap: 20px;
-        padding: 20px;
-        scroll-behavior: smooth;
-      }
-
-      .film-items {
-        border: 1px solid black;
-        min-width: 200px;
-        text-align: center;
-        border-radius: 8px;
-        transition: transform 0.3s;
-      }
-
-      .film-items img {
-        border-radius: 8px;
-        width: 160px;
+        width: 100%;
         height: auto;
       }
 
-      .film-items:hover {
-        border-color: white;
+      .slideshow-content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
       }
 
-      .film-items h2 {
-        margin: 10px 0;
-      }
-
-      .nav-buttons {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
+      /* Thiết lập danh sách phim */
+      .filmList {
         display: flex;
-        width: calc(100% - 40px); 
-        padding: 0 20px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      /* Thiết lập footer */
+      .footer-main {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+      }
+
+      .footer-top,
+      .footer-buttom {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
       }
 
-      .nav-buttons a {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
+      .footer-top-left,
+      .footer-top-right,
+      .footer-buttom-left,
+      .footer-buttom-right {
+        flex: 1;
+      }
+
+      .footer-top-right a,
+      .footer-buttom-right ul {
+        display: flex;
+        gap: 10px;
+      }
+
+      .footer-top-right a i {
         font-size: 24px;
-        border-radius: 50%;
-      }
-
-      .nav-buttons a:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: black;
       }
     </style>
   </head>
@@ -148,71 +138,83 @@
     </div>
 
     <!-- footer -->
-<section class="footer-main">
-  <div class="footer-top">
-    <div class="footer-top-left">
-      <p>Hãy kết nối với chúng tôi trên các mạng xã hội:</p>
-    </div>
-    <div class="footer-top-right">
-      <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
-      <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
-      <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
-      <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-  <br>
-  <hr>
-  <br>
-  <div class="footer-buttom">
-    <div class="footer-buttom-left">
-      <img src="/assets/img/logo-removebg.png" alt="" width="100px">
-      <p>web xem phim</p>
-    </div>
-    <div class="footer-buttom-right">
-      <ul>
-        <li><b>PRODUCT</b></li>
-        <li>Angular</li>
-        <li>React</li>
-        <li>Vue</li>
-        <li>Laravel</li>
-      </ul>
-      <ul>
-        <li><b>USEFUL LINKS</b></li>
-        <li>Pricing</li>
-        <li>Settings</li>
-        <li>Orders</li>
-        <li>Help</li>
-      </ul>
-      <ul>
-        <li><b>CONTACT</b></li>
-        <li>
-          <span>
-            <i class="fa-solid fa-house"></i>
-            Ở Nhà
-          </span>
-        </li>
-        <li>
-          <span>
-            <i class="fa-solid fa-envelope"></i>
-            nguyenthieu11022005@gmail.com
-          </span>
-        </li>
-        <li>
-          <span>
-            <i class="fa-solid fa-phone"></i>
-            0355483082
-          </span>
-        </li>
-        <li>
-          <i class="fa-solid fa-tty"></i>
-          0355483082
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <section class="footer-main">
+      <div class="footer-top">
+        <div class="footer-top-left">
+          <p>Hãy kết nối với chúng tôi trên các mạng xã hội:</p>
+        </div>
+        <div class="footer-top-right">
+          <a href="https://www.facebook.com/thieu879"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/giathieu879/"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com/ThieuN31812"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://www.twitch.tv/thieunguyen879"
+            ><i class="fa-brands fa-twitch"></i
+          ></a>
+          <a href="https://www.google.gg/?pli=1"
+            ><i class="fa-brands fa-google"></i
+          ></a>
+          <a href="https://github.com/thieu879"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div class="footer-buttom">
+        <div class="footer-buttom-left">
+          <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+          <p>web xem phim</p>
+        </div>
+        <div class="footer-buttom-right">
+          <ul>
+            <li><b>PRODUCT</b></li>
+            <li>Angular</li>
+            <li>React</li>
+            <li>Vue</li>
+            <li>Laravel</li>
+          </ul>
+          <ul>
+            <li><b>USEFUL LINKS</b></li>
+            <li>Pricing</li>
+            <li>Settings</li>
+            <li>Orders</li>
+            <li>Help</li>
+          </ul>
+          <ul>
+            <li><b>CONTACT</b></li>
+            <li>
+              <span>
+                <i class="fa-solid fa-house"></i>
+                Ở Nhà
+              </span>
+            </li>
+            <li>
+              <span>
+                <i class="fa-solid fa-envelope"></i>
+                nguyenthieu11022005@gmail.com
+              </span>
+            </li>
+            <li>
+              <span>
+                <i class="fa-solid fa-phone"></i>
+                0355483082
+              </span>
+            </li>
+            <li>
+              <i class="fa-solid fa-tty"></i>
+              0355483082
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <script
       src="https://kit.fontawesome.com/bd9aef7112.js"
@@ -271,7 +273,6 @@
             imgContainer.classList.add("active");
           }
 
-          
           let imageElement = document.createElement("img");
           imageElement.src = image.imageUrl;
 
