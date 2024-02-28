@@ -42,3 +42,7 @@ a{
     gap: 20px;
     align-items: center;
 }
+.header-main {
+    position: fixed;
+    z-index: 1;
+}
