@@ -1,5 +1,5 @@
-var originalInfo = {}; // Lưu trữ thông tin gốc
-function clearErrorMessages() {
+var originalInfo = {};
+function clearErrorMessages() { //xóa thông báo lỗi
   var errorInputs = document.querySelectorAll('.error');
   errorInputs.forEach(function (input) {
       input.classList.remove('error');
@@ -9,12 +9,12 @@ function clearErrorMessages() {
   errorContainer.innerHTML = '';
 }
 
-function editAvatar() {
+function editAvatar() { //thay avatar
     var editAvatarInput = document.getElementById('edit-avatar-input');
     editAvatarInput.click();
 }
 
-function handleAvatarChange() {
+function handleAvatarChange() { //hoàn tất thay đổi avatar
     var editAvatarInput = document.getElementById('edit-avatar-input');
     var avatar = document.getElementById('avatar');
 
@@ -30,8 +30,8 @@ function handleAvatarChange() {
     }
 }
 
-        function editInfo() {
-            // Lưu thông tin gốc trước khi chỉnh sửa
+        function editInfo() { //sửa thông tin
+
             originalInfo.name = document.getElementById('name').innerText;
             originalInfo.email = document.getElementById('email').innerText;
             originalInfo.phone = document.getElementById('phone').innerText;
@@ -56,7 +56,7 @@ function handleAvatarChange() {
             document.getElementById('edit-buttons').style.display = 'block';
         }
 
-        function undoEdit() {
+        function undoEdit() { //hoàn tác thay đổi
 
             document.getElementById('name').innerText = originalInfo.name;
             document.getElementById('email').innerText = originalInfo.email;
@@ -72,7 +72,7 @@ function handleAvatarChange() {
             clearErrorMessages();
         }
 
-        function saveInfo() {
+        function saveInfo() { //Lưu thông tin đã thay đổi
             var avatarInput = document.getElementById('edit-avatar-input');
             var avatar = document.getElementById('avatar');
             var editedEmail = document.getElementById('edit-email').value.trim();
@@ -82,34 +82,32 @@ function handleAvatarChange() {
 
             var errorMessages = [];
             var errorContainer = document.getElementById('error-messages');
-            errorContainer.innerHTML = ''; // Xóa thông báo lỗi trước đó
+            errorContainer.innerHTML = '';
 
-            // Kiểm tra email hợp lệ
+
             if (!isValidEmail(editedEmail)) {
                 document.getElementById('edit-email').classList.add('error');
                 errorMessages.push('Vui lòng nhập địa chỉ Email hợp lệ.');
             }
 
-            // Kiểm tra số điện thoại
             if (isNaN(editedPhone) || editedPhone.length !== 10) {
                 document.getElementById('edit-phone').classList.add('error');
                 errorMessages.push('Vui lòng nhập số điện thoại hợp lệ (10 số).');
             }
 
-            // Kiểm tra độ dài mật khẩu
+
             if (editedPassword.length > 0 && editedPassword.length < 6) {
                 document.getElementById('edit-password').classList.add('error');
                 errorMessages.push('Mật khẩu phải có ít nhất 6 ký tự.');
             }
 
-            // Kiểm tra sự khớp của mật khẩu
+
             if (editedPassword !== confirmPassword) {
                 document.getElementById('edit-password').classList.add('error');
                 document.getElementById('confirm-password').classList.add('error');
                 errorMessages.push('Mật khẩu và Nhập Lại Mật Khẩu không khớp.');
             }
 
-            // Hiển thị thông báo lỗi
             if (errorMessages.length > 0) {
                 errorMessages.forEach(function (message) {
                     var errorMessageElement = document.createElement('p');
@@ -117,10 +115,10 @@ function handleAvatarChange() {
                     errorContainer.appendChild(errorMessageElement);
                 });
 
-                // Tuỳ chọn, bạn có thể cuộn đến phần container thông báo lỗi
+
                 errorContainer.scrollIntoView({ behavior: 'smooth' });
             } else {
-                // Không có lỗi, tiếp tục với quá trình lưu
+
                 document.getElementById('personal-info').style.display = 'block';
                 document.getElementById('edit-form').style.display = 'none';
                 document.getElementById('avatar-container').style.display = 'none';
@@ -133,7 +131,7 @@ function handleAvatarChange() {
         }
 
 
-        function isValidEmail(email) {
+        function isValidEmail(email) { //nhận diện email
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
