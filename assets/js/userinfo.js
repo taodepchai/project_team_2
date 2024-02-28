@@ -1,68 +1,139 @@
-function editAvatar() {
-    var avatarInput = document.getElementById('avatar-input');
-    avatarInput.click();
-  }
-  
-  function handleAvatarChange() {
-    var avatarInput = document.getElementById('avatar-input');
-    var avatar = document.getElementById('avatar');
-  
-    var file = avatarInput.files[0];
-    if (file) {
-      var reader = new FileReader();
-  
-      reader.onload = function(e) {
-        avatar.src = e.target.result;
-      };
-  
-      reader.readAsDataURL(file);
-    }
-  }
-  
-  function editInfo() {
-    document.getElementById('personal-info').style.display = 'none';
-    document.getElementById('edit-form').style.display = 'block';
-    document.getElementById('avatar-container').style.display = 'block';
-    document.getElementById('edit-name').classList.remove('error');
-    document.getElementById('edit-email').classList.remove('error');
-    document.getElementById('edit-phone').classList.remove('error');
-    document.getElementById('edit-name').value = document.getElementById('name').innerText;
-    document.getElementById('edit-email').value = document.getElementById('email').innerText;
-    document.getElementById('edit-phone').value = document.getElementById('phone').innerText;
+var originalInfo = {}; // Lưu trữ thông tin gốc
+function clearErrorMessages() {
+  var errorInputs = document.querySelectorAll('.error');
+  errorInputs.forEach(function (input) {
+      input.classList.remove('error');
+  });
 
-    document.getElementById('edit-avatar').style.display = 'none';
-    
-    document.getElementById('edit-button').style.display = 'none';
-    document.getElementById('edit-buttons').style.display = 'block';
-  }
-  
-  function undoEdit() {
-    document.getElementById('personal-info').style.display = 'block';
-    document.getElementById('edit-form').style.display = 'none';
-    document.getElementById('avatar-container').style.display = 'none';
-    document.getElementById('edit-button').style.display = 'block';
-  }
-  
-  function saveInfo() {
-    var avatarInput = document.getElementById('avatar-input');
+  var errorContainer = document.getElementById('error-messages');
+  errorContainer.innerHTML = '';
+}
+
+function editAvatar() {
+    var editAvatarInput = document.getElementById('edit-avatar-input');
+    editAvatarInput.click();
+}
+
+function handleAvatarChange() {
+    var editAvatarInput = document.getElementById('edit-avatar-input');
     var avatar = document.getElementById('avatar');
-  
-    if (avatarInput.files.length > 0) {
-      var file = avatarInput.files[0];
-      var reader = new FileReader();
-  
-      reader.onload = function(e) {
-        avatar.src = e.target.result;
-      };
-  
-      reader.readAsDataURL(file);
+
+    var file = editAvatarInput.files[0];
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            avatar.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
     }
-    document.getElementById('personal-info').style.display = 'block';
-    document.getElementById('edit-form').style.display = 'none';
-    document.getElementById('avatar-container').style.display = 'none';
-    
-    document.getElementById('edit-buttons').style.display = 'none';
-    
-    document.getElementById('edit-button').style.display = 'block';
-    document.getElementById('avatar-container').style.display = 'block';
-  }
+}
+
+        function editInfo() {
+            // Lưu thông tin gốc trước khi chỉnh sửa
+            originalInfo.name = document.getElementById('name').innerText;
+            originalInfo.email = document.getElementById('email').innerText;
+            originalInfo.phone = document.getElementById('phone').innerText;
+            originalInfo.password = document.getElementById('password').innerText;
+
+            document.getElementById('personal-info').style.display = 'none';
+            document.getElementById('edit-form').style.display = 'block';
+            document.getElementById('avatar-container').style.display = 'block';
+            document.getElementById('edit-name').classList.remove('error');
+            document.getElementById('edit-email').classList.remove('error');
+            document.getElementById('edit-phone').classList.remove('error');
+            document.getElementById('edit-password').classList.remove('error');
+            document.getElementById('confirm-password').classList.remove('error');
+            document.getElementById('edit-name').value = originalInfo.name;
+            document.getElementById('edit-email').value = originalInfo.email;
+            document.getElementById('edit-phone').value = originalInfo.phone;
+            document.getElementById('edit-password').value = '';
+            document.getElementById('confirm-password').value = '';
+            document.getElementById('edit-avatar').style.display = 'block';
+
+            document.getElementById('edit-button').style.display = 'none';
+            document.getElementById('edit-buttons').style.display = 'block';
+        }
+
+        function undoEdit() {
+
+            document.getElementById('name').innerText = originalInfo.name;
+            document.getElementById('email').innerText = originalInfo.email;
+            document.getElementById('phone').innerText = originalInfo.phone;
+            document.getElementById('password').innerText = originalInfo.password;
+
+            document.getElementById('personal-info').style.display = 'block';
+            document.getElementById('edit-form').style.display = 'none';
+            document.getElementById('avatar-container').style.display = 'none';
+            document.getElementById('edit-button').style.display = 'block';
+            document.getElementById('edit-avatar').style.display = 'block';
+            document.getElementById('edit-buttons').style.display = 'none';
+            clearErrorMessages();
+        }
+
+        function saveInfo() {
+            var avatarInput = document.getElementById('edit-avatar-input');
+            var avatar = document.getElementById('avatar');
+            var editedEmail = document.getElementById('edit-email').value.trim();
+            var editedPhone = document.getElementById('edit-phone').value;
+            var editedPassword = document.getElementById('edit-password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+
+            var errorMessages = [];
+            var errorContainer = document.getElementById('error-messages');
+            errorContainer.innerHTML = ''; // Xóa thông báo lỗi trước đó
+
+            // Kiểm tra email hợp lệ
+            if (!isValidEmail(editedEmail)) {
+                document.getElementById('edit-email').classList.add('error');
+                errorMessages.push('Vui lòng nhập địa chỉ Email hợp lệ.');
+            }
+
+            // Kiểm tra số điện thoại
+            if (isNaN(editedPhone) || editedPhone.length !== 10) {
+                document.getElementById('edit-phone').classList.add('error');
+                errorMessages.push('Vui lòng nhập số điện thoại hợp lệ (10 số).');
+            }
+
+            // Kiểm tra độ dài mật khẩu
+            if (editedPassword.length > 0 && editedPassword.length < 6) {
+                document.getElementById('edit-password').classList.add('error');
+                errorMessages.push('Mật khẩu phải có ít nhất 6 ký tự.');
+            }
+
+            // Kiểm tra sự khớp của mật khẩu
+            if (editedPassword !== confirmPassword) {
+                document.getElementById('edit-password').classList.add('error');
+                document.getElementById('confirm-password').classList.add('error');
+                errorMessages.push('Mật khẩu và Nhập Lại Mật Khẩu không khớp.');
+            }
+
+            // Hiển thị thông báo lỗi
+            if (errorMessages.length > 0) {
+                errorMessages.forEach(function (message) {
+                    var errorMessageElement = document.createElement('p');
+                    errorMessageElement.innerText = message;
+                    errorContainer.appendChild(errorMessageElement);
+                });
+
+                // Tuỳ chọn, bạn có thể cuộn đến phần container thông báo lỗi
+                errorContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Không có lỗi, tiếp tục với quá trình lưu
+                document.getElementById('personal-info').style.display = 'block';
+                document.getElementById('edit-form').style.display = 'none';
+                document.getElementById('avatar-container').style.display = 'none';
+
+                document.getElementById('edit-buttons').style.display = 'none';
+                document.getElementById('edit-button').style.display = 'block';
+                document.getElementById('avatar-container').style.display = 'block';
+            }
+            
+        }
+
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
