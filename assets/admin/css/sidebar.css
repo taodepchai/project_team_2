@@ -1,0 +1,26 @@
+th {
+  background-color: #c4c4c4;
+}
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+hr {
+  margin: 0px;
+}
+header {
+  background-color:rgb(173, 173, 173);
+  color: rgb(8, 8, 8);
+  padding:1% ;
+  display: flex;
+  justify-content: space-between;
+}
+li:hover {
+  background-color: #585858;
+  color: white;
+} 
+
+li {
+  padding: 10px;
+}
