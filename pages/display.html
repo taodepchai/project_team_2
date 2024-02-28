@@ -65,6 +65,7 @@
         gap: 20px;
         padding: 20px;
         scroll-behavior: smooth;
+        padding-top: 30%;
       }
 
       .film-items {
@@ -90,7 +91,7 @@
       }
 
       .nav-buttons {
-        position: fixed;
+        position: relative;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1;
@@ -107,7 +108,9 @@
         padding: 10px;
         cursor: pointer;
         font-size: 24px;
-        border-radius: 50%;
+        /* border-radius: 50%; */
+        margin-top: 30%;
+        padding-top: 150px;
       }
 
       .nav-buttons a:hover {
@@ -119,20 +122,58 @@
   <body>
     <section class="header-main">
       <div class="header-left">
-        <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
-        <a href="">Trang chủ</a>
-        <a href="">Thể loại</a>
-        <a href="">Danh sách đã lưu</a>
-        <a href="">Ngôn ngữ</a>
-        <a href="">Phim mới/Phổ biến</a>
+        <ul>
+          <li>
+            <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+          </li>
+          <li>
+            <a href="">Trang chủ</a>
+          </li>
+          <li>
+            <a href=""><i class="fa-solid fa-film"></i> Phim</a>
+          </li>
+          <li>
+            <a href="">Thể loại <i class="fa-solid fa-caret-down"></i></a>
+            <!-- <div class="genres">
+              <ul>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+                <li><a href="">Kinh dị</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li>
+            <a href="">Danh sách đã lưu</a>
+          </li>
+          <li>
+            <a href=""><i class="fa-solid fa-language"></i> Ngôn ngữ <i class="fa-solid fa-caret-down"></i></a>
+          </li>
+          <li>
+            <a href="">Phim mới/Phổ biến</a>
+          </li>
+        </ul>
       </div>
       <div class="header-right">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" name="" id="searchInput" placeholder="Search" />
-        <a href="">
-          <span class="material-symbols-outlined"> notifications </span>
-        </a>
-        <button><p style="color: aliceblue">sign in</p></button>
+        <ul>
+          <li>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </li>
+          <li>
+            <input type="text" name="" id="searchInput" placeholder="Search" />
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-regular fa-bell"></i>
+            </a>
+          </li>
+          <li>
+            <button><p style="color: aliceblue">sign in</p></button>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -141,9 +182,9 @@
 
     <!-- render film -->
     <h1>Film-Movie</h1>
-    <div class="filmList" id="filmList"></div>
     <div class="nav-buttons">
       <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
+      <div class="filmList" id="filmList"></div>
       <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
     </div>
 
@@ -180,9 +221,9 @@
       </ul>
       <ul>
         <li><b>USEFUL LINKS</b></li>
-        <li>Pricing</li>
+        <li>customer support</li>
         <li>Settings</li>
-        <li>Orders</li>
+        <li>rules</li>
         <li>Help</li>
       </ul>
       <ul>
@@ -207,10 +248,15 @@
         </li>
         <li>
           <i class="fa-solid fa-tty"></i>
-          0355483082
+          0355483082 
         </li>
       </ul>
     </div>
+  </div>
+  <div class="final-words">
+    &#169;
+    <p>2024 support website:</p>
+    <p>getbootstrap.com</p>
   </div>
 </section>
 

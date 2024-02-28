@@ -2,27 +2,31 @@
     margin: 0px;
     padding: 0;
     font-family: sans-serif;
-    color: #fff;
+    color: #e5e5e5;
     font-family: sans-serif;
 }
 a{
     text-decoration: none;
 }
+li{
+    list-style: none;
+}
 .header-main {
     width: 100%;
-    height: 10%;
+    height: 70px;
     background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: sticky;
+    z-index: 3;
     top: 0px;
-    z-index: 2 ;
+    padding-bottom: 20px;
 }
 
-.header-left {
+.header-left ul{
     display: flex;
-    gap: 20px;
+    gap: 0px;
     align-items: center;
 }
 
@@ -40,8 +44,44 @@ a{
     border: none;
     background-color: #2e2b2b;
 }
-.header-right{
+.header-right ul{
     display: flex;
     gap: 20px;
     align-items: center;
+}
+.header-left a{
+    width: 120px;
+    padding: 10px;
+}
+.header-left a:hover{
+    color: #d5d5d5;
+}
+.header-left a:active{
+    background-color: rgb(160, 160, 160);
+    transition: all 0.01s;
+}
+.header-right button:hover{
+    background-color: rgb(136, 0, 0);
+}
+
+
+/* --------------------genres------------------------- */
+.header-left ul,li{
+    position: relative;
+}
+.genres{
+    position: absolute;
+    background-color: #d5d0d0;
+    width: 500px;
+    height: auto;
+}
+.genres ul{
+    display: flex;
+    flex-direction: column;
+}
+.genres ul li a{
+    color: #000;    
+}
+.genres ul li a:hover{
+    color: #4b4444;
 }
