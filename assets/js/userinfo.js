@@ -1,4 +1,4 @@
-var originalInfo = {}; // Lưu trữ thông tin gốc
+var originalInfo = {}; 
 function clearErrorMessages() {
   var errorInputs = document.querySelectorAll('.error');
   errorInputs.forEach(function (input) {
@@ -31,7 +31,7 @@ function handleAvatarChange() {
 }
 
         function editInfo() {
-            // Lưu thông tin gốc trước khi chỉnh sửa
+           
             originalInfo.name = document.getElementById('name').innerText;
             originalInfo.email = document.getElementById('email').innerText;
             originalInfo.phone = document.getElementById('phone').innerText;
@@ -84,32 +84,32 @@ function handleAvatarChange() {
             var errorContainer = document.getElementById('error-messages');
             errorContainer.innerHTML = ''; // Xóa thông báo lỗi trước đó
 
-            // Kiểm tra email hợp lệ
+      
             if (!isValidEmail(editedEmail)) {
                 document.getElementById('edit-email').classList.add('error');
                 errorMessages.push('Vui lòng nhập địa chỉ Email hợp lệ.');
             }
 
-            // Kiểm tra số điện thoại
+       
             if (isNaN(editedPhone) || editedPhone.length !== 10) {
                 document.getElementById('edit-phone').classList.add('error');
                 errorMessages.push('Vui lòng nhập số điện thoại hợp lệ (10 số).');
             }
 
-            // Kiểm tra độ dài mật khẩu
+       
             if (editedPassword.length > 0 && editedPassword.length < 6) {
                 document.getElementById('edit-password').classList.add('error');
                 errorMessages.push('Mật khẩu phải có ít nhất 6 ký tự.');
             }
 
-            // Kiểm tra sự khớp của mật khẩu
+       
             if (editedPassword !== confirmPassword) {
                 document.getElementById('edit-password').classList.add('error');
                 document.getElementById('confirm-password').classList.add('error');
                 errorMessages.push('Mật khẩu và Nhập Lại Mật Khẩu không khớp.');
             }
 
-            // Hiển thị thông báo lỗi
+  
             if (errorMessages.length > 0) {
                 errorMessages.forEach(function (message) {
                     var errorMessageElement = document.createElement('p');
@@ -117,10 +117,10 @@ function handleAvatarChange() {
                     errorContainer.appendChild(errorMessageElement);
                 });
 
-                // Tuỳ chọn, bạn có thể cuộn đến phần container thông báo lỗi
+               
                 errorContainer.scrollIntoView({ behavior: 'smooth' });
             } else {
-                // Không có lỗi, tiếp tục với quá trình lưu
+              
                 document.getElementById('personal-info').style.display = 'block';
                 document.getElementById('edit-form').style.display = 'none';
                 document.getElementById('avatar-container').style.display = 'none';
