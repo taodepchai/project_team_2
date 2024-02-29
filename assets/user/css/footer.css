@@ -50,15 +50,24 @@ li{
     justify-content: space-around;
 }
 .footer-buttom-left{
-    width: 200px;
-    padding-top: 90px;
+    /* width: 200px; */
+    /* padding-top: 90px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer-buttom-left-logo {
+.footer-buttom-left p{
+    font-size: 20px;
+    color: burlywood;
+}
+/* .footer-buttom-left-logo {
     display: flex;
     align-items: center;
     padding-bottom: 20px;
-}
+    font-size: 50px;
+} */
 
 .footer-buttom-right {
     display: flex;
@@ -66,6 +75,10 @@ li{
 }
 .footer-buttom-right ul,li{
     padding-top: 30px;
+
+}
+.footer-buttom-right ul li a{
+    color: aliceblue;
 
 }
 .footer-main{
