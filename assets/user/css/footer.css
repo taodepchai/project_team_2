@@ -23,8 +23,7 @@ li{
     position: absolute;
     left: 10%;
 }    */
-.footer-top-left {
-}
+
 
 .footer-top-right {
     display: flex;
@@ -50,10 +49,15 @@ li{
     display: flex;
     justify-content: space-around;
 }
+.footer-buttom-left{
+    width: 200px;
+    padding-top: 90px;
+}
 
-.footer-buttom-left {
+.footer-buttom-left-logo {
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .footer-buttom-right {

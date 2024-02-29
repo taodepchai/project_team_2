@@ -30,7 +30,7 @@ li{
     align-items: center;
 }
 
-.header-right button{
+.header-right ul .header-right-sign-in button{
     background-color: red;
     border: none;
     border-radius: 5px;
@@ -60,7 +60,7 @@ li{
     background-color: rgb(160, 160, 160);
     transition: all 0.01s;
 }
-.header-right button:hover{
+.header-right ul .header-right-sign-in button:hover{
     background-color: rgb(136, 0, 0);
 }
 
@@ -69,19 +69,100 @@ li{
 .header-left ul,li{
     position: relative;
 }
-.genres{
+.header-left-genres{
     position: absolute;
     background-color: #d5d0d0;
-    width: 500px;
+    width: 360px;
     height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: none;
 }
-.genres ul{
+.header-left-genres ul{
     display: flex;
     flex-direction: column;
 }
-.genres ul li a{
+.header-left-genres ul li a{
     color: #000;    
 }
-.genres ul li a:hover{
-    color: #4b4444;
+.header-left-genres ul li a:hover{
+    color: yellow;
+}
+
+.header-left ul li:hover .header-left-genres{
+    display: block;
+}
+/* -------------------language--------------------- */
+
+.header-left-languages {
+    position: absolute;
+    background-color: #d5d0d0;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: none;
+    padding: 5px;
+}
+
+.header-left-languages ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-left-languages ul li a p{
+    color: #000;
+}
+
+.header-left-languages ul li a p:hover {
+    color: yellow;
+}
+
+.header-left ul li:hover .header-left-languages {
+    display: block;
+}
+/* ----------------Notification---------------- */
+.header-right ul,li {
+    position: relative;
+}
+.header-right-bell {
+    position: absolute;
+    background-color: #d5d0d0;
+    height: 300px;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: none;
+    padding: 5px;
+}
+
+.header-right-bell ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-right-bell ul li a {
+    color: #000;
+}
+
+.header-right-bell ul li a p:hover {
+    color: yellow;
+}
+
+.header-right ul li:hover .header-right-bell {
+    display: block;
+}
+/* ---------------------Search----------------- */
+.header-right ul .header-right-search button{
+    position: absolute;
+    cursor: pointer;
+    left: 246px;
+    width: 70px;
+    height: 31px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background-color: red;
+}
+.header-right ul .header-right-search button:hover{
+    background-color: rgb(136, 0, 0);
 }
