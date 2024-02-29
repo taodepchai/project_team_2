@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/assets/user/css/footer.css">
+    <link rel="stylesheet" href="/assets/user/css/footer.css" />
     <style>
       body {
         background-color: black;
@@ -22,7 +22,7 @@
         position: relative;
       }
 
-      .header-main a{
+      .header-main a {
         color: #fff;
       }
 
@@ -96,7 +96,7 @@
         transform: translateY(-50%);
         z-index: 1;
         display: flex;
-        width: calc(100% - 40px); 
+        width: calc(100% - 40px);
         padding: 0 20px;
         justify-content: space-between;
       }
@@ -111,11 +111,25 @@
         /* border-radius: 50%; */
         margin-top: 30%;
         padding-top: 150px;
+        opacity: 30%;
       }
 
       .nav-buttons a:hover {
-        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 100%;
         color: black;
+      }
+
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background: #280d0e;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: #816956;
+        border-radius: 5px;
       }
     </style>
   </head>
@@ -124,7 +138,7 @@
       <div class="header-left">
         <ul>
           <li>
-            <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+            <img src="/assets/img/Orange Phoenix Animal Gaming Logo.png" alt="" width="100px" />
           </li>
           <li>
             <a href="">Trang chủ</a>
@@ -150,7 +164,10 @@
             <a href="">Danh sách đã lưu</a>
           </li>
           <li>
-            <a href=""><i class="fa-solid fa-language"></i> Ngôn ngữ <i class="fa-solid fa-caret-down"></i></a>
+            <a href=""
+              ><i class="fa-solid fa-language"></i> Ngôn ngữ
+              <i class="fa-solid fa-caret-down"></i
+            ></a>
           </li>
           <li>
             <a href="">Phim mới/Phổ biến</a>
@@ -189,76 +206,88 @@
     </div>
 
     <!-- footer -->
-<section class="footer-main">
-  <div class="footer-top">
-    <div class="footer-top-left">
-      <p>Hãy kết nối với chúng tôi trên các mạng xã hội:</p>
-    </div>
-    <div class="footer-top-right">
-      <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
-      <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
-      <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
-      <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-  <br>
-  <hr>
-  <br>
-  <div class="footer-buttom">
-    <div class="footer-buttom-left">
-      <img src="/assets/img/logo-removebg.png" alt="" width="100px">
-      <p>web xem phim</p>
-    </div>
-    <div class="footer-buttom-right">
-      <ul>
-        <li><b>PRODUCT</b></li>
-        <li>Angular</li>
-        <li>React</li>
-        <li>Vue</li>
-        <li>Laravel</li>
-      </ul>
-      <ul>
-        <li><b>USEFUL LINKS</b></li>
-        <li>customer support</li>
-        <li>Settings</li>
-        <li>rules</li>
-        <li>Help</li>
-      </ul>
-      <ul>
-        <li><b>CONTACT</b></li>
-        <li>
-          <span>
-            <i class="fa-solid fa-house"></i>
-            Ở Nhà
-          </span>
-        </li>
-        <li>
-          <span>
-            <i class="fa-solid fa-envelope"></i>
-            nguyenthieu11022005@gmail.com
-          </span>
-        </li>
-        <li>
-          <span>
-            <i class="fa-solid fa-phone"></i>
-            0355483082
-          </span>
-        </li>
-        <li>
-          <i class="fa-solid fa-tty"></i>
-          0355483082 
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="final-words">
-    &#169;
-    <p>2024 support website:</p>
-    <p>getbootstrap.com</p>
-  </div>
-</section>
+    <section class="footer-main">
+      <div class="footer-top">
+        <div class="footer-top-left">
+          <p>Hãy kết nối với chúng tôi trên các mạng xã hội:</p>
+        </div>
+        <div class="footer-top-right">
+          <a href="https://www.facebook.com/thieu879"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/giathieu879/"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com/ThieuN31812"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://www.twitch.tv/thieunguyen879"
+            ><i class="fa-brands fa-twitch"></i
+          ></a>
+          <a href="https://www.google.gg/?pli=1"
+            ><i class="fa-brands fa-google"></i
+          ></a>
+          <a href="https://github.com/thieu879"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div class="footer-buttom">
+        <div class="footer-buttom-left">
+          <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+          <p>web xem phim</p>
+        </div>
+        <div class="footer-buttom-right">
+          <ul>
+            <li><b>PRODUCT</b></li>
+            <li>Angular</li>
+            <li>React</li>
+            <li>Vue</li>
+            <li>Laravel</li>
+          </ul>
+          <ul>
+            <li><b>USEFUL LINKS</b></li>
+            <li>customer support</li>
+            <li>Settings</li>
+            <li>rules</li>
+            <li>Help</li>
+          </ul>
+          <ul>
+            <li><b>CONTACT</b></li>
+            <li>
+              <span>
+                <i class="fa-solid fa-house"></i>
+                Ở Nhà
+              </span>
+            </li>
+            <li>
+              <span>
+                <i class="fa-solid fa-envelope"></i>
+                nguyenthieu11022005@gmail.com
+              </span>
+            </li>
+            <li>
+              <span>
+                <i class="fa-solid fa-phone"></i>
+                0355483082
+              </span>
+            </li>
+            <li>
+              <i class="fa-solid fa-tty"></i>
+              0355483082
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="final-words">
+        &#169;
+        <p>2024 support website:</p>
+        <p>getbootstrap.com</p>
+      </div>
+    </section>
 
     <script
       src="https://kit.fontawesome.com/bd9aef7112.js"
@@ -267,18 +296,21 @@
     <script src="/temp.js"></script>
     <script>
       films = JSON.parse(localStorage.getItem("films"));
-      images = JSON.parse(localStorage.getItem("imgShow"));
-
+      images = JSON.parse(localStorage.getItem("films"));
       function renderFilm() {
         let filmList = document.getElementById("filmList");
         filmList.innerHTML = "";
 
         films.forEach((film, index) => {
           let filmElement = document.createElement("div");
+          filmElement.addEventListener("click", function () {
+            window.location.href = `http://127.0.0.1:5500/pages/info.html?filmId=${index}`;
+          });
+
           filmElement.classList.add("film-items");
 
           let imageElement = document.createElement("img");
-          imageElement.src = film.imageUrl;
+          imageElement.src = film.poster;
 
           let nameElement = document.createElement("h2");
           nameElement.innerHTML = `${film.name}`;
@@ -289,7 +321,7 @@
           filmList.appendChild(filmElement);
         });
       }
-
+      // ấn nút mũi tên thì cuộn trang phim
       function scrollFilms(direction) {
         let container = document.getElementById("filmList");
         let scrollAmount = 400;
@@ -298,7 +330,7 @@
         } else {
           container.scrollLeft += scrollAmount;
         }
-
+        //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
         let maxScrollLeft = container.scrollWidth - container.clientWidth;
         if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
           container.scrollTo({ left: 0, behavior: "smooth" });
@@ -312,17 +344,21 @@
 
         images.forEach((image, index) => {
           let imgContainer = document.createElement("div");
+
           imgContainer.classList.add("slideshow-item");
           if (index === 0) {
             imgContainer.classList.add("active");
           }
-
           
+          imgContainer.addEventListener("click", function () {
+            window.location.href = `http://127.0.0.1:5500/pages/info.html?filmId=${index}`;
+          });
+
           let imageElement = document.createElement("img");
-          imageElement.src = image.imageUrl;
+          imageElement.src = image.background_img;
 
           let nameElement = document.createElement("img");
-          nameElement.src = image.nameImg;
+          nameElement.src = image.img;
 
           let contentElement = document.createElement("div");
           contentElement.classList.add("slideshow-content");
@@ -334,7 +370,7 @@
           imgList.appendChild(imgContainer);
         });
       }
-
+      //tìm kiếm sản phẩm
       function searchFilms() {
         // Lấy giá trị từ khóa tìm kiếm
         let keyword = document
