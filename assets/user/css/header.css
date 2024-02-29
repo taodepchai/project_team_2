@@ -95,30 +95,29 @@ li{
 }
 /* -------------------language--------------------- */
 
-.header-left-languages {
+.header-right-languages {
     position: absolute;
     background-color: #d5d0d0;
     height: auto;
     border-radius: 10px;
-    margin-left: 10px;
     display: none;
     padding: 5px;
+    width: 110px;
 }
-
-.header-left-languages ul {
+.header-right-languages ul {
     display: flex;
     flex-direction: column;
 }
 
-.header-left-languages ul li a p{
+.header-right-languages ul li a p{
     color: #000;
 }
 
-.header-left-languages ul li a p:hover {
+.header-right-languages ul li a p:hover {
     color: yellow;
 }
 
-.header-left ul li:hover .header-left-languages {
+.header-right ul li:hover .header-right-languages {
     display: block;
 }
 /* ----------------Notification---------------- */
