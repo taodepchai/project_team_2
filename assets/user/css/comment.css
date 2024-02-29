@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    background-color: aliceblue;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0 0 5px #000;
+}
+.head {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+/* 
+.comment p a{
+    color: blue;
+} */
+
+.text {
+    margin: 10px 0;
+    font-size: 0.9cm;
+}
+
+.comments {}
+
+.comment-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.comment-box img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+.content {
+    width: 100%;
+}
+
+.user {
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    color: gray;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.comment-input input{
+    border: none;
+    padding: 10px;
+    padding-left: 0;
+    outline: none;
+    border-bottom: 2px solid blue;
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+.userComment {}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+}
+.buttons button{
+    padding: 5px 10px;
+    background: lightgray;
+    color: gray;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons button.abled{
+    background-color: blue;
+    color: aliceblue;
+}
+.notify {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+.notify input{
+    margin-right: 5px;
+}
+.notifyInput {}
+.parents{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    margin-bottom: 30px;
+}
+/* .parents h1{
+    font-size: 0.9cm;
+} */
+    .parents p{
+        margin: 10px 0;
+        /* font-size: 0.9cm; */
+    }
+/* .parents{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
+} */
+.engagements{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.engagements i{
+    width: 20px;
+}
