@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        backdrop-filter: brightness(50%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        font-family: sans-serif;
+      }
+      .info-container {
+        display: flex;
+        position: relative;
+        align-items: center;
+      }
+      .info-left {
+        width: 60%;
+        margin-left: 10%;
+        display: flex;
+        flex-direction: column;
+      }
+      .info-left .film-title {
+        color: rgb(255, 0, 43);
+        width: "300px";
+        height: "145px";
+      }
+
+      .info-left .release-info {
+        display: flex;
+        color: white;
+        gap: 0px;
+        align-items: center;
+      }
+
+      .info-left .release-info p {
+        width: 150px;
+        font-size: 30px;
+      }
+      .info-left .release-info img {
+        align-items: center;
+      }
+      .info-left .genres {
+        display: block;
+        gap: 40px;
+      }
+      .info-left .genres h2 {
+        color: #816956;
+      }
+      .info-left .genres .genres-element {
+        display: flex;
+      }
+      .info-left .genres .genres-element button {
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        background-color: #592a28;
+        opacity: 50%;
+        border-radius: 10px;
+        font-size: large;
+        border: none;
+        margin-left: 20px;
+      }
+      .info-left .genres .genres-element button:hover {
+        opacity: 90%;
+      }
+
+      .info-left .cast {
+        width: 1000px;
+        display: block;
+        gap: 40px;
+      }
+      .info-left .cast h2 {
+        color: #816956;
+      }
+      .info-left .cast .cast-element {
+        display: flex;
+      }
+      .info-left .cast .cast-element button {
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        background-color: #592a28;
+        opacity: 50%;
+        border-radius: 10px;
+        font-size: large;
+        border: none;
+        margin-left: 20px;
+      }
+      .info-left .cast .cast-element button:hover {
+        opacity: 90%;
+      }
+      .info-left .directors {
+        width: 1000px;
+        display: block;
+        gap: 40px;
+      }
+      .info-left .directors h2 {
+        color: #816956;
+      }
+      .info-left .directors .directors-element {
+        display: flex;
+      }
+      .info-left .directors .directors-element button {
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        background-color: #592a28;
+        opacity: 50%;
+        border-radius: 10px;
+        font-size: large;
+        border: none;
+        margin-left: 20px;
+      }
+      .info-left .directors .directors-element button:hover {
+        opacity: 90%;
+      }
+
+      .info-left .summary {
+        width: 1000px;
+        display: block;
+        gap: 40px;
+      }
+      .info-left .summary h2 {
+        color: #816956;
+      }
+      .info-left .summary .summary-element {
+        display: flex;
+      }
+
+      .info-left .summary .summary-element p {
+        color: white;
+      }
+
+      .info-left .action-button {
+        width: 1000px;
+        display: block;
+        gap: 40px;
+      }
+      .info-left .action-button h2 {
+        color: #816956;
+      }
+      .info-left .action-button .action-button-element {
+        display: flex;
+      }
+      .info-left .action-button .action-button-element button {
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        background-color: #592a28;
+        opacity: 50%;
+        border-radius: 10px;
+        font-size: large;
+        border: 1px solid #592a28;
+        margin-left: 20px;
+      }
+      .info-left .action-button .action-button-element button:hover {
+        opacity: 90%;
+        border: 1px solid white;
+      }
+      .info-left .action-button .action-button-element img {
+        width: 20px;
+        color: white;
+        background-color: white;
+      }
+
+      .info-right {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        margin-left: 25%;
+      }
+      .info-right .background {
+        width: 400px;
+        height: 600px;
+        background-color: #280d0e;
+        opacity: 50%;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        overflow-y: auto;
+      }
+
+      .info-right .background .stream-info {
+        display: flex;
+        flex-direction: column;
+
+        overflow-y: auto;
+      }
+
+      .info-right .background .stream-info button {
+        width: 70%;
+        display: flex;
+        color: white;
+        background-color: #280d0e;
+        height: 50px;
+        border: 1px solid #280d0e;
+        border-radius: 15px;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 5px 10px;
+      }
+
+      .info-right .background .stream-info button:hover {
+        border-color: white;
+        opacity: 90%;
+      }
+
+      .info-right .background::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .info-right .background::-webkit-scrollbar-track {
+        background: #280d0e;
+      }
+
+      .info-right .background::-webkit-scrollbar-thumb {
+        background-color: #816956;
+        border-radius: 5px;
+      }
+
+      .info-right .background .stream-info img {
+        width: 70px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info-container"></div>
+
+    <script>
+      var filmId = 0;
+      let films = JSON.parse(localStorage.getItem("films"));
+      console.log(films);
+      document.addEventListener("DOMContentLoaded", function () {
+        let urlParams = new URLSearchParams(window.location.search);
+
+        filmId = parseInt(urlParams.get("filmId"));
+
+        let data = films[filmId];
+
+        document.body.style.backgroundImage = `url('${data.background_img}')`;
+        function renderFilmData(data) {
+          const filmTitle = document.createElement("div");
+          filmTitle.classList.add("film-title");
+          const filmTitleImg = document.createElement("img");
+          filmTitleImg.setAttribute("src", data.img);
+          filmTitleImg.setAttribute("width", "300px");
+          filmTitleImg.setAttribute("height", "145px");
+          filmTitle.appendChild(filmTitleImg);
+
+          const releaseInfo = document.createElement("div");
+          releaseInfo.classList.add("release-info");
+          console.log(1);
+          releaseInfo.innerHTML = `
+              <p>${data.runtime}</p>
+              <p>${data.release_year}</p>
+              <p style="display: flex; align-items: center">
+                ${data.rating}
+                <img width="48px" height="48px" src="https://img.icons8.com/color/48/imdb.png" alt="imdb" />
+              </p>
+            `;
+
+          const genres = document.createElement("div");
+          genres.classList.add("genres");
+          genres.innerHTML = `
+              <h2>GENRES</h2>
+              <div class="genres-element">
+                ${data.genres
+                  .map((genre) => `<button>${genre}</button>`)
+                  .join("")}
+              </div>
+            `;
+
+          const cast = document.createElement("div");
+          cast.classList.add("cast");
+          cast.innerHTML = `
+              <h2>CAST</h2>
+              <div class="cast-element">
+                ${data.cast
+                  .map((actor) => `<button>${actor}</button>`)
+                  .join("")}
+              </div>
+            `;
+
+          const directors = document.createElement("div");
+          directors.classList.add("directors");
+          directors.innerHTML = `
+              <h2>DIRECTORS</h2>
+              <div class="directors-element">
+                <button>${data.director}</button>
+              </div>
+            `;
+
+          const summary = document.createElement("div");
+          summary.classList.add("summary");
+          summary.innerHTML = `
+              <h2>SUMMARY</h2>
+              <div class="summary-element">
+                <p>${data.summary}</p>
+              </div>
+            `;
+
+          const actionButtons = document.createElement("div");
+          actionButtons.classList.add("action-button");
+          actionButtons.innerHTML = `
+              <div class="action-button-element">
+                <button><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
+                <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
+                <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
+              </div>
+            `;
+
+          const infoLeft = document.createElement("div");
+          infoLeft.classList.add("info-left");
+          infoLeft.appendChild(filmTitle);
+          infoLeft.appendChild(releaseInfo);
+          infoLeft.appendChild(genres);
+          infoLeft.appendChild(cast);
+          infoLeft.appendChild(directors);
+          infoLeft.appendChild(summary);
+          infoLeft.appendChild(actionButtons);
+
+          const infoContainer = document.createElement("div");
+          infoContainer.classList.add("info-container");
+          infoContainer.appendChild(infoLeft);
+
+          document.body.appendChild(infoContainer);
+        }
+
+        renderFilmData(data);
+
+
+
+        function renderInfoRight(data) {
+          const background = document.createElement("div");
+          background.classList.add("background");
+
+          const streamInfo = document.createElement("div");
+          streamInfo.classList.add("stream-info");
+          for(let i=0;i<data.episode;i++){
+            let buttonEp = document.createElement("div");
+            buttonEp.classList.add("stream-info");
+            buttonEp.innerHTML = `<button>
+              <img src="${data.background_img}" alt="">
+              Episode ${i+1}<i
+                class="fa-solid fa-circle-play fa-2xl"
+                style="color: #00ff40"
+              ></i>
+            </button>`
+            background.appendChild(buttonEp);
+          }
+          background.appendChild(streamInfo);
+
+          const infoRight = document.createElement("div");
+          infoRight.classList.add("info-right");
+
+          infoRight.appendChild(background);
+
+          document.body.appendChild(infoRight);
+        }
+        renderInfoRight(data);
+      });
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/bd9aef7112.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
