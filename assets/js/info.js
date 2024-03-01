@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const releaseInfo = document.createElement("div");
     releaseInfo.classList.add("release-info");
-    console.log(1);
     releaseInfo.innerHTML = `
               <p>${data.runtime}</p>
               <p>${data.release_year}</p>

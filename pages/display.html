@@ -136,63 +136,87 @@
   <body>
     <section class="header-main">
       <div class="header-left">
-        <ul>
-          <li>
-            <img src="/assets/img/Orange Phoenix Animal Gaming Logo.png" alt="" width="100px" />
-          </li>
-          <li>
-            <a href="">Trang chủ</a>
-          </li>
-          <li>
-            <a href=""><i class="fa-solid fa-film"></i> Phim</a>
-          </li>
-          <li>
-            <a href="">Thể loại <i class="fa-solid fa-caret-down"></i></a>
-            <!-- <div class="genres">
-              <ul>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-                <li><a href="">Kinh dị</a></li>
-              </ul>
-            </div> -->
-          </li>
-          <li>
-            <a href="">Danh sách đã lưu</a>
-          </li>
-          <li>
-            <a href=""
-              ><i class="fa-solid fa-language"></i> Ngôn ngữ
-              <i class="fa-solid fa-caret-down"></i
-            ></a>
-          </li>
-          <li>
-            <a href="">Phim mới/Phổ biến</a>
-          </li>
-        </ul>
+          <ul>
+              <li>
+                  <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+              </li>
+              <li>
+                  <a href="">Home</a>
+              </li>
+              <li>
+                  <a href=""><i class="fa-solid fa-film"></i> Film</a>
+              </li>
+              <li>
+                <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
+                  <option value="select">Select Gener</option>
+                  <option value="Biography">Biography</option>
+                  <option value="Drama">Drama</option>
+                  <option value="History">History</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Romance">Romance</option>
+                  <option value="War">War</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Action">Action</option>
+                  <option value="Music">Music</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="Sport">Sport</option>
+                </select>
+              </li>
+              <li>
+                  <a href="">Favorites</a>
+              </li>
+
+              <li>
+                  <a href="">New/Popular Movies</a>
+              </li>
+          </ul>
       </div>
       <div class="header-right">
-        <ul>
-          <li>
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </li>
-          <li>
-            <input type="text" name="" id="searchInput" placeholder="Search" />
-          </li>
-          <li>
-            <a href="">
-              <i class="fa-regular fa-bell"></i>
-            </a>
-          </li>
-          <li>
-            <button><p style="color: aliceblue">sign in</p></button>
-          </li>
-        </ul>
+          <ul>
+              <li class="header-right-search">
+                  <input type="text" name="" id="searchInput" placeholder="Search" style="width: 300px;" />
+                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+              </li>
+              <!-- ngôn ngữ -->
+              <li>
+                  <a href=""> Language <i class="fa-solid fa-caret-down"></i></a>
+                  <div class="header-right-languages">
+                      <ul>
+                          <li>
+                              <a href="">
+                                  <div style="display: flex; gap: 5px;">
+                                      <img src="/assets/img/vietNam.png" alt="" width="30px">
+                                      <p class="vietnamese">vietnamese</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="">
+                                  <div style="display: flex; gap: 5px;">
+                                      <img src="/assets/img/tiengAnh.png" alt="" width="30px">
+                                      <p class="english">English</p>
+                                  </div>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li>
+                  <a href="">
+                      <i class="fa-regular fa-bell"></i>
+                  </a>
+                  <div class="header-right-bell">
+                      <!--====== thêm vào đây =========-->
+                  </div>
+              </li>
+              <li class="header-right-sign-in">
+                  <button>
+                      <p style="color: aliceblue">Sign in</p>
+                  </button>
+              </li>
+          </ul>
       </div>
-    </section>
+  </section>
 
     <!-- slide show -->
     <div class="slideshow" id="slideshow"></div>
@@ -208,86 +232,77 @@
     <!-- footer -->
     <section class="footer-main">
       <div class="footer-top">
-        <div class="footer-top-left">
-          <p>Hãy kết nối với chúng tôi trên các mạng xã hội:</p>
-        </div>
-        <div class="footer-top-right">
-          <a href="https://www.facebook.com/thieu879"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/giathieu879/"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://twitter.com/ThieuN31812"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://www.twitch.tv/thieunguyen879"
-            ><i class="fa-brands fa-twitch"></i
-          ></a>
-          <a href="https://www.google.gg/?pli=1"
-            ><i class="fa-brands fa-google"></i
-          ></a>
-          <a href="https://github.com/thieu879"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-        </div>
+          <div class="footer-top-left">
+              <p>Social network</p>
+          </div>
+          <div class="footer-top-right">
+              <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
+              <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
+              <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
+              <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
+          </div>
       </div>
-      <br />
-      <hr />
-      <br />
+      <br>
+      <hr>
+      <br>
       <div class="footer-buttom">
-        <div class="footer-buttom-left">
-          <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
-          <p>web xem phim</p>
-        </div>
-        <div class="footer-buttom-right">
-          <ul>
-            <li><b>PRODUCT</b></li>
-            <li>Angular</li>
-            <li>React</li>
-            <li>Vue</li>
-            <li>Laravel</li>
-          </ul>
-          <ul>
-            <li><b>USEFUL LINKS</b></li>
-            <li>customer support</li>
-            <li>Settings</li>
-            <li>rules</li>
-            <li>Help</li>
-          </ul>
-          <ul>
-            <li><b>CONTACT</b></li>
-            <li>
-              <span>
-                <i class="fa-solid fa-house"></i>
-                Ở Nhà
-              </span>
-            </li>
-            <li>
-              <span>
-                <i class="fa-solid fa-envelope"></i>
-                nguyenthieu11022005@gmail.com
-              </span>
-            </li>
-            <li>
-              <span>
-                <i class="fa-solid fa-phone"></i>
-                0355483082
-              </span>
-            </li>
-            <li>
-              <i class="fa-solid fa-tty"></i>
-              0355483082
-            </li>
-          </ul>
-        </div>
+          <div class="footer-buttom-left">
+              <div class="footer-buttom-left-logo">
+                  <img src="/assets/img/logo-removebg.png" alt="" width="300px">
+              </div>
+              <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
+          </div>
+          <div class="footer-buttom-right">
+              <ul>
+                  <li><b>Contact Us</b></li>
+                  <li>thieunguyen11022005@gmail.com</li>
+                  <li>linhne123@gmail.com</li>
+                  <li>dungne123@gmail.com</li>
+                  <li>hoangne123@gmail.com</li>
+              </ul>
+              <ul>
+                  <li><b>Help</b></li>
+                  <li><a href="">Support</a></li>
+                  <li><a href="">Terms of use</a></li>
+                  <li><a href="">Policy notification</a></li>
+                  <li><a href="">Privacy</a></li>
+              </ul>
+              <ul>
+                  <li><b>Contact</b></li>
+                  <li>
+                      <span>
+                          <i class="fa-solid fa-house"></i>
+                          Đanh Trại - Yên Thọ - Ý Yên - Nam Định
+                      </span>
+                  </li>
+                  <li>
+                      <span>
+                          <i class="fa-solid fa-envelope"></i>
+                          nguyenthieu11022005@gmail.com
+                      </span>
+                  </li>
+                  <li>
+                      <span>
+                          <i class="fa-solid fa-phone"></i>
+                          0355483082
+                      </span>
+                  </li>
+                  <li>
+                      <i class="fa-solid fa-tty"></i>
+                      0355483082
+                  </li>
+
+              </ul>
+          </div>
+      </div>
       </div>
       <div class="final-words">
-        &#169;
-        <p>2024 support website:</p>
-        <p>getbootstrap.com</p>
+          &#169;
+          <p>2024 Copyright by superHeader Nguyễn Gia Thiều</p>
       </div>
-    </section>
+  </section>
 
     <script
       src="https://kit.fontawesome.com/bd9aef7112.js"
@@ -304,9 +319,9 @@
         films.forEach((film, index) => {
           let filmElement = document.createElement("div");
           filmElement.addEventListener("click", function () {
-            window.location.href = `http://127.0.0.1:5500/pages/info.html?filmId=${index}`;
+            window.location.href = `info.html?filmId=${index}`;
           });
-
+          filmElement.id = `film-${index}`;
           filmElement.classList.add("film-items");
 
           let imageElement = document.createElement("img");
@@ -351,7 +366,7 @@
           }
           
           imgContainer.addEventListener("click", function () {
-            window.location.href = `http://127.0.0.1:5500/pages/info.html?filmId=${index}`;
+            window.location.href = `info.html?filmId=${index}`;
           });
 
           let imageElement = document.createElement("img");
@@ -408,6 +423,20 @@
         currentIndex = (currentIndex + 1) % slides.length;
         slides[currentIndex].classList.add("active");
       }, 3000);
+
+      // Hàm lọc phim theo thể loại
+      function filterFilmsByGenre(genre) {
+      // Lặp qua tất cả các phim
+      films.forEach((film, index) => {
+        let filmElement = document.getElementById(`film-${index}`);
+        if (film.genres.includes(genre)) {
+          filmElement.style.display = "block";
+        } else {
+          filmElement.style.display = "none";
+        }
+      });
+}
+
     </script>
   </body>
 </html>
