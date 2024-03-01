@@ -148,7 +148,7 @@
               </li>
               <li>
                 <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
-                  <option value="select">Select Gener</option>
+                  <option value="select">Select Genre</option>
                   <option value="Biography">Biography</option>
                   <option value="Drama">Drama</option>
                   <option value="History">History</option>
@@ -427,7 +427,8 @@
       // Hàm lọc phim theo thể loại
       function filterFilmsByGenre(genre) {
       // Lặp qua tất cả các phim
-      films.forEach((film, index) => {
+      if (genre !== "select"){
+        films.forEach((film, index) => {
         let filmElement = document.getElementById(`film-${index}`);
         if (film.genres.includes(genre)) {
           filmElement.style.display = "block";
@@ -435,6 +436,11 @@
           filmElement.style.display = "none";
         }
       });
+      } 
+      else{
+        renderFilm();
+      }
+      
 }
 
     </script>
