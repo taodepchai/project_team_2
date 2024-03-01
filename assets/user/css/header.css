@@ -81,10 +81,21 @@ li{
     display: none;
     padding: 5px;
     width: 110px;
+    margin-left: -20px;
 }
 .header-right-languages ul {
     display: flex;
     flex-direction: column;
+}
+
+.header-right-languages ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    padding: 10px 0 0;
+}
+.header-right-languages ul li a{
+    width: 110px;
 }
 
 .header-right-languages ul li a p{
@@ -111,6 +122,8 @@ li{
     display: none;
     padding: 5px;
     width: 300px;
+    margin-left: -100px;
+    /* margin-top: 10px; */
 }
 
 .header-right-bell ul {
