@@ -44,6 +44,7 @@ function saveInputMovie(index) {
   if (index < 0) films.push(film);
   else films[index] = film;
   saveFilms(films);
+  location.reload();
 }
 function updateMovie(index) {
   openModal();
