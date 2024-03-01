@@ -43,7 +43,8 @@ function saveInputMovie(index) {
 
   if (index < 0) films.push(film);
   else films[index] = film;
-  saveFilms(films);
+  saveFilms(films); 
+   location.reload();
 }
 function updateMovie(index) {
   openModal();
@@ -61,6 +62,7 @@ function updateMovie(index) {
   description.value = films[index].summary;
   // deleteMovie(index);
   submitBtn.setAttribute("onclick", `saveInputMovie(${index})`);
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {
