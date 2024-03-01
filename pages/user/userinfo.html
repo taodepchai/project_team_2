@@ -11,84 +11,65 @@
     <h1>Thông Tin Cá Nhân</h1>
     
     <div id="avatar-container">
-      <img style="width: 100px;" id="avatar" src="/assets/img/avata.jpeg" alt="Avatar">
-      <input type="file" id="avatar-input" accept="image/*" style="display: none" onchange="handleAvatarChange()">
+        <img id="avatar" src="avatar.png" alt="Avatar">
+        <input type="file" id="avatar-input" accept="image/*" style="display: none" onchange="handleAvatarChange()">
+        <button id="edit-avatar" onclick="editAvatar()">Chỉnh Sửa Avatar</button>
     </div>
 
     <div id="personal-info">
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-user"></i>
         <label for="username">Tài Khoản:</label>
-      </div>
-      <p id="username">linhtranne</p>
+        <p id="username">linhtranne</p>
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-circle-user"></i>
         <label for="name">Họ và Tên:</label>
-      </div>
-      <p id="name">Trần Quang Linh</p>
+        <p id="name">Trần Quang Linh</p>
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-envelope"></i>
         <label for="email">Email:</label>
-      </div>
-      <p id="email">tuhithanahihi@gmail.com</p>
+        <p id="email">tuhithanahihi@gmail.com</p>
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-phone"></i>
         <label for="phone">Số Điện Thoại:</label>
-      </div>
-      <p id="phone">0867159132</p>
+        <p id="phone">0867159132</p>
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-chart-line"></i>
+        <label for="password">Mật Khẩu:</label>
+        <p id="password">********</p>
+
         <label for="status">Trạng Thái:</label>
-      </div>
-      <p id="status">Prime</p>
+        <p id="status">Prime</p>
     </div>
 
     <button id="edit-button" onclick="editInfo()">Chỉnh Sửa</button>
-    <div id="edit-buttons" style="display: none;">
-
-    </div>
 
     <div id="edit-form" style="display: none;">
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-user"></i>
-        <label for="username">Tài Khoản:</label>
-      </div>
-      <p id="edit-username">linhtranne</p>
+        <label for="edit-username">Tài Khoản:</label>
+        <p id="edit-username">linhtranne</p>
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-circle-user"></i>
-        <label for="name">Họ và Tên:</label>
-      </div>
-      <input type="text" id="edit-name">
+        <label for="edit-name">Họ và Tên:</label>
+        <input type="text" id="edit-name">
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-envelope"></i>
-        <label for="email">Email:</label>
-      </div>
-      <input type="text" id="edit-email">
+        <label for="edit-email">Email:</label>
+        <input type="text" id="edit-email">
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-phone"></i>
-        <label for="phone">Số Điện Thoại:</label>
-      </div>
-      <input type="text" id="edit-phone">
+        <label for="edit-phone">Số Điện Thoại:</label>
+        <input type="text" id="edit-phone">
 
-      <div style="display: flex; gap: 5px;">
-        <i class="fa-solid fa-chart-line"></i>
-        <label for="status">Trạng Thái:</label>
-      </div>
-        <p id="status" >Prime</p>
+        <label for="edit-password">Mật Khẩu:</label>
+        <input type="password" id="edit-password">
 
-      <input type="file" id="edit-avatar-input" accept="image/*" style="display: none" onchange="handleAvatarChange()">
-      <button id="edit-avatar" onclick="editAvatar()">Chỉnh Sửa Avatar</button>
-      <button id="save-button" onclick="saveInfo()">Lưu</button>
-      <button id="undo-button" onclick="undoEdit()">Hoàn Tác</button>
+        <label for="confirm-password">Nhập Lại Mật Khẩu:</label>
+        <input type="password" id="confirm-password">
+
+        <label for="edit-status">Trạng Thái:</label>
+        <p id="edit-status">Prime</p>
+
+        <input type="file" id="edit-avatar-input" accept="image/*" style="display: none" onchange="handleAvatarChange()">
     </div>
-  </div>
+
+    <div id="edit-buttons" style="display: none;">
+        
+        <button id="save-button" onclick="saveInfo()">Lưu</button>
+        <button id="undo-button" onclick="undoEdit()">Hoàn Tác</button>
+    </div>
+    <div id="error-messages" class=""></div>
+</div>
 
 </body>
 <script src="/assets/js/userinfo.js"></script>

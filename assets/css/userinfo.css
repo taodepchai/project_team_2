@@ -9,6 +9,7 @@ body {
     align-items: center;
     background-image: url('/assets/img/background.jpg');
     color: white;
+<<<<<<< HEAD
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -17,19 +18,32 @@ body {
   }
   
   .container {
+=======
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Keep column for responsive vertical alignment */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+>>>>>>> 67a62a7fdfa09ebecedad61e97b8ff12af2c2137
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 100px;
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
+    width: 100vw; /* Make the container full-width of viewport */
+}
+
+label {
     display: block;
     margin-bottom: 8px;
     color: #e5e5e5;
-  }
-  
-  input, select, p {
+}
+
+input,
+select,
+p {
     width: 100%;
     padding: 12px;
     margin-bottom: 16px;
@@ -37,28 +51,40 @@ body {
     border-radius: 4px;
     background-color: #333;
     color: white;
-  }
-  
-  button {
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
     background-color: #e50914;
     color: white;
     padding: 12px 24px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #ff3e4d;
-  }
-  
-  .error {
+}
+
+.error {
     border: 1px solid #e50914;
-  }
-  h1 {
+}
+
+h1 {
     color: #e50914;
-  }
-  .logo {
-    max-width: 200px;
+}
+
+.logo {
+    max-width: 100%;
     margin-bottom: 20px;
-  }
+}
+
+#error-messages {
+    color: red;
+    margin-bottom: 10px;
+}
