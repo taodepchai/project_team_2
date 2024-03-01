@@ -1,0 +1,35 @@
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+hr {
+  margin: 0px;
+}
+header{
+  width: 100%;
+  height: 70px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+li:hover {
+  background-color: #585858;
+  color: white;
+} 
+
+li {
+  padding: 10px;
+}
+.status button{
+  border: none;
+  padding: 10px;
+}
+.status button:first-child:hover{
+  background-color: #f80a0a;
+}
+.status button:last-child:hover{
+  background-color: #01f029;
+}

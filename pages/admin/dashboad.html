@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Document</title>  
         <script defer src="/assets/admin/js/sidebar.js"></script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -18,12 +18,11 @@
             src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
         <script defer
             src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap4.js"></script>
-
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="/assets/admin/css/sidebar.css">
         <script src="/datas.js"></script>
-        <script defer src="/assets/admin/js/user.js"></script>
+        <script defer src="/assets/admin/js/national.js"></script>
     </head>
     <body>
         <header>
@@ -31,15 +30,17 @@
                 <p>Logo</p>
             </div>
             <div>
-                <a class="text-white" href="#"> <i
-                        class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+                <a class="text-white" href="#"> <i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+           
+              
             </div>
+            
         </header>
         <hr>
         <div class="container-fluid">
             <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark"
-                    id="sidebar">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" id="sidebar">
+                  
                 </div>
                 <div class="col py-3">
                     <table id="table"
@@ -48,36 +49,19 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Name</th>
-                                <th>Account</th>
-                                <th>Phone Number</th>
-                                <th>Gmail</th>
-                                <th>Start date</th>
+                                <th>National</th>   
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Dung</td>
-                                <td>dungpham197qn</td>
-                                <td>0912312331</td>
-                                <td>dungpham197qn@gmail.com</td>
-                                <td>19/7/2022</td>
+                                <td>Anh</td>
                                 <td class="status">
-                                    <a href="#">
-                                        <span class="material-symbols-outlined">
-                                            visibility
-                                        </span>
-                                    </a>
-                                    <a href="#"><span
-                                            class="material-symbols-outlined">
-                                            lock_open
-                                        </span></a>
-                                    <a href="#"><img
-                                            src="https://img.icons8.com/?size=512&id=12566&format=png"
-                                            height="24px" width="24px" alt></a>
-                                </tr>
+                                    <a href="#" class="text-dark"><i class="fa-solid fa-plus"></i> Thêm</a>
+                                    <a href="#" class="text-dark"><i class="fa-solid fa-trash-can"></i> Xóa</a>
+                                    <a href="#" class="text-dark"><i class="fa-solid fa-wrench"></i> Sửa</a>
+                                </td>
                             </tr>
 
                         </tbody>
