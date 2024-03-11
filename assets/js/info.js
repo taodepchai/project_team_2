@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     actionButtons.classList.add("action-button");
     actionButtons.innerHTML = `
               <div class="action-button-element">
-                <button><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
+                <button onclick="addLibrary()"><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
                 <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
                 <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
               </div>
@@ -127,3 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   renderInfoRight(data);
 });
+function addLibrary(){
+  checkUser = JSON.parse(localStorage.getItem())
+}

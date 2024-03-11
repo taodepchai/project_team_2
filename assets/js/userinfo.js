@@ -86,6 +86,7 @@ function handleAvatarChange() { //hoàn tất thay đổi avatar
 
 
             if (!isValidEmail(editedEmail)) {
+                console.log(isValidEmail(editedEmail));
                 document.getElementById('edit-email').classList.add('error');
                 errorMessages.push('Vui lòng nhập địa chỉ Email hợp lệ.');
             }
