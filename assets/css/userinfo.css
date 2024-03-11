@@ -34,12 +34,15 @@ h1 {
 .profile-img {
   text-align: center;
   margin-bottom: 20px;
+  
 }
 
 #avatar {
   max-width: 70%;
   border-radius: 50%;
   margin-bottom: 10px;
+  width: 400px;
+  height: 100%;
 }
 
 .file-input {

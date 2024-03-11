@@ -209,10 +209,16 @@
                       <!--====== thêm vào đây =========-->
                   </div>
               </li>
-              <li class="header-right-sign-in">
-                  <button>
-                      <p style="color: aliceblue">Sign in</p>
-                  </button>
+              <li class="header-right-sign-in" id="signinBtn">
+                <button onclick="login()">
+                  <p style="color: aliceblue">Sign in</p>
+                </button>
+              </li>
+              <li class="header-right-sign-in" id="usernameBtn" style="display:none;">
+                <a href="/pages/user/userinfo.html" id="usernameLink"></a>
+                <button onclick="logout()">
+                  <p style="color: aliceblue">Log out</p>
+                </button>
               </li>
           </ul>
       </div>
@@ -445,8 +451,32 @@
         renderFilm();
       }
       
+    }
+    function login(){
+      window.location.href="/pages/user/login.html"
+    }
+    function logout() {
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("username");
+  location.reload();
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const signinBtn = document.getElementById("signinBtn");
+  const usernameBtn = document.getElementById("usernameBtn");
+  const usernameLink = document.getElementById("usernameLink");
+
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    signinBtn.style.display = "none";
+    usernameBtn.style.display = "block";
+    const username = localStorage.getItem("username");
+    usernameLink.innerText = username;
+    usernameLink.href = `/pages/user/userinfo.html?username=${username}`;
+  } else {
+    signinBtn.style.display = "block";
+    usernameBtn.style.display = "none";
+  }
+});
     </script>
   </body>
 </html>
