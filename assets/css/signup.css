@@ -1,93 +1,181 @@
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url("/assets/images/netflix_background.png");
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "poppins", sans-serif;
+ }
+ body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   background-image: url(/assets/images/netflix_background.png);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+ }
+ section {
+   position: relative;
+   max-width: 700px;
+   background-color: transparent;
+   border: 2px solid rgba(255, 255, 255, 0.5);
+   border-radius: 20px;
+   backdrop-filter: blur(20px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 2rem 3rem;
+   width: 500px;
+ }
+ h1 {
+   font-size: 2rem;
+   color: #fff;
+   text-align: center;
+ }
+ .inputBox {
+   position: relative;
+   margin: 30px 0;
+   max-width: 310px;
+   border-bottom: 2px solid #fff;
+ }
+
+ .inputBox label {
+   position: absolute;
+   top: 50%;
+   left: 5px;
+   transform: translateY(50%);
+   color: #fff;
+   font-size: 1rem;
+   pointer-events: none;
+   transition: all 0.5s ease-in-out;
+ }
+
+ input:focus ~ label,
+ input:valid ~ label {
+   top: -10px;
+ }
+
+ .inputBox input {
+   width: 350px;
+   height: 60px;
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 1rem;
+   padding: 0 35px 0 5px;
+   color: #fff;
+ }
+
+ .forget {
+   margin: 35px 0;
+   font-size: 0.85rem;
+   color: #fff;
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .forget label {
+   display: flex;
+   align-items: center;
+ }
+
+ .forget label input {
+   margin-right: 3px;
+ }
+
+ .forget a {
+   color: #fff;
+   text-decoration: none;
+   font-weight: 600;
+ }
+
+ .forget a:hover {
+   text-decoration: underline;
+ }
+
+ button {
+   width: 100%;
+   height: 40px;
+   border-radius: 40px;
+   background-color: rgb(240, 4, 4);
+   border: none;
+   outline: none;
+   cursor: pointer;
+   font-size: 1rem;
+   font-weight: 600;
+   transition: all 0.4s ease;
+ }
+
+ button:hover {
+   background-color: rgba(255, 255, 255, 0.5);
+ }
+
+ .register {
+   font-size: 0.9rem;
+   color: #fff;
+   text-align: center;
+   margin: 25px 0 10px;
+ }
+
+ .register a {
+   color: #f01d1d;
+   text-decoration: none;
+   font-weight: 600;
+ }
+
+ .register a:hover {
+   text-decoration: underline;
+ }
+#country {
+width: 100%;
+height: 40px;
+background: transparent;
+border: none;
+outline: none;
+font-size: 1rem;
+padding: 0 5px;
+color: #fff;
+margin-top: 15px;
 }
 
-#app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+#country option {
+background-color: rgb(244, 140, 140);
 }
 
-.signup-page {
-    background-color:rgba(0, 0, 0, 0.7);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
+.form-message {
+color: #fff;
+font-size: 14px;
+margin-top: 5px;
+display: block;
 }
 
-.signup-page-content {
-    text-align: center;
+#country:invalid+span::before {
+content: "✘ ";
 }
 
-.signup-page-header {
-    margin-bottom: 32px;
+#country:valid+span::before {
+content: "✔ ";
+color: green;
+}
+.form-login .form-group.f-term{
+display: flex;
+flex-direction: row !important;
+align-items: center;
+
+
 }
 
-.signup-page-header h1 {
-    color: #e50914;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
+.f-term label{
+margin-top: 10px;
+margin-left: 7px;
+}
+.f-term label a{
+margin-left: 3px;
+color: rgb(202, 40, 40);
+font-size: 13px;
+text-underline-position: under;
 }
 
-.signup-page-form {
-    margin: 0 auto;
-    width: 100%;
-}
-
-.signup-form-input {
-    margin-bottom: 16px;
-}
-
-.signup-form-input label {
-    color: #333;
-    display: block;
-    font-size: 0.875rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.signup-form-input input,
-.signup-form-input select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    background-color: transparent;
-    color: #6d5151;
-    transition: border-color 0.3s ease-in-out;
-}
-
-.signup-form-input input:focus,
-.signup-form-input select:focus {
-    box-shadow: 0 0 2px 1px #47bed8;
-    outline: none;
-}
-
-.signup-form-submit {
-    margin-top: 32px;
-}
-
-.signup-form-submit button {
-    background-color: #e50914;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 1rem;
-    padding: 12px 24px;
-}
-
-.signup-form-submit button:hover {
-    background-color: #f40612;
-    cursor: pointer;
+.f-term label a:hover{
+color: red;
 }

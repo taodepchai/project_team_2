@@ -46,3 +46,24 @@ function showNotification(message, type) {
         notification.remove();
     }, 3000);
 }
+function validateForm() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const agreeCheckbox = document.getElementById('agree');
+    if (email === '' || password === '') {
+      alert('Vui lòng các thông tin đầy đủ');
+      return false;
+    }
+
+    if (!agreeCheckbox.checked) {
+      alert('Vui lòng đồng ý với các điều khoản dịch vụ.');
+      return false;
+    }
+}
+function isValidEmailOrPhone(input) {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]+$/;
+
+    return emailRegex.test(input) || phoneRegex.test(input);
+}
