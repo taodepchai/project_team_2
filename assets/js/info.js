@@ -126,4 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(infoRight);
   }
   renderInfoRight(data);
+
+  const addToLibraryButton = document.querySelector(
+    ".action-button-element button:first-child"
+  );
+  addToLibraryButton.addEventListener("click", function () {
+
+    let library = JSON.parse(localStorage.getItem("library")) || [];
+    library.push(data);
+    localStorage.setItem("library", JSON.stringify(library));
+  });
 });

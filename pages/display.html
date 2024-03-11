@@ -252,7 +252,9 @@
               <div class="footer-buttom-left-logo">
                   <img src="/assets/img/logo-removebg.png" alt="" width="300px">
               </div>
-              <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
+              <p>Cái gì là phật, cái gì là ma. Đứng trước AK, tiên ma cũng chạy. <br>
+                Đạn thoát nòng, vạn vật thoát kiếp. Đạn rơi cửa phật, vạn vật nằm im. <br>
+                Trước nòng gatling, chúng sinh bình đẳng.</p>
           </div>
           <div class="footer-buttom-right">
               <ul>
@@ -353,38 +355,56 @@
           container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
         }
       }
+      function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
-      function renderImg() {
-        let imgList = document.getElementById("slideshow");
+// Hàm render lại danh sách ảnh, mỗi lần trộn lại một lần
+function renderImg() {
+    let imgList = document.getElementById("slideshow");
 
-        images.forEach((image, index) => {
-          let imgContainer = document.createElement("div");
+    // Sao chép mảng images sang một mảng mới
+    let shuffledImages = images.slice();
 
-          imgContainer.classList.add("slideshow-item");
-          if (index === 0) {
+    // Trộn mảng mới một cách ngẫu nhiên
+    shuffleArray(shuffledImages);
+
+    imgList.innerHTML = ''; // Xóa danh sách ảnh hiện tại trước khi render lại
+
+    shuffledImages.forEach((image, index) => {
+        let imgContainer = document.createElement("div");
+
+        imgContainer.classList.add("slideshow-item");
+        if (index === 0) {
             imgContainer.classList.add("active");
-          }
-          
-          imgContainer.addEventListener("click", function () {
+        }
+
+        imgContainer.addEventListener("click", function () {
             window.location.href = `info.html?filmId=${index}`;
-          });
-
-          let imageElement = document.createElement("img");
-          imageElement.src = image.background_img;
-
-          let nameElement = document.createElement("img");
-          nameElement.src = image.img;
-
-          let contentElement = document.createElement("div");
-          contentElement.classList.add("slideshow-content");
-          contentElement.appendChild(nameElement);
-
-          imgContainer.appendChild(imageElement);
-          imgContainer.appendChild(contentElement);
-
-          imgList.appendChild(imgContainer);
         });
-      }
+
+        let imageElement = document.createElement("img");
+        imageElement.src = image.background_img;
+
+        let nameElement = document.createElement("img");
+        nameElement.src = image.img;
+
+        let contentElement = document.createElement("div");
+        contentElement.classList.add("slideshow-content");
+        contentElement.appendChild(nameElement);
+
+        imgContainer.appendChild(imageElement);
+        imgContainer.appendChild(contentElement);
+
+        imgList.appendChild(imgContainer);
+    });
+}
+
+     
+
       //tìm kiếm sản phẩm
       function searchFilms() {
         // Lấy giá trị từ khóa tìm kiếm
