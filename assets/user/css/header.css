@@ -83,11 +83,17 @@ li{
     border-radius: 10px;
     display: none;
     padding: 5px;
-    width: 110px;
+    width: 120px;
 }
 .header-right-languages ul {
     display: flex;
     flex-direction: column;
+}
+.header-right-languages ul li{
+    padding: 0 0 0;
+}
+.header-right-languages ul li div{
+    width: 120px;
 }
 
 .header-right-languages ul li a p{
@@ -146,4 +152,34 @@ li{
 }
 .header-right ul .header-right-search button:hover{
     background-color: rgb(136, 0, 0);
+}
+/* ------------------sign-in------------------------------ */
+
+
+.header-right-sign-in-content {
+    position: absolute;
+    background-color: #d5d0d0;
+    height: 300px;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: none;
+    padding: 5px;
+    width: 100px;
+}
+
+.header-right-sign-in-content ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-right-sign-in-content ul li a {
+    color: #000;
+}
+
+.header-right-sign-in-content ul li a p:hover {
+    color: yellow;
+}
+
+.header-right ul li:hover .header-right-sign-in-content {
+    display: block;
 }
