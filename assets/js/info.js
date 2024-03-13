@@ -1,6 +1,5 @@
 var filmId = 0;
 let films = JSON.parse(localStorage.getItem("films"));
-console.log(films);
 document.addEventListener("DOMContentLoaded", function () {
   let urlParams = new URLSearchParams(window.location.search);
 
@@ -21,63 +20,63 @@ document.addEventListener("DOMContentLoaded", function () {
     const releaseInfo = document.createElement("div");
     releaseInfo.classList.add("release-info");
     releaseInfo.innerHTML = `
-              <p>${data.runtime}</p>
-              <p>${data.release_year}</p>
-              <p style="display: flex; align-items: center">
-                ${data.rating}
-                <img width="48px" height="48px" src="https://img.icons8.com/color/48/imdb.png" alt="imdb" />
-              </p>
-            `;
+                <p>${data.runtime}</p>
+                <p>${data.release_year}</p>
+                <p style="display: flex; align-items: center">
+                  ${data.rating}
+                  <img width="48px" height="48px" src="https://img.icons8.com/color/48/imdb.png" alt="imdb" />
+                </p>
+              `;
 
     const genres = document.createElement("div");
     genres.classList.add("genres");
     genres.innerHTML = `
-              <h2>GENRES</h2>
-              <div class="genres-element">
-                ${data.genres
-                  .map((genre) => `<button>${genre}</button>`)
-                  .join("")}
-              </div>
-            `;
+                <h2>GENRES</h2>
+                <div class="genres-element">
+                  ${data.genres
+                    .map((genre) => `<button>${genre}</button>`)
+                    .join("")}
+                </div>
+              `;
 
     const cast = document.createElement("div");
     cast.classList.add("cast");
     cast.innerHTML = `
-              <h2>CAST</h2>
-              <div class="cast-element">
-                ${data.cast
-                  .map((actor) => `<button>${actor}</button>`)
-                  .join("")}
-              </div>
-            `;
+                <h2>CAST</h2>
+                <div class="cast-element">
+                  ${data.cast
+                    .map((actor) => `<button>${actor}</button>`)
+                    .join("")}
+                </div>
+              `;
 
     const directors = document.createElement("div");
     directors.classList.add("directors");
     directors.innerHTML = `
-              <h2>DIRECTORS</h2>
-              <div class="directors-element">
-                <button>${data.director}</button>
-              </div>
-            `;
+                <h2>DIRECTORS</h2>
+                <div class="directors-element">
+                  <button>${data.director}</button>
+                </div>
+              `;
 
     const summary = document.createElement("div");
     summary.classList.add("summary");
     summary.innerHTML = `
-              <h2>SUMMARY</h2>
-              <div class="summary-element">
-                <p>${data.summary}</p>
-              </div>
-            `;
+                <h2>SUMMARY</h2>
+                <div class="summary-element">
+                  <p>${data.summary}</p>
+                </div>
+              `;
 
     const actionButtons = document.createElement("div");
     actionButtons.classList.add("action-button");
     actionButtons.innerHTML = `
-              <div class="action-button-element">
-                <button onclick="addLibrary()"><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
-                <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
-                <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
-              </div>
-            `;
+                <div class="action-button-element">
+                  <button class="add-to-library-button" data-film-id="${filmId}><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
+                  <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
+                  <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
+                </div>
+              `;
 
     const infoLeft = document.createElement("div");
     infoLeft.classList.add("info-left");
@@ -108,12 +107,12 @@ document.addEventListener("DOMContentLoaded", function () {
       let buttonEp = document.createElement("div");
       buttonEp.classList.add("stream-info");
       buttonEp.innerHTML = `<button>
-              <img src="${data.background_img}" alt="">
-              Episode ${i + 1}<i
-                class="fa-solid fa-circle-play fa-2xl"
-                style="color: #00ff40"
-              ></i>
-            </button>`;
+                <img src="${data.background_img}" alt="">
+                Episode ${i + 1}<i
+                  class="fa-solid fa-circle-play fa-2xl"
+                  style="color: #00ff40"
+                ></i>
+              </button>`;
       background.appendChild(buttonEp);
     }
     background.appendChild(streamInfo);
@@ -126,7 +125,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(infoRight);
   }
   renderInfoRight(data);
+  console.table(films);
+  let addToLibraryButton = document.querySelector(".add-to-library-button");
+
+  // Thêm sự kiện click vào nút "Add to Library"
+  addToLibraryButton.addEventListener("click", function () {
+    let currentUser = localStorage.getItem("username");
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      alert("Vui lòng đăng nhập để sử dụng chức năng này.");
+      return;
+    }
+
+    // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
+    let filmId = parseInt(this.getAttribute("data-film-id"));
+
+    let library =
+      JSON.parse(localStorage.getItem(`library_${currentUser}`)) || [];
+
+    if (library.find((item) => item.id === filmId)) {
+      alert("Phim đã tồn tại trong thư viện của bạn.");
+      return;
+    }
+
+    library.push(films[filmId]);
+    localStorage.setItem(`library_${currentUser}`, JSON.stringify(library));
+    alert("Phim đã được thêm vào thư viện của bạn.");
+  });
 });
-function addLibrary(){
-  checkUser = JSON.parse(localStorage.getItem())
-}

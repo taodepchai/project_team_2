@@ -27,10 +27,18 @@ function validateForm() {
 
   var userList = JSON.parse(localStorage.getItem("userList")) || [];
   var existingUser = userList.find(function (user) {
-    return user.email === email;
+    return user.username === username;
   });
 
   if (existingUser) {
+    alert("Tài khoản đã được sử dụng!");
+    return;
+  }
+  var existingEmail = userList.find(function (user) {
+    return user.email === email;
+  });
+
+  if (existingEmail) {
     alert("Email đã được sử dụng!");
     return;
   }
@@ -49,6 +57,7 @@ function validateForm() {
       email: email,
       phone: phone,
       country: country,
+      status: "Normal",
     };
 
     // Thêm user mới vào mảng userList

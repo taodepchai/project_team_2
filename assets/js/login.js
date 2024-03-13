@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function login() {
-  const email = document.getElementById("email").value.trim();
+  const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const agreeCheckbox = document.getElementById("agree");
 
-  if (email === "" || password === "") {
+  if (username === "" || password === "") {
     alert("Vui lòng điền đầy đủ thông tin đăng nhập.");
     return;
   }
@@ -46,13 +46,12 @@ function login() {
   }
 
   const loggedInUser = userList.find(
-    (user) => user.email === email && user.password === password
+    (user) => user.username === username && user.password === password
   );
 
   if (loggedInUser) {
     alert("Đăng nhập thành công!");
     localStorage.setItem("isLoggedIn", "true");
-    console.log(loggedInUser.username);
     localStorage.setItem("username", loggedInUser.username);
     window.location.href = "/pages/display.html";
   } else {

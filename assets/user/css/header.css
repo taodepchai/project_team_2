@@ -64,6 +64,9 @@ li{
     background-color: rgb(136, 0, 0);
 }
 
+.header-right .header-right-sign-in .usernameLink{
+    top: 20px;
+}
 
 /* --------------------genres------------------------- */
 .header-left select{
