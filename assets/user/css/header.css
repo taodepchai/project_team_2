@@ -157,29 +157,46 @@ li{
 
 
 .header-right-sign-in-content {
+    left: -35px;
     position: absolute;
-    background-color: #d5d0d0;
-    height: 300px;
+    background-color: #000000;
     border-radius: 10px;
     margin-left: 10px;
     display: none;
     padding: 5px;
     width: 100px;
+    text-align: center;
+    color: #fffefe;
 }
 
-.header-right-sign-in-content ul {
-    display: flex;
-    flex-direction: column;
+.header-right ul li .header-right-sign-in-content a {
+    display: block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+}
+.header-right ul li .header-right-sign-in-content button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+}
+.header-right ul li .header-right-sign-in-content a i {
+
+    color: rgb(255, 255, 255);
+
+}
+.header-right ul li  .header-right-sign-in-content a:hover {
+    background-color: rgb(110, 107, 107);
 }
 
-.header-right-sign-in-content ul li a {
-    color: #000;
+.header-right ul li  .header-right-sign-in-content button:hover {
+    background-color: rgb(110, 107, 107);
 }
-
-.header-right-sign-in-content ul li a p:hover {
-    color: yellow;
-}
-
 .header-right ul li:hover .header-right-sign-in-content {
     display: block;
 }

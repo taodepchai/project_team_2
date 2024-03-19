@@ -1,14 +1,16 @@
-var originalInfo = {}; // Move this outside of the DOMContentLoaded event listener
+// Biến lưu trữ thông tin gốc của người dùng
+var originalInfo = {};
 
+// Sự kiện DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
-  // Truy cập thông tin từ local storage
   const userInfo = JSON.parse(localStorage.getItem("userList"));
   const usernameParam = new URLSearchParams(window.location.search).get(
     "username"
   );
+
   userInfo.forEach((user) => {
     if (user.username === usernameParam) {
-      // Hiển thị thông tin từ local storage lên trang
+      // Hiển thị thông tin người dùng từ local storage
       document.getElementById("username").textContent = user.username;
       document.getElementById("name").textContent = user.name;
       document.getElementById("email").textContent = user.email;
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("password").textContent = user.password;
       document.getElementById("status").textContent = user.status;
 
-      // Hiển thị avatar từ localStorage
+      // Hiển thị ảnh đại diện từ localStorage
       const avatarURL = localStorage.getItem(`avatarURL_${user.username}`);
       if (avatarURL) {
         document.getElementById("avatar").src = avatarURL;
@@ -29,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Xóa thông báo lỗi
 function clearErrorMessages() {
-  //xóa thông báo lỗi
   var errorInputs = document.querySelectorAll(".error");
   errorInputs.forEach(function (input) {
     input.classList.remove("error");
@@ -40,25 +42,22 @@ function clearErrorMessages() {
   errorContainer.innerHTML = "";
 }
 
+// Thay đổi ảnh đại diện
 function editAvatar() {
-  //thay avatar
   var editAvatarInput = document.getElementById("edit-avatar-input");
   editAvatarInput.click();
 }
 
+// Xử lý thay đổi ảnh đại diện
 function handleAvatarChange() {
-  //hoàn tất thay đổi avatar
   var editAvatarInput = document.getElementById("edit-avatar-input");
   var avatar = document.getElementById("avatar");
-
   var file = editAvatarInput.files[0];
+
   if (file) {
     var reader = new FileReader();
-
     reader.onload = function (e) {
       avatar.src = e.target.result;
-
-      // Lưu đường dẫn của ảnh vào localStorage với key phụ thuộc vào tên tài khoản
       const userInfo = JSON.parse(localStorage.getItem("userList"));
       const usernameParam = new URLSearchParams(window.location.search).get(
         "username"
@@ -73,21 +72,22 @@ function handleAvatarChange() {
         );
       }
     };
-
     reader.readAsDataURL(file);
   }
 }
 
+// Chỉnh sửa thông tin người dùng
 function editInfo() {
-  //sửa thông tin
   document.getElementById("edit-username").value =
     document.getElementById("username").textContent;
 
+  // Lưu thông tin gốc trước khi chỉnh sửa
   originalInfo.name = document.getElementById("name").textContent;
   originalInfo.email = document.getElementById("email").textContent;
   originalInfo.phone = document.getElementById("phone").textContent;
   originalInfo.password = document.getElementById("password").textContent;
 
+  // Hiển thị form chỉnh sửa
   document.getElementById("personal-info").style.display = "none";
   document.getElementById("edit-form").style.display = "block";
   document.getElementById("avatar-container").style.display = "block";
@@ -103,28 +103,32 @@ function editInfo() {
   document.getElementById("confirm-password").value = "";
   document.getElementById("edit-avatar").style.display = "block";
 
+  // Hiển thị nút lưu và hủy
   document.getElementById("edit-button").style.display = "none";
   document.getElementById("edit-buttons").style.display = "block";
 }
 
+// Hoàn tác chỉnh sửa
 function undoEdit() {
-  //hoàn tác thay đổi
   document.getElementById("name").textContent = originalInfo.name;
   document.getElementById("email").textContent = originalInfo.email;
   document.getElementById("phone").textContent = originalInfo.phone;
   document.getElementById("password").textContent = originalInfo.password;
 
+  // Hiển thị lại thông tin cá nhân
   document.getElementById("personal-info").style.display = "block";
   document.getElementById("edit-form").style.display = "none";
   document.getElementById("avatar-container").style.display = "none";
   document.getElementById("edit-button").style.display = "block";
   document.getElementById("edit-avatar").style.display = "block";
   document.getElementById("edit-buttons").style.display = "none";
+
+  // Xóa thông báo lỗi
   clearErrorMessages();
 }
 
+// Lưu thông tin đã chỉnh sửa
 function saveInfo() {
-  //Lưu thông tin đã thay đổi
   var avatarInput = document.getElementById("edit-avatar-input");
   var avatar = document.getElementById("avatar");
   var editedEmail = document.getElementById("edit-email").value.trim();
@@ -136,8 +140,8 @@ function saveInfo() {
   var errorContainer = document.getElementById("error-messages");
   errorContainer.innerHTML = "";
 
+  // Kiểm tra và hiển thị thông báo lỗi nếu có
   if (!isValidEmail(editedEmail)) {
-    console.log(isValidEmail(editedEmail));
     document.getElementById("edit-email").classList.add("error");
     errorMessages.push("Vui lòng nhập địa chỉ Email hợp lệ.");
   }
@@ -158,6 +162,7 @@ function saveInfo() {
     errorMessages.push("Mật khẩu và Nhập Lại Mật Khẩu không khớp.");
   }
 
+  // Hiển thị thông báo lỗi
   if (errorMessages.length > 0) {
     errorMessages.forEach(function (message) {
       var errorMessageElement = document.createElement("p");
@@ -167,23 +172,13 @@ function saveInfo() {
 
     errorContainer.scrollIntoView({ behavior: "smooth" });
   } else {
-    document.getElementById("personal-info").style.display = "block";
-    document.getElementById("edit-form").style.display = "none";
-    document.getElementById("avatar-container").style.display = "none";
-
-    document.getElementById("edit-buttons").style.display = "none";
-    document.getElementById("edit-button").style.display = "block";
-    document.getElementById("avatar-container").style.display = "block";
-  }
-
-  if (errorMessages.length === 0) {
-    // Lưu thông tin chỉnh sửa vào originalInfo hoặc tạo một đối tượng mới
+    // Lưu thông tin chỉnh sửa vào localStorage
     const updatedUserInfo = {
       username: document.getElementById("edit-username").value,
       name: document.getElementById("edit-name").value,
-      email: document.getElementById("edit-email").value,
-      phone: document.getElementById("edit-phone").value,
-      password: document.getElementById("edit-password").value,
+      email: editedEmail,
+      phone: editedPhone,
+      password: editedPassword,
       status: document.getElementById("edit-status").value,
     };
 
@@ -192,6 +187,7 @@ function saveInfo() {
   }
 }
 
+// Cập nhật thông tin người dùng trong localStorage
 function updateUserInfoInLocalStorage(updatedUserInfo) {
   const userList = JSON.parse(localStorage.getItem("userList"));
 
@@ -207,8 +203,8 @@ function updateUserInfoInLocalStorage(updatedUserInfo) {
   localStorage.setItem("userList", JSON.stringify(userList));
 }
 
+// Kiểm tra tính hợp lệ của email
 function isValidEmail(email) {
-  //nhận diện email
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }

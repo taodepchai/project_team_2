@@ -104,8 +104,10 @@
                 <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
                   <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
                 </div>
-                <div class="header-right-sign-in-content">
-                  <!-- viết vào đây -->
+                <div   class="header-right-sign-in-content"><br>
+                  <a  href="" id="dropdownUsername"></a><br>
+                  <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
+                  <a  href="" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log out</a><br>
                 </div>
               </li>
               
@@ -313,7 +315,7 @@
       renderFilm();
 
       // Slideshow
-      const slides = document.querySelectorAll(".slideshow-item");
+      let slides = document.querySelectorAll(".slideshow-item");
       let currentIndex = 0;
 
       // Tự động chuyển đổi giữa các hình ảnh sau mỗi 3 giây
@@ -341,29 +343,35 @@
       }
       
     }
+
+    function profile(){
+      let username = localStorage.getItem("username");
+      console.log(username);
+      window.location.href = `/pages/user/userinfo.html?username=${username}`;
+    }
     function login(){
       window.location.href="/pages/user/login.html"
     }
     function logout() {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("username");
-  location.reload();
-}
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    location.reload();
+  }
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const signinBtn = document.getElementById("signinBtn");
-  const usernameBtn = document.getElementById("usernameBtn");
-  const usernameLink = document.getElementById("usernameLink");
-
+  let signinBtn = document.getElementById("signinBtn");
+  let usernameBtn = document.getElementById("usernameBtn");
+  let usernameLink = document.getElementById("usernameLink");
+  let usernameDrop = document.getElementById("dropdownUsername");
   if (localStorage.getItem("isLoggedIn") === "true") {
     signinBtn.style.display = "none";
     usernameBtn.style.display = "block";
-    const username = localStorage.getItem("username");
+    let username = localStorage.getItem("username");
     avtURL = localStorage.getItem(`avatarURL_${username}`);
     usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
+    usernameDrop.innerHTML = `${username}`
 
-    avatarDropdown.addEventListener("click", toggleDropdown);
   } else {
     signinBtn.style.display = "block";
     usernameBtn.style.display = "none";
