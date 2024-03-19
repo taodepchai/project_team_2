@@ -103,6 +103,7 @@
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Lấy danh sách phim từ local storage
         let currentUser = localStorage.getItem("username");
         let library =
           JSON.parse(localStorage.getItem(`library_${currentUser}`)) || [];
@@ -111,7 +112,9 @@
 
         filmList.innerHTML = "";
 
-        library.forEach(function (film,index) {
+        // Duyệt qua danh sách phim và tạo các phần tử hiển thị
+        library.forEach(function (film, index) {
+          // Tạo phần tử cho từng phim
           let listItem = document.createElement("li");
           listItem.classList.add("film-item");
 
@@ -136,6 +139,7 @@
           removeBtn.classList.add("film-favorite-btn");
           removeBtn.textContent = "Remove from Favorites";
 
+          // Sự kiện click để xóa phim khỏi thư viện
           removeBtn.addEventListener("click", function () {
             library.splice(index, 1);
             localStorage.setItem(
@@ -143,7 +147,11 @@
               JSON.stringify(library)
             );
             listItem.remove();
-          });   
+          });
+
+          listItem.addEventListener("click", function () {
+            window.location.href = `/pages/info.html?filmId=${index}`;
+          });
 
           filmInfo.appendChild(filmTitle);
           filmInfo.appendChild(filmDescription);

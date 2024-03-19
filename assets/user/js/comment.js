@@ -43,4 +43,4 @@ function addPost() {
     userComment.value = "";
 }
 
-publishBtn.addEventListener("click",addPost)
+publishBtn.addEventListener("click",addPost);
