@@ -130,25 +130,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
-    let currentUser = localStorage.getItem("username");
-    if (localStorage.getItem("isLoggedIn") !== "true") {
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser == "") {
       alert("Vui lòng đăng nhập để sử dụng chức năng này.");
       return;
     }
-
     // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
     let filmId = parseInt(this.getAttribute("data-film-id"));
-
-    let library =
-      JSON.parse(localStorage.getItem(`library_${currentUser}`)) || [];
-
-    if (library.find((item) => item.id === filmId)) {
-      alert("Phim đã tồn tại trong thư viện của bạn.");
-      return;
+    let userList = JSON.parse(localStorage.getItem("userList"));
+    let library = currentUser.library || [];
+    for (let i = 0; i < library.length; i++) {
+      if (library[i].name === films[filmId].name) {
+        alert("Phim đã tồn tại trong thư viện của bạn.");
+        return;
+      }
     }
-
     library.push(films[filmId]);
-    localStorage.setItem(`library_${currentUser}`, JSON.stringify(library));
+    currentUser.library = library;
+    // Lưu lại vào trong local của tất cả đối tượng liên quan đến library
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+    userList.forEach((element) => {
+      if (element.username == currentUser.username) {
+        element = currentUser;
+      }
+    });
+    localStorage.setItem("userList", JSON.stringify(userList));
     alert("Phim đã được thêm vào thư viện của bạn.");
   });
 });

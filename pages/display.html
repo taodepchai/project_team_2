@@ -107,7 +107,7 @@
                 <div   class="header-right-sign-in-content"><br>
                   <a  href="" id="dropdownUsername"></a><br>
                   <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
-                  <a  href="" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log out</a><br>
+                  <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log out</a><br>
                 </div>
               </li>
               
@@ -343,9 +343,9 @@
       }
       
     }
-
+    let currentUser=JSON.parse(localStorage.getItem("currentUser"))||"";
     function profile(){
-      let username = localStorage.getItem("username");
+      let username = currentUser.username;
       console.log(username);
       window.location.href = `/pages/user/userinfo.html?username=${username}`;
     }
@@ -353,22 +353,19 @@
       window.location.href="/pages/user/login.html"
     }
     function logout() {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
-    location.reload();
+    localStorage.removeItem("currentUser");
+    login();
   }
-
-
 document.addEventListener("DOMContentLoaded", function () {
   let signinBtn = document.getElementById("signinBtn");
   let usernameBtn = document.getElementById("usernameBtn");
   let usernameLink = document.getElementById("usernameLink");
   let usernameDrop = document.getElementById("dropdownUsername");
-  if (localStorage.getItem("isLoggedIn") === "true") {
+  if (currentUser) {
     signinBtn.style.display = "none";
     usernameBtn.style.display = "block";
-    let username = localStorage.getItem("username");
-    avtURL = localStorage.getItem(`avatarURL_${username}`);
+    let username = currentUser.username;
+    avtURL = currentUser.avatarUrl;
     usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
     usernameDrop.innerHTML = `${username}`
 

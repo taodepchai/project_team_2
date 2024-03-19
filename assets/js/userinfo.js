@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("status").textContent = user.status;
 
       // Hiển thị ảnh đại diện từ localStorage
-      const avatarURL = localStorage.getItem(`avatarURL_${user.username}`);
+      const avatarURL = user.avatarUrl;
+      console.log(user);
       if (avatarURL) {
         document.getElementById("avatar").src = avatarURL;
       }
@@ -53,23 +54,28 @@ function handleAvatarChange() {
   var editAvatarInput = document.getElementById("edit-avatar-input");
   var avatar = document.getElementById("avatar");
   var file = editAvatarInput.files[0];
-
+  let userList = JSON.parse(localStorage.getItem("userList")) || [];
   if (file) {
     var reader = new FileReader();
     reader.onload = function (e) {
       avatar.src = e.target.result;
+      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
       const userInfo = JSON.parse(localStorage.getItem("userList"));
       const usernameParam = new URLSearchParams(window.location.search).get(
         "username"
       );
-      const currentUser = userInfo.find(
-        (user) => user.username === usernameParam
-      );
+      currentUser.avatarUrl = e.target.result;
+      console.log(userList);
       if (currentUser) {
-        localStorage.setItem(
-          `avatarURL_${currentUser.username}`,
-          e.target.result
-        );
+        localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+
+        for (let i = 0; i < userList.length; i++) {
+          if ((userList[i].name = currentUser.name)) {
+            userList[i] = currentUser;
+          }
+        }
+        console.log(userList);
+        localStorage.setItem(`userList`, JSON.stringify(userList));
       }
     };
     reader.readAsDataURL(file);

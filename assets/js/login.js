@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.querySelector(".form");
-
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser) {
+    window.location.href = "/pages/display.html";
+  }
   if (loginForm) {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -18,7 +21,6 @@ function login() {
     alert("Vui lòng điền đầy đủ thông tin đăng nhập.");
     return;
   }
-
   if (!agreeCheckbox.checked) {
     alert("Vui lòng đồng ý với các điều khoản dịch vụ.");
     return;
@@ -44,19 +46,22 @@ function login() {
     alert("Dữ liệu người dùng không hợp lệ.");
     return;
   }
-
-  const loggedInUser = userList.find(
-    (user) => user.username === username && user.password === password
-  );
-
-  if (loggedInUser) {
-    alert("Đăng nhập thành công!");
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("username", loggedInUser.username);
-    window.location.href = "/pages/display.html";
+  if (username == "admin" && password == "admin") {
+    window.location.href = `/pages/admin/movie.html`;
+    return;
   } else {
-    alert(
-      "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu."
+    const loggedInUser = userList.find(
+      (user) => user.username === username && user.password === password
     );
+    if (loggedInUser) {
+      alert("Đăng nhập thành công!");
+      console.log(loggedInUser);
+      localStorage.setItem("currentUser", JSON.stringify(loggedInUser));
+      window.location.href = "/pages/display.html";
+    } else {
+      alert(
+        "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu."
+      );
+    }
   }
 }
