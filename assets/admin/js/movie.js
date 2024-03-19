@@ -95,3 +95,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   new DataTable("#table");
 });
+
+let genres = JSON.parse(localStorage.getItem("currentGenres"));
+console.log(genres);
+let genresList = document.querySelector("#genresList");
+for (let i = 0; i < genres.length; i++) {
+  genresList.innerHTML += `
+   <option >${genres[i]}</option>
+   `;
+}
+function addGenres() {
+  var selectElement = document.getElementById("genresList");
+  var selectedOption = selectElement.options[selectElement.selectedIndex];
+  var ulElement = document.querySelector(".addList");
+  var liElement = document.createElement("li");
+  liElement.textContent = selectedOption.textContent;
+  liElement.setAttribute("class", "p-2 list-group-item  ");
+  ulElement.appendChild(liElement);
+
+  var deleteButton = document.createElement("button");
+  deleteButton.innerHTML = `&ensp; <i class="fa-solid fa-trash-can"></i>`;
+  deleteButton.className = "deleteButton";
+  deleteButton.onclick = function () {
+    ulElement.removeChild(liElement);
+  };
+  deleteButton.setAttribute("class", "btn p-1 item");
+  liElement.appendChild(deleteButton);
+  ulElement.appendChild(liElement);
+}
+function getValues() {
+  var categoryList = document.querySelector("addList");
+  var items = document.querySelectorAll(".addList li");
+  var values = [];
+  for (var i = 0; i < items.length; i++) {
+    values.push(items[i].textContent);
+  }
+  console.log("Values:", values);
+}
