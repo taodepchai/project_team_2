@@ -5,7 +5,6 @@ let tbody = document.querySelector("tbody");
 let movieName = document.querySelector("#movie_name");
 let director = document.querySelector("#director");
 let yearRelease = document.querySelector("#release_year");
-let genre = document.querySelector("#genre");
 let backgroundImg = document.querySelector("#background");
 let actors = document.querySelector("#actors");
 let rating = document.querySelector("#rating");
@@ -13,7 +12,7 @@ let posterImg = document.querySelector("#poster");
 let posterImgName = document.querySelector("#iconImage");
 let national = document.querySelector("#national");
 let description = document.querySelector("#description");
-
+var genre = [];
 // nút submit của modal
 let submitBtn = document.querySelector(".modal-button");
 function saveFilms(films) {
@@ -25,11 +24,17 @@ function deleteMovie(index) {
   location.reload();
 }
 function saveInputMovie(index) {
+  var categoryList = document.querySelector("addList");
+  var items = document.querySelectorAll(".addList li");
+  for (var i = 0; i < items.length; i++) {
+    genre.push(items[i].textContent);
+  }
+  console.log(genre.join(","));
   film = {
     name: `${movieName.value}`,
     img: `${posterImgName.value}`,
     release_year: `${yearRelease.value}`,
-    genres: `${genre.value.split(",")}`,
+    genres: `${genre.join(" ,")}`,
     poster: `${posterImg.value}`,
     runtime: `100m`,
     rating: `${rating.value}`,
@@ -122,13 +127,4 @@ function addGenres() {
   deleteButton.setAttribute("class", "btn p-1 item");
   liElement.appendChild(deleteButton);
   ulElement.appendChild(liElement);
-}
-function getValues() {
-  var categoryList = document.querySelector("addList");
-  var items = document.querySelectorAll(".addList li");
-  var values = [];
-  for (var i = 0; i < items.length; i++) {
-    values.push(items[i].textContent);
-  }
-  console.log("Values:", values);
 }
