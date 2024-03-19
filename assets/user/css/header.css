@@ -64,6 +64,9 @@ li{
     background-color: rgb(136, 0, 0);
 }
 
+.header-right .header-right-sign-in .usernameLink{
+    top: 20px;
+}
 
 /* --------------------genres------------------------- */
 .header-left select{
@@ -80,11 +83,17 @@ li{
     border-radius: 10px;
     display: none;
     padding: 5px;
-    width: 110px;
+    width: 120px;
 }
 .header-right-languages ul {
     display: flex;
     flex-direction: column;
+}
+.header-right-languages ul li{
+    padding: 0 0 0;
+}
+.header-right-languages ul li div{
+    width: 120px;
 }
 
 .header-right-languages ul li a p{
@@ -143,4 +152,51 @@ li{
 }
 .header-right ul .header-right-search button:hover{
     background-color: rgb(136, 0, 0);
+}
+/* ------------------sign-in------------------------------ */
+
+
+.header-right-sign-in-content {
+    left: -35px;
+    position: absolute;
+    background-color: #000000;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: none;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    color: #fffefe;
+}
+
+.header-right ul li .header-right-sign-in-content a {
+    display: block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+}
+.header-right ul li .header-right-sign-in-content button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+}
+.header-right ul li .header-right-sign-in-content a i {
+
+    color: rgb(255, 255, 255);
+
+}
+.header-right ul li  .header-right-sign-in-content a:hover {
+    background-color: rgb(110, 107, 107);
+}
+
+.header-right ul li  .header-right-sign-in-content button:hover {
+    background-color: rgb(110, 107, 107);
+}
+.header-right ul li:hover .header-right-sign-in-content {
+    display: block;
 }

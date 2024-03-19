@@ -13,132 +13,14 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/assets/user/css/footer.css" />
-    <style>
-      body {
-        background-color: black;
-        color: white;
-        margin: 0;
-        padding: 0;
-        position: relative;
-      }
-
-      .header-main a {
-        color: #fff;
-      }
-
-      .slideshow {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .slideshow-item {
-        display: none;
-      }
-
-      .slideshow-item.active {
-        display: block;
-      }
-
-      .slideshow img {
-        margin-top: 100px;
-        margin-left: 14%;
-        width: 70%;
-      }
-
-      .slideshow-content {
-        margin-left: 14%;
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: white;
-        z-index: 1;
-      }
-
-      .slideshow-content h1 {
-        font-size: 24px;
-        margin: 0;
-      }
-
-      .filmList {
-        display: flex;
-        overflow-x: hidden;
-        gap: 20px;
-        padding: 20px;
-        scroll-behavior: smooth;
-        padding-top: 30%;
-      }
-
-      .film-items {
-        border: 1px solid black;
-        min-width: 200px;
-        text-align: center;
-        border-radius: 8px;
-        transition: transform 0.3s;
-      }
-
-      .film-items img {
-        border-radius: 8px;
-        width: 160px;
-        height: auto;
-      }
-
-      .film-items:hover {
-        border-color: white;
-      }
-
-      .film-items h2 {
-        margin: 10px 0;
-      }
-
-      .nav-buttons {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        display: flex;
-        width: calc(100% - 40px);
-        padding: 0 20px;
-        justify-content: space-between;
-      }
-
-      .nav-buttons a {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 24px;
-        /* border-radius: 50%; */
-        margin-top: 30%;
-        padding-top: 150px;
-        opacity: 30%;
-      }
-
-      .nav-buttons a:hover {
-        opacity: 100%;
-        color: black;
-      }
-
-      body::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      body::-webkit-scrollbar-track {
-        background: #280d0e;
-      }
-
-      body::-webkit-scrollbar-thumb {
-        background-color: #816956;
-        border-radius: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/display.css">
   </head>
   <body>
     <section class="header-main">
       <div class="header-left">
           <ul>
               <li>
-                  <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
+                  <img src="/assets/img/Orange Phoenix Animal Gaming Logo.png" alt="" width="100px" />
               </li>
               <li>
                   <a href="">Home</a>
@@ -149,6 +31,7 @@
               <li>
                 <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
                   <option value="select">Select Genre</option>
+
                   <option value="Biography">Biography</option>
                   <option value="Drama">Drama</option>
                   <option value="History">History</option>
@@ -163,7 +46,7 @@
                 </select>
               </li>
               <li>
-                  <a href="">Favorites</a>
+                  <a href="/pages/user/library.html">Library</a>
               </li>
 
               <li>
@@ -209,11 +92,25 @@
                       <!--====== thêm vào đây =========-->
                   </div>
               </li>
-              <li class="header-right-sign-in">
-                  <button>
-                      <p style="color: aliceblue">Sign in</p>
-                  </button>
+              <li class="header-right-sign-in" id="signinBtn">
+                <button onclick="login()">
+                  <p style="color: aliceblue">Sign in</p>
+                </button>
               </li>
+
+
+              <!-- avt -->
+              <li>
+                <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
+                  <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
+                </div>
+                <div   class="header-right-sign-in-content"><br>
+                  <a  href="" id="dropdownUsername"></a><br>
+                  <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
+                  <a  href="" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log out</a><br>
+                </div>
+              </li>
+              
           </ul>
       </div>
   </section>
@@ -300,7 +197,7 @@
       </div>
       <div class="final-words">
           &#169;
-          <p>2024 Copyright by superHeader Nguyễn Gia Thiều</p>
+          <p>2024 Copyright team 2</p>
       </div>
   </section>
 
@@ -336,6 +233,8 @@
           filmList.appendChild(filmElement);
         });
       }
+
+      
       // ấn nút mũi tên thì cuộn trang phim
       function scrollFilms(direction) {
         let container = document.getElementById("filmList");
@@ -353,6 +252,8 @@
           container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
         }
       }
+
+
 
       function renderImg() {
         let imgList = document.getElementById("slideshow");
@@ -414,7 +315,7 @@
       renderFilm();
 
       // Slideshow
-      const slides = document.querySelectorAll(".slideshow-item");
+      let slides = document.querySelectorAll(".slideshow-item");
       let currentIndex = 0;
 
       // Tự động chuyển đổi giữa các hình ảnh sau mỗi 3 giây
@@ -441,7 +342,41 @@
         renderFilm();
       }
       
-}
+    }
+
+    function profile(){
+      let username = localStorage.getItem("username");
+      console.log(username);
+      window.location.href = `/pages/user/userinfo.html?username=${username}`;
+    }
+    function login(){
+      window.location.href="/pages/user/login.html"
+    }
+    function logout() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    location.reload();
+  }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let signinBtn = document.getElementById("signinBtn");
+  let usernameBtn = document.getElementById("usernameBtn");
+  let usernameLink = document.getElementById("usernameLink");
+  let usernameDrop = document.getElementById("dropdownUsername");
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    signinBtn.style.display = "none";
+    usernameBtn.style.display = "block";
+    let username = localStorage.getItem("username");
+    avtURL = localStorage.getItem(`avatarURL_${username}`);
+    usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
+    usernameDrop.innerHTML = `${username}`
+
+  } else {
+    signinBtn.style.display = "block";
+    usernameBtn.style.display = "none";
+  }
+});
 
     </script>
   </body>
