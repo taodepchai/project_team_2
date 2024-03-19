@@ -346,3 +346,136 @@
   
 //   localStorage.setItem("films", JSON.stringify(films));
   
+
+// const national = [
+//     {
+//         name: "Anh",
+//         img: "https://www.worldometers.info/img/flags/uk-flag.gif"
+//     },
+//     {
+//         name: "Mỹ",
+//         img: "https://www.worldometers.info/img/flags/us-flag.gif"
+//     },
+//     {
+//         name: "Pháp",
+//         img: "https://www.worldometers.info/img/flags/fr-flag.gif"
+//     },
+//     {
+//         name: "Đức",
+//         img: "https://www.worldometers.info/img/flags/gm-flag.gif"
+//     },
+//     {
+//         name: "Ý",
+//         img: "https://www.worldometers.info/img/flags/it-flag.gif"
+//     },
+//     {
+//         name: "Tây Ban Nha",
+//         img: "https://www.worldometers.info/img/flags/sp-flag.gif"
+//     },
+//     {
+//         name: "Nhật Bản",
+//         img: "https://www.worldometers.info/img/flags/ja-flag.gif"
+//     },
+//     {
+//         name: "Hàn Quốc",
+//         img: "https://www.worldometers.info/img/flags/ks-flag.gif"
+//     },
+//     {
+//         name: "Trung Quốc",
+//         img: "https://www.worldometers.info/img/flags/ch-flag.gif"
+//     },
+//     {
+//         name: "Úc",
+//         img: "https://www.worldometers.info/img/flags/as-flag.gif"
+//     },
+//     {
+//         name: "Canada",
+//         img: "https://www.worldometers.info/img/flags/ca-flag.gif"
+//     },
+//     {
+//         name: "Nga",
+//         img: "https://www.worldometers.info/img/flags/rs-flag.gif"
+//     },
+//     {
+//         name: "Ấn Độ",
+//         img: "https://www.worldometers.info/img/flags/in-flag.gif"
+//     },
+//     {
+//         name: "Brazil",
+//         img: "https://www.worldometers.info/img/flags/br-flag.gif"
+//     },
+//     {
+//         name: "Mexico",
+//         img: "https://www.worldometers.info/img/flags/mx-flag.gif"
+//     },
+//     {
+//         name: "Argentina",
+//         img: "https://www.worldometers.info/img/flags/ar-flag.gif"
+//     },
+//     {
+//         name: "Indonesia",
+//         img: "https://www.worldometers.info/img/flags/id-flag.gif"
+//     },
+//     {
+//         name: "Thái Lan",
+//         img: "https://www.worldometers.info/img/flags/th-flag.gif"
+//     },
+//     {
+//         name: "Hà Lan",
+//         img: "https://www.worldometers.info/img/flags/nl-flag.gif"
+//     },
+//     {
+//         name: "Thụy Sĩ",
+//         img: "https://www.worldometers.info/img/flags/sz-flag.gif"
+//     }
+// ];
+
+// localStorage.setItem("currentNational",JSON.stringify(national));
+
+// const Genres = [
+//     "Action",
+//     "Adventure",
+//     "Horror",
+//     "Comedy",
+//     "Romance",
+//     "Family",
+//     "Animation",
+//     "Science Fiction",
+//     "Thriller",
+//     "Crime",
+//     "War",
+//     "Fantasy",
+//     "Drama",
+//     "Martial Arts",
+//     "Sports",
+//     "Music",
+//     "Political",
+//     "Manga/Anime",
+//     "Mystery",
+//     "Detective"
+// ];
+// localStorage.setItem("currentGenres",JSON.stringify(Genres));
+
+// const userList=[
+//     {
+//         username: "hoangkp",
+//         name: "accaa",
+//         email: "d@a.c",
+//         phone: "0989718265",
+//         password: "1234567",
+//         status:"normal",
+//         country:"Pháp",
+//         date:"19/2/2024"
+//     },
+//     {
+//         username: "B23DTCN169",
+//         password: "123456",
+//         name: "ácc",
+//         email: "cbcca@hacc.cca",
+//         phone: "0987651782",
+//         status:"normal",
+//         country:"Pháp",
+//         date:"19/2/2024"
+//     }
+// ]
+// localStorage.setItem("userList",JSON.stringify(userList));

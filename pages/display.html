@@ -1,383 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/user/css/header.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-K1GAm2rrtoQ6YVkwOphmV6xXiq9T0iCIZoC2P4RllNmPVEMIcXZpPCXnhYT7Wg2bGqFPUlppcOo2U2EZnlv7xA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/assets/user/css/footer.css" />
-    <link rel="stylesheet" href="/assets/css/display.css">
-  </head>
-  <body>
-    <section class="header-main">
-      <div class="header-left">
-          <ul>
-              <li>
-                  <img src="/assets/img/Orange Phoenix Animal Gaming Logo.png" alt="" width="100px" />
-              </li>
-              <li>
-                  <a href="">Home</a>
-              </li>
-              <li>
-                  <a href=""><i class="fa-solid fa-film"></i> Film</a>
-              </li>
-              <li>
-                <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
-                  <option value="select">Select Genre</option>
 
-                  <option value="Biography">Biography</option>
-                  <option value="Drama">Drama</option>
-                  <option value="History">History</option>
-                  <option value="Comedy">Comedy</option>
-                  <option value="Romance">Romance</option>
-                  <option value="War">War</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Action">Action</option>
-                  <option value="Music">Music</option>
-                  <option value="Thriller">Thriller</option>
-                  <option value="Sport">Sport</option>
-                </select>
-              </li>
-              <li>
-                  <a href="/pages/user/library.html">Library</a>
-              </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/user/css/header.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-K1GAm2rrtoQ6YVkwOphmV6xXiq9T0iCIZoC2P4RllNmPVEMIcXZpPCXnhYT7Wg2bGqFPUlppcOo2U2EZnlv7xA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/assets/user/css/footer.css" />
+  <link rel="stylesheet" href="/assets/css/display.css">
+</head>
 
-              <li>
-                  <a href="">New/Popular Movies</a>
-              </li>
-          </ul>
-      </div>
-      <div class="header-right">
-          <ul>
-              <li class="header-right-search">
-                  <input type="text" name="" id="searchInput" placeholder="Search" style="width: 300px;" />
-                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
-              </li>
-              <!-- ngôn ngữ -->
-              <li>
-                  <a href=""> Language <i class="fa-solid fa-caret-down"></i></a>
-                  <div class="header-right-languages">
-                      <ul>
-                          <li>
-                              <a href="">
-                                  <div style="display: flex; gap: 5px;">
-                                      <img src="/assets/img/vietNam.png" alt="" width="30px">
-                                      <p class="vietnamese">vietnamese</p>
-                                  </div>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="">
-                                  <div style="display: flex; gap: 5px;">
-                                      <img src="/assets/img/tiengAnh.png" alt="" width="30px">
-                                      <p class="english">English</p>
-                                  </div>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="">
-                      <i class="fa-regular fa-bell"></i>
-                  </a>
-                  <div class="header-right-bell">
-                      <!--====== thêm vào đây =========-->
-                  </div>
-              </li>
-              <li class="header-right-sign-in" id="signinBtn">
-                <button onclick="login()">
-                  <p style="color: aliceblue">Sign in</p>
-                </button>
-              </li>
+<body>
+  <section class="header-main">
+    <div class="header-left">
+      <ul>
+        <li>
+          <img src="/assets/img/logo.png" alt="" width="200px" />
+        </li>
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href=""><i class="fa-solid fa-film"></i> Film</a>
+        </li>
+        <li>
+          <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
+            <option value="select">Select Genre</option>
 
+            <option value="Biography">Biography</option>
+            <option value="Drama">Drama</option>
+            <option value="History">History</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Romance">Romance</option>
+            <option value="War">War</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action">Action</option>
+            <option value="Music">Music</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Sport">Sport</option>
+          </select>
+        </li>
+        <li>
+          <a href="/pages/user/library.html">Library</a>
+        </li>
 
-              <!-- avt -->
-              <li>
-                <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
-                  <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
-                </div>
-                <div   class="header-right-sign-in-content"><br>
-                  <a  href="" id="dropdownUsername"></a><br>
-                  <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
-                  <a  href="" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log out</a><br>
-                </div>
-              </li>
-              
-          </ul>
-      </div>
-  </section>
-
-    <!-- slide show -->
-    <div class="slideshow" id="slideshow"></div>
-
-    <!-- render film -->
-    <h1>Film-Movie</h1>
-    <div class="nav-buttons">
-      <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
-      <div class="filmList" id="filmList"></div>
-      <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+        <li>
+          <a href="">New/Popular Movies</a>
+        </li>
+      </ul>
     </div>
+    <div class="header-right">
+      <ul>
+        <li class="header-right-search">
+          <input type="text" name="" id="searchInput" placeholder="Search" style="width: 300px;" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </li>
+        <!-- ngôn ngữ -->
+        <li>
+          <a href=""> Language <i class="fa-solid fa-caret-down"></i></a>
+          <div class="header-right-languages">
+            <ul>
+              <li>
+                <a href="">
+                  <div style="display: flex; gap: 5px;">
+                    <img src="/assets/img/vietNam.png" alt="" width="30px">
+                    <p class="vietnamese">vietnamese</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div style="display: flex; gap: 5px;">
+                    <img src="/assets/img/tiengAnh.png" alt="" width="30px">
+                    <p class="english">English</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-regular fa-bell"></i>
+          </a>
+          <div class="header-right-bell">
+            <!--====== thêm vào đây =========-->
+          </div>
+        </li>
+        <li class="header-right-sign-in" id="signinBtn">
+          <button onclick="login()">
+            <p style="color: aliceblue">Sign in</p>
+          </button>
+        </li>
 
-    <!-- footer -->
-    <section class="footer-main">
-      <div class="footer-top">
-          <div class="footer-top-left">
-              <p>Social network</p>
-          </div>
-          <div class="footer-top-right">
-              <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
-              <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
-              <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
-              <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
-          </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="footer-buttom">
-          <div class="footer-buttom-left">
-              <div class="footer-buttom-left-logo">
-                  <img src="/assets/img/logo-removebg.png" alt="" width="300px">
-              </div>
-              <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
-          </div>
-          <div class="footer-buttom-right">
-              <ul>
-                  <li><b>Contact Us</b></li>
-                  <li>thieunguyen11022005@gmail.com</li>
-                  <li>linhne123@gmail.com</li>
-                  <li>dungne123@gmail.com</li>
-                  <li>hoangne123@gmail.com</li>
-              </ul>
-              <ul>
-                  <li><b>Help</b></li>
-                  <li><a href="">Support</a></li>
-                  <li><a href="">Terms of use</a></li>
-                  <li><a href="">Policy notification</a></li>
-                  <li><a href="">Privacy</a></li>
-              </ul>
-              <ul>
-                  <li><b>Contact</b></li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-house"></i>
-                          Đanh Trại - Yên Thọ - Ý Yên - Nam Định
-                      </span>
-                  </li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-envelope"></i>
-                          nguyenthieu11022005@gmail.com
-                      </span>
-                  </li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-phone"></i>
-                          0355483082
-                      </span>
-                  </li>
-                  <li>
-                      <i class="fa-solid fa-tty"></i>
-                      0355483082
-                  </li>
 
-              </ul>
+        <!-- avt -->
+        <li>
+          <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
+            <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
           </div>
-      </div>
-      </div>
-      <div class="final-words">
-          &#169;
-          <p>2024 Copyright team 2</p>
-      </div>
+          <div class="header-right-sign-in-content"><br>
+            <a href="" id="dropdownUsername"></a><br>
+            <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
+            <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log
+              out</a><br>
+          </div>
+        </li>
+
+      </ul>
+    </div>
   </section>
 
-    <script
-      src="https://kit.fontawesome.com/bd9aef7112.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/data.js"></script>
-    <script>
-      films = JSON.parse(localStorage.getItem("films"));
-      images = JSON.parse(localStorage.getItem("films"));
-      function renderFilm() {
-        let filmList = document.getElementById("filmList");
-        filmList.innerHTML = "";
+  <!-- slide show -->
+  <div class="slideshow" id="slideshow"></div>
 
-        films.forEach((film, index) => {
-          let filmElement = document.createElement("div");
-          filmElement.addEventListener("click", function () {
-            window.location.href = `info.html?filmId=${index}`;
-          });
-          filmElement.id = `film-${index}`;
-          filmElement.classList.add("film-items");
+  <!-- render film -->
+  <h1>Film-Movie</h1>
+  <div class="nav-buttons">
+    <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
+    <div class="filmList" id="filmList"></div>
+    <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+  </div>
 
-          let imageElement = document.createElement("img");
-          imageElement.src = film.poster;
+  <!-- footer -->
+  <section class="footer-main">
+    <div class="footer-top">
+      <div class="footer-top-left">
+        <p>Social network</p>
+      </div>
+      <div class="footer-top-right">
+        <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
+        <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
+        <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="footer-buttom">
+      <div class="footer-buttom-left">
+        <div class="footer-buttom-left-logo">
+          <img src="/assets/img/logo.png" alt="" width="300px">
+        </div>
+        <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
+      </div>
+      <div class="footer-buttom-right">
+        <ul>
+          <li><b>Contact Us</b></li>
+          <li>thieunguyen11022005@gmail.com</li>
+          <li>linhne123@gmail.com</li>
+          <li>dungne123@gmail.com</li>
+          <li>hoangne123@gmail.com</li>
+        </ul>
+        <ul>
+          <li><b>Help</b></li>
+          <li><a href="">Support</a></li>
+          <li><a href="">Terms of use</a></li>
+          <li><a href="">Policy notification</a></li>
+          <li><a href="">Privacy</a></li>
+        </ul>
+        <ul>
+          <li><b>Contact</b></li>
+          <li>
+            <span>
+              <i class="fa-solid fa-house"></i>
+              Đanh Trại - Yên Thọ - Ý Yên - Nam Định
+            </span>
+          </li>
+          <li>
+            <span>
+              <i class="fa-solid fa-envelope"></i>
+              nguyenthieu11022005@gmail.com
+            </span>
+          </li>
+          <li>
+            <span>
+              <i class="fa-solid fa-phone"></i>
+              0355483082
+            </span>
+          </li>
+          <li>
+            <i class="fa-solid fa-tty"></i>
+            0355483082
+          </li>
 
-          let nameElement = document.createElement("h2");
-          nameElement.innerHTML = `${film.name}`;
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="final-words">
+      &#169;
+      <p>2024 Copyright team 2</p>
+    </div>
+  </section>
 
-          filmElement.appendChild(imageElement);
-          filmElement.appendChild(nameElement);
+  <script src="https://kit.fontawesome.com/bd9aef7112.js" crossorigin="anonymous"></script>
+  <script src="/data.js"></script>
+  <script>
+    films = JSON.parse(localStorage.getItem("films"));
+    images = JSON.parse(localStorage.getItem("films"));
+    function renderFilm() {
+      let filmList = document.getElementById("filmList");
+      filmList.innerHTML = "";
 
-          filmList.appendChild(filmElement);
+      films.forEach((film, index) => {
+        let filmElement = document.createElement("div");
+        filmElement.addEventListener("click", function () {
+          window.location.href = `info.html?filmId=${index}`;
         });
-      }
+        filmElement.id = `film-${index}`;
+        filmElement.classList.add("film-items");
 
-      
-      // ấn nút mũi tên thì cuộn trang phim
-      function scrollFilms(direction) {
-        let container = document.getElementById("filmList");
-        let scrollAmount = 400;
-        if (direction === -1) {
-          container.scrollLeft -= scrollAmount;
-        } else {
-          container.scrollLeft += scrollAmount;
-        }
-        //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
-        let maxScrollLeft = container.scrollWidth - container.clientWidth;
-        if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
-          container.scrollTo({ left: 0, behavior: "smooth" });
-        } else if (direction === -1 && container.scrollLeft === 0) {
-          container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
-        }
-      }
+        let imageElement = document.createElement("img");
+        imageElement.src = film.poster;
 
+        let nameElement = document.createElement("h2");
+        nameElement.innerHTML = `${film.name}`;
 
+        filmElement.appendChild(imageElement);
+        filmElement.appendChild(nameElement);
 
-      function renderImg() {
-        let imgList = document.getElementById("slideshow");
-
-        images.forEach((image, index) => {
-          let imgContainer = document.createElement("div");
-
-          imgContainer.classList.add("slideshow-item");
-          if (index === 0) {
-            imgContainer.classList.add("active");
-          }
-          
-          imgContainer.addEventListener("click", function () {
-            window.location.href = `info.html?filmId=${index}`;
-          });
-
-          let imageElement = document.createElement("img");
-          imageElement.src = image.background_img;
-
-          let nameElement = document.createElement("img");
-          nameElement.src = image.img;
-
-          let contentElement = document.createElement("div");
-          contentElement.classList.add("slideshow-content");
-          contentElement.appendChild(nameElement);
-
-          imgContainer.appendChild(imageElement);
-          imgContainer.appendChild(contentElement);
-
-          imgList.appendChild(imgContainer);
-        });
-      }
-      //tìm kiếm sản phẩm
-      function searchFilms() {
-        // Lấy giá trị từ khóa tìm kiếm
-        let keyword = document
-          .getElementById("searchInput")
-          .value.toLowerCase()
-          .trim();
-
-        // Lặp qua danh sách sản phẩm và ẩn hoặc hiển thị tùy thuộc vào từ khóa tìm kiếm
-        let filmList = document.querySelectorAll(".film-items");
-        filmList.forEach((film) => {
-          let filmName = film.querySelector("h2").textContent.toLowerCase();
-          if (filmName.includes(keyword)) {
-            film.style.display = "block";
-          } else {
-            film.style.display = "none";
-          }
-        });
-      }
-
-      // Gắn sự kiện keyup cho ô nhập liệu để tìm kiếm khi người dùng nhập liệu
-      document
-        .getElementById("searchInput")
-        .addEventListener("keyup", searchFilms);
-
-      renderImg();
-      renderFilm();
-
-      // Slideshow
-      let slides = document.querySelectorAll(".slideshow-item");
-      let currentIndex = 0;
-
-      // Tự động chuyển đổi giữa các hình ảnh sau mỗi 3 giây
-      setInterval(() => {
-        slides[currentIndex].classList.remove("active");
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add("active");
-      }, 3000);
-
-      // Hàm lọc phim theo thể loại
-      function filterFilmsByGenre(genre) {
-      // Lặp qua tất cả các phim
-      if (genre !== "select"){
-        films.forEach((film, index) => {
-        let filmElement = document.getElementById(`film-${index}`);
-        if (film.genres.includes(genre)) {
-          filmElement.style.display = "block";
-        } else {
-          filmElement.style.display = "none";
-        }
+        filmList.appendChild(filmElement);
       });
-      } 
-      else{
-        renderFilm();
-      }
-      
     }
 
-    function profile(){
-      let username = localStorage.getItem("username");
+
+    // ấn nút mũi tên thì cuộn trang phim
+    function scrollFilms(direction) {
+      let container = document.getElementById("filmList");
+      let scrollAmount = 400;
+      if (direction === -1) {
+        container.scrollLeft -= scrollAmount;
+      } else {
+        container.scrollLeft += scrollAmount;
+      }
+      //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
+      let maxScrollLeft = container.scrollWidth - container.clientWidth;
+      if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else if (direction === -1 && container.scrollLeft === 0) {
+        container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      }
+    }
+
+
+
+    function renderImg() {
+      let imgList = document.getElementById("slideshow");
+
+      images.forEach((image, index) => {
+        let imgContainer = document.createElement("div");
+
+        imgContainer.classList.add("slideshow-item");
+        if (index === 0) {
+          imgContainer.classList.add("active");
+        }
+
+        imgContainer.addEventListener("click", function () {
+          window.location.href = `info.html?filmId=${index}`;
+        });
+
+        let imageElement = document.createElement("img");
+        imageElement.src = image.background_img;
+
+        let nameElement = document.createElement("img");
+        nameElement.src = image.img;
+
+        let contentElement = document.createElement("div");
+        contentElement.classList.add("slideshow-content");
+        contentElement.appendChild(nameElement);
+
+        imgContainer.appendChild(imageElement);
+        imgContainer.appendChild(contentElement);
+
+        imgList.appendChild(imgContainer);
+      });
+    }
+    //tìm kiếm sản phẩm
+    function searchFilms() {
+      // Lấy giá trị từ khóa tìm kiếm
+      let keyword = document
+        .getElementById("searchInput")
+        .value.toLowerCase()
+        .trim();
+
+      // Lặp qua danh sách sản phẩm và ẩn hoặc hiển thị tùy thuộc vào từ khóa tìm kiếm
+      let filmList = document.querySelectorAll(".film-items");
+      filmList.forEach((film) => {
+        let filmName = film.querySelector("h2").textContent.toLowerCase();
+        if (filmName.includes(keyword)) {
+          film.style.display = "block";
+        } else {
+          film.style.display = "none";
+        }
+      });
+    }
+
+    // Gắn sự kiện keyup cho ô nhập liệu để tìm kiếm khi người dùng nhập liệu
+    document
+      .getElementById("searchInput")
+      .addEventListener("keyup", searchFilms);
+
+    renderImg();
+    renderFilm();
+
+    // Slideshow
+    let slides = document.querySelectorAll(".slideshow-item");
+    let currentIndex = 0;
+
+    // Tự động chuyển đổi giữa các hình ảnh sau mỗi 3 giây
+    setInterval(() => {
+      slides[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add("active");
+    }, 3000);
+
+    // Hàm lọc phim theo thể loại
+    function filterFilmsByGenre(genre) {
+      // Lặp qua tất cả các phim
+      if (genre !== "select") {
+        films.forEach((film, index) => {
+          let filmElement = document.getElementById(`film-${index}`);
+          if (film.genres.includes(genre)) {
+            filmElement.style.display = "block";
+          } else {
+            filmElement.style.display = "none";
+          }
+        });
+      }
+      else {
+        renderFilm();
+      }
+
+    }
+    let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
+    function profile() {
+      let username = currentUser.username;
       console.log(username);
       window.location.href = `/pages/user/userinfo.html?username=${username}`;
     }
-    function login(){
-      window.location.href="/pages/user/login.html"
+    function login() {
+      window.location.href = "/pages/user/login.html"
     }
     function logout() {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
-    location.reload();
-  }
+      localStorage.removeItem("currentUser");
+      login();
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      let signinBtn = document.getElementById("signinBtn");
+      let usernameBtn = document.getElementById("usernameBtn");
+      let usernameLink = document.getElementById("usernameLink");
+      let usernameDrop = document.getElementById("dropdownUsername");
+      if (currentUser) {
+        signinBtn.style.display = "none";
+        usernameBtn.style.display = "block";
+        let username = currentUser.username;
+        avtURL = currentUser.avatarUrl;
+        usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
+        usernameDrop.innerHTML = `${username}`
 
+      } else {
+        signinBtn.style.display = "block";
+        usernameBtn.style.display = "none";
+      }
+    });
 
-document.addEventListener("DOMContentLoaded", function () {
-  let signinBtn = document.getElementById("signinBtn");
-  let usernameBtn = document.getElementById("usernameBtn");
-  let usernameLink = document.getElementById("usernameLink");
-  let usernameDrop = document.getElementById("dropdownUsername");
-  if (localStorage.getItem("isLoggedIn") === "true") {
-    signinBtn.style.display = "none";
-    usernameBtn.style.display = "block";
-    let username = localStorage.getItem("username");
-    avtURL = localStorage.getItem(`avatarURL_${username}`);
-    usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`
+  </script>
+</body>
 
-  } else {
-    signinBtn.style.display = "block";
-    usernameBtn.style.display = "none";
-  }
-});
-
-    </script>
-  </body>
 </html>

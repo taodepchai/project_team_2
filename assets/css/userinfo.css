@@ -34,7 +34,7 @@ h1 {
 .profile-img {
   text-align: center;
   margin-bottom: 20px;
-  
+  border-radius: 50%;
 }
 
 #avatar {

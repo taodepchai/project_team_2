@@ -58,6 +58,8 @@ function validateForm() {
       phone: phone,
       country: country,
       status: "Normal",
+      library:[],
+      avatarUrl:"/assets/images/clone.jpg",
     };
 
     // Thêm user mới vào mảng userList
@@ -70,3 +72,10 @@ function validateForm() {
     window.location.href = "/pages/user/login.html";
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  let currentUser=JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser) {
+    window.location.href="/pages/display.html";
+  }
+});

@@ -102,16 +102,13 @@
       </section>
     </main>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+     document.addEventListener("DOMContentLoaded", function () {
         // Lấy danh sách phim từ local storage
-        let currentUser = localStorage.getItem("username");
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         let library =
-          JSON.parse(localStorage.getItem(`library_${currentUser}`)) || [];
-
+          currentUser.library || [];
         let filmList = document.querySelector(".film-list ul");
-
         filmList.innerHTML = "";
-
         // Duyệt qua danh sách phim và tạo các phần tử hiển thị
         library.forEach(function (film, index) {
           // Tạo phần tử cho từng phim
@@ -141,16 +138,27 @@
 
           // Sự kiện click để xóa phim khỏi thư viện
           removeBtn.addEventListener("click", function () {
+            event.stopPropagation();
             library.splice(index, 1);
-            localStorage.setItem(
-              `library_${currentUser}`,
-              JSON.stringify(library)
-            );
+            currentUser.library=library;
             listItem.remove();
-          });
+            // Lưu lại vào trong local của tất cả đối tượng liên quan đến library
+            localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+            userList.forEach((element) => {
+              if (element.username == currentUser.username) {
+                element = currentUser;
+              }
+            });
+             localStorage.setItem("userList", JSON.stringify(userList));
+            });
 
           listItem.addEventListener("click", function () {
-            window.location.href = `/pages/info.html?filmId=${index}`;
+            let films=JSON.parse(localStorage.getItem("films"));
+            for (let i = 0; i < films.length; i++) {
+              if (film.name==films[i].name) {
+                window.location.href = `/pages/info.html?filmId=${i}`;
+              }
+            }
           });
 
           filmInfo.appendChild(filmTitle);
