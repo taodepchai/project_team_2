@@ -59,7 +59,7 @@ function validateForm() {
       country: country,
       status: "Normal",
       library:[],
-      avatarUrl:"",
+      avatarUrl:"/assets/images/clone.jpg",
     };
 
     // Thêm user mới vào mảng userList
