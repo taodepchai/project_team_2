@@ -120,6 +120,7 @@ li{
     display: none;
     padding: 5px;
     width: 300px;
+    margin-left: -100px;
 }
 
 .header-right-bell ul {
@@ -161,10 +162,10 @@ li{
     position: absolute;
     background-color: #000000;
     border-radius: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     display: none;
     padding: 5px;
-    width: 100px;
+    width: 130px;
     text-align: center;
     color: #fffefe;
 }
