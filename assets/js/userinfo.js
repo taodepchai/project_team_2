@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   userInfo.forEach((user) => {
     if (user.username === usernameParam) {
+      console.log(user.password);
       // Hiển thị thông tin người dùng từ local storage
       document.getElementById("username").textContent = user.username;
       document.getElementById("name").textContent = user.name;

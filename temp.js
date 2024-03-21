@@ -70,21 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const actionButtons = document.createElement("div");
     actionButtons.classList.add("action-button");
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const library = currentUser.library || [];
-    const filmExistsInLibrary = library.some((film) => film.name === data.name);
-
     actionButtons.innerHTML = `
                 <div class="action-button-element">
-                  <button class="${
-                    filmExistsInLibrary
-                      ? "remove-from-library-button"
-                      : "add-to-library-button"
-                  }" data-film-id="${filmId}"><img src="/assets/img/${
-      filmExistsInLibrary ? "remove" : "new"
-    }-folder.png" alt="" /> &ensp; ${
-      filmExistsInLibrary ? "Remove from Library" : "Add to Library"
-    }</button>
+                  <button class="add-to-library-button" data-film-id="${filmId}><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
                   <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
                   <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
                 </div>
@@ -140,80 +128,66 @@ document.addEventListener("DOMContentLoaded", function () {
   console.table(films);
   let addToLibraryButton = document.querySelector(".add-to-library-button");
 
+  // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser == "") {
       alert("Vui lòng đăng nhập để sử dụng chức năng này.");
       return;
     }
+
     let filmId = parseInt(this.getAttribute("data-film-id"));
     let userList = JSON.parse(localStorage.getItem("userList"));
     let library = currentUser.library || [];
-    let filmExists = false;
 
-    // Kiểm tra xem phim đã tồn tại trong thư viện chưa
     for (let i = 0; i < library.length; i++) {
       if (library[i].name === films[filmId].name) {
-        filmExists = true;
+        // Remove the film from the library
+        library = library.filter((film) => film.name !== films[filmId].name);
+        currentUser.library = library;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        const userIndex = userList.findIndex(
+          (user) => user.username === currentUser.username
+        );
+        if (userIndex !== -1) {
+          userList[userIndex] = currentUser;
+          localStorage.setItem("userList", JSON.stringify(userList));
+        }
+
+        this.innerHTML = `<img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library`;
+        this.querySelector("img").setAttribute(
+          "src",
+          "/assets/img/new-folder.png"
+        );
+        alert("Phim đã được xóa khỏi thư viện của bạn.");
+        return;
+      }
+    }
+
+    // Add the film to the library
+    for (let i = 0; i < films.length; i++) {
+      if (films[i].id === filmId) {
+        library.push(films[i]);
         break;
       }
     }
-
-    if (filmExists) {
-      // Nếu phim đã tồn tại trong thư viện, loại bỏ sự kiện click và thay đổi nút thành "Remove from Library"
-      this.removeEventListener("click", arguments.callee);
-      this.innerHTML = `<img src="/assets/img/remove-folder.png" alt="" /> &ensp; Remove from Library`;
-      this.classList.remove("add-to-library-button");
-      this.classList.add("remove-from-library-button");
-      alert("Phim đã tồn tại trong thư viện của bạn.");
-      return;
-    }
-
-    // Nếu phim chưa tồn tại trong thư viện, thêm phim vào thư viện và cập nhật local storage
-    library.push(films[filmId]);
     currentUser.library = library;
-    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-    userList.forEach((element) => {
-      if (element.username == currentUser.username) {
-        element = currentUser;
-      }
-    });
-    localStorage.setItem("userList", JSON.stringify(userList));
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-    // Thay đổi nút thành "Remove from Library" ngay sau khi thêm phim vào thư viện
-    this.innerHTML = `<img src="/assets/img/remove-folder.png" alt="" /> &ensp; Remove from Library`;
-    this.classList.remove("add-to-library-button");
-    this.classList.add("remove-from-library-button");
-    alert("Phim đã được thêm vào thư viện của bạn.");
-  });
-
-  // Xử lý sự kiện click cho nút "Remove from Library"
-  document.addEventListener("click", function (event) {
-    if (
-      event.target &&
-      event.target.classList.contains("remove-from-library-button")
-    ) {
-      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      let filmId = parseInt(event.target.getAttribute("data-film-id"));
-      let library = currentUser.library || [];
-
-      // Xóa phim khỏi thư viện của người dùng
-      library = library.filter((film) => film.name !== films[filmId].name);
-      currentUser.library = library;
-
-      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-
-      // Xóa thành công, cập nhật giao diện và hiển thị thông báo
-      event.target.closest(
-        ".add-to-library-button"
-      ).innerHTML = `<img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library`;
-      event.target
-        .closest(".add-to-library-button")
-        .classList.remove("remove-from-library-button");
-      event.target
-        .closest(".add-to-library-button")
-        .classList.add("add-to-library-button");
-      alert("Phim đã được xóa khỏi thư viện của bạn.");
+    const userIndex = userList.findIndex(
+      (user) => user.username === currentUser.username
+    );
+    if (userIndex !== -1) {
+      userList[userIndex] = currentUser;
+      localStorage.setItem("userList", JSON.stringify(userList));
     }
+
+    this.innerHTML = `<img src="/assets/img/remove-folder.png" alt="" /> &ensp; Remove from Library`;
+    this.querySelector("img").setAttribute(
+      "src",
+      "/assets/img/remove-folder.png"
+    );
+    alert("Phim đã được thêm vào thư viện của bạn.");
   });
 });
