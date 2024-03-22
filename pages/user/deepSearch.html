@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Search</title>
+    <link rel="stylesheet" href="/assets/css/display.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .header-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        z-index: 2;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        text-align: left;
+        justify-content: space-between;
+        max-width: 200px;
+        z-index: 2;
+      }
+      header {
+        left: 20%;
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+      }
+      details {
+        display: block;
+        height: auto;
+      }
+      header h1 {
+        margin: 0;
+      }
+      header {
+        display: block;
+      }
+      .search-box {
+        margin-top: 10px;
+      }
+
+      .search-box input {
+        padding: 8px;
+        width: 200px;
+        border-radius: 7px;
+      }
+
+      .search-box button {
+        padding: 8px 12px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 7px;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .option {
+        margin-bottom: 10px;
+        display: flex;
+      }
+      .option input {
+        width: 20px;
+      }
+      .option label {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Movie Search</h1>
+        <div style="z-index: 1" class="search-box">
+          <input type="text" placeholder="Enter keyword... " id="searchInput" />
+          <button>Search</button>
+        </div>
+        <details style="z-index: 1">
+          <summary>Advance Search</summary>
+          <div class="container">
+            <div class="option">
+              <input type="checkbox" id="genre1" name="genre" value="Action" />
+              <label for="genre1">Action</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" id="genre2" name="genre" value="Comedy" />
+              <label for="genre2">Comedy</label>
+            </div>
+            <div class="option">
+              <input type="checkbox" id="genre3" name="genre" value="Drama" />
+              <label for="genre3">Drama</label>
+            </div>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <h1>Film-Movie</h1>
+    <div class="nav-buttons">
+      <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
+      <div class="filmList" id="filmList"></div>
+      <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Movie Search. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    films = JSON.parse(localStorage.getItem("films"));
+    images = JSON.parse(localStorage.getItem("films"));
+
+    function renderFilm(filmsToRender) {
+      let filmList = document.getElementById("filmList");
+      filmList.innerHTML = "";
+
+      filmsToRender.forEach((film, index) => {
+        let filmElement = document.createElement("div");
+        filmElement.addEventListener("click", function () {
+          window.location.href = `/pages/user/detailsLSearch.html?filmName=${film.name}`;
+        });
+        filmElement.id = `film-${index}`;
+        filmElement.classList.add("film-items");
+
+        let imageElement = document.createElement("img");
+        imageElement.src = film.poster;
+
+        let nameElement = document.createElement("h2");
+        nameElement.innerHTML = `${film.name}`;
+
+        filmElement.appendChild(imageElement);
+        filmElement.appendChild(nameElement);
+
+        filmList.appendChild(filmElement);
+      });
+    }
+
+    // ấn nút mũi tên thì cuộn trang phim
+    function scrollFilms(direction) {
+      let container = document.getElementById("filmList");
+      let scrollAmount = 400;
+      if (direction === -1) {
+        container.scrollLeft -= scrollAmount;
+      } else {
+        container.scrollLeft += scrollAmount;
+      }
+      //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
+      let maxScrollLeft = container.scrollWidth - container.clientWidth;
+      if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else if (direction === -1 && container.scrollLeft === 0) {
+        container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      }
+    }
+    document
+      .getElementById("searchInput")
+      .addEventListener("keyup", function (event) {
+        searchFilms();
+      });
+    function searchFilms() {
+      // Lấy giá trị từ khóa tìm kiếm
+      let keyword = document
+        .getElementById("searchInput")
+        .value.toLowerCase()
+        .trim();
+      // Lặp qua danh sách sản phẩm và ẩn hoặc hiển thị tùy thuộc vào từ khóa tìm kiếm
+      let filmList = document.querySelectorAll(".film-items");
+      filmList.forEach((film) => {
+        let filmName = film.querySelector("h2").textContent.toLowerCase();
+        if (filmName.includes(keyword)) {
+          film.style.display = "block";
+        } else {
+          film.style.display = "none";
+        }
+      });
+    }
+
+    function filterFilmsByGenre() {
+      // Lấy danh sách các ô checkbox thể loại
+      let genreCheckboxes = document.querySelectorAll('input[name="genre"]');
+
+      // Tạo một mảng chứa giá trị của các ô checkbox đã được chọn
+      let checkedGenres = Array.from(genreCheckboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+
+      // Kiểm tra xem có checkbox nào được chọn không
+      if (checkedGenres.length === 0) {
+        renderFilm(films);
+        return;
+      }
+
+      // Lọc danh sách phim dựa trên các ô checkbox đã được chọn
+      let filteredFilms = films.filter((films) => {
+        // Đếm số lượng thể loại được chọn mà bộ phim chứa
+        let count = checkedGenres.reduce((total, genres) => {
+          return (
+            total + (films.genres && films.genres.includes(genres) ? 1 : 0)
+          );
+        }, 0);
+
+        // Nếu số lượng thể loại được chọn mà bộ phim chứa bằng với số lượng thể loại được chọn
+        // thì bộ phim sẽ được lọc vào danh sách kết quả
+        return count === checkedGenres.length;
+      });
+
+      // Hiển thị lại danh sách phim đã được lọc
+      renderFilm(filteredFilms);
+    }
+
+    // Gắn sự kiện click cho nút search để kích hoạt tìm kiếm
+    document.querySelector("button").addEventListener("click", searchFilms);
+
+    // Gắn sự kiện keyup cho ô nhập liệu để kích hoạt tìm kiếm khi người dùng nhập liệu
+    document
+      .getElementById("searchInput")
+      .addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          searchFilms();
+        }
+      });
+
+    // Gắn sự kiện change cho các ô checkbox để kích hoạt việc lọc phim khi chọn thể loại
+    let genreCheckboxes = document.querySelectorAll('input[name="genre"]');
+    genreCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", filterFilmsByGenre);
+    });
+
+    renderFilm(films);
+  </script>
+
+  <script
+    src="https://kit.fontawesome.com/bd9aef7112.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

@@ -78,7 +78,7 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 0;
     display: flex;
     width: calc(100% - 40px);
     padding: 0 20px;
@@ -96,11 +96,12 @@ body {
     margin-top: 30%;
     padding-top: 150px;
     opacity: 30%;
+    height: 50px;
   }
 
   .nav-buttons a:hover {
     opacity: 100%;
-    color: black;
+    color: rgb(173, 173, 173);
   }
 
   body::-webkit-scrollbar {
