@@ -45,7 +45,7 @@ a{
     border-radius: 20px;
 }
 .film-information {
-    width: 1200px;
+    width: 1000px;
 }
 .film-tag-name{
     background-color: black;
@@ -56,3 +56,15 @@ a{
     border-radius: 20px;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #280d0e;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #816956;
+    border-radius: 5px;
+  }

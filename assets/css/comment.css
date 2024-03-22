@@ -1,0 +1,448 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+/* General Styles */
+html {
+  font-size: 16px;
+  color: #67727e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, input, button, textarea {
+  font-family: Rubik, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input, button, select {
+  outline: none;
+}
+
+a {
+  text-decoration: initial;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+a, i, svg, img {
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+body, .col-section-1 div, .comment__info__wrapper, .user__info__container, .col-section-3, .btn__reply, .model, .btn__wrapper {
+  display: flex;
+}
+
+.comment, .section__comment > div {
+  display: grid;
+  grid-gap: 1.2rem;
+}
+
+/* Body Styles */
+body {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+.page, .content__body {
+  overflow: hidden;
+}
+
+.page, .content__body {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.page {
+  max-width: 1300px;
+  min-width: 320px;
+}
+
+.content__body {
+  width: 90%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Comment Styles */
+.comment__container li {
+  margin-bottom: 1.4rem;
+}
+
+li .comment__nested {
+  margin-top: 1.4rem;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  border: 0.1rem solid #67727e;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: outline-color 0.3s ease;
+}
+
+textarea:focus-visible {
+  outline: 0.1rem solid #5457b6;
+}
+
+.comment, .section__comment {
+  border-radius: 8px;
+  background-color: #502626;
+  padding: 1rem;
+}
+
+.comment, .section__comment > div {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.col-section-1 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.col-section-2 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.col-section-3 {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.col-section-2-span-2 {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+
+.col-section-1 div {
+  background-color: #f7eaea;
+  border-radius: 8px;
+  padding: 7px;
+}
+
+.vote__count span {
+  color: #6d6e9b;
+}
+
+.btn__downvote {
+  margin-top: -8px;
+}
+
+.btn__upvote path, .btn__downvote path {
+  transition: fill 0.3s ease;
+}
+
+.btn__upvote:hover path, .btn__downvote:hover path {
+  fill: #09092b;
+}
+
+.comment__header .u__avater img {
+  width: 40px;
+}
+
+.section__avater img {
+  width: 40px;
+}
+
+.user__info__container, .u__avater {
+  margin-right: 1rem;
+}
+
+.u__name span {
+  color: #2e3338;
+}
+
+.current_user {
+  margin-left: 1rem;
+}
+
+.current_user span {
+  padding: 0.2rem 0.5rem;
+  background-color: gray;
+  color: #000000;
+}
+
+.col-section-3 {
+  justify-content: flex-end;
+  padding: 7px 0;
+}
+
+.btn__delete path, .btn__reply path, .btn__edit path {
+  transition: fill 0.3s ease;
+}
+
+.btn__delete span, .btn__reply span, .btn__edit span {
+  transition: color 0.3s ease;
+}
+
+.btn__reply i {
+  margin-right: 6px;
+}
+
+.btn__reply span {
+  color: #5457b6;
+}
+
+.btn__reply:hover span {
+  color: #c3c4ef;
+}
+
+.btn__reply:hover path {
+  fill: #c3c4ef !important;
+}
+
+.section__comment {
+  margin-top: 0.8rem;
+}
+
+.section__commentbox {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.section__avater {
+  grid-column: 1/2;
+}
+
+.section__btn {
+  grid-column: 2/3;
+}
+
+.section__avater, .section__btn {
+  grid-row: 2/3;
+}
+
+.section__btn {
+  justify-content: end;
+  text-align: right;
+}
+
+.btn {
+  padding: 13px 18px;
+  border-radius: 8px;
+  background-color: #5457b6;
+  color: #fff;
+  border: transparent;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #c3c4ef;
+}
+
+.comment__nested ul {
+  border-left: 0.15rem solid #eaecf1;
+  padding-left: 1rem;
+}
+
+.update {
+  text-align: right;
+}
+
+.btn__delete span {
+  color: #ed6468;
+}
+
+.btn__delete:hover path {
+  fill: #ffb8bb;
+}
+
+.btn__delete:hover span {
+  color: #ffb8bb;
+}
+
+.btn__edit:hover path {
+  fill: #c3c4ef;
+}
+
+.btn__edit:hover span {
+  color: #c3c4ef;
+}
+
+.btn__edit span {
+  color: #5457b6;
+}
+
+.btn__delete svg, .btn__edit svg {
+  margin-left: 6px;
+}
+
+.btn__delete {
+  margin-right: 0.5rem;
+}
+
+.comment__body span {
+  color: #5457b6;
+}
+
+/* Model Styles */
+.model {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(50, 65, 82, 0.7);
+}
+
+.model__card {
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 1rem;
+  background-color: #fff;
+  padding: 2rem;
+  width: 50vmax;
+  max-width: 24rem;
+}
+
+.card__header, .card__body {
+  margin-bottom: 1rem;
+}
+
+.btn__wrapper {
+  justify-content: space-between;
+}
+
+.card__btn_delete {
+  background-color: #ed6468;
+}
+
+.card__btn_delete:hover {
+  background-color: #ffb8bb;
+}
+
+.card__btn_cancel {
+  background-color: #67727e;
+}
+
+.card__btn_cancel:hover {
+  background-color: rgba(103, 114, 126, 0.5);
+}
+
+@media (min-width: 320px) {
+  .card__btn_delete, .card__btn_cancel {
+    padding: 1rem 0.5rem;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 434px) {
+  .comment__nested {
+    margin-left: 1rem;
+  }
+
+  .card__btn_delete, .card__btn_cancel {
+    padding: 1rem 0.5rem;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 635px) {
+  .comment__nested {
+    margin-left: 2rem;
+  }
+
+  .comment__nested ul {
+    padding-left: 1.6rem;
+  }
+
+  .card__btn_delete, .card__btn_cancel {
+    padding: 0.8rem 0.9rem;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 701px) {
+  .card__btn_delete, .card__btn_cancel {
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 727px) {
+  .comment {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .col-section-1 {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+
+  .col-section-2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .col-section-3 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+
+  .col-section-2-span-2 {
+    grid-column: 2/4;
+    grid-row: 2/3;
+  }
+
+  .col-section-1 div {
+    flex-direction: column;
+  }
+
+  .vote__count {
+    margin: 0.7rem 0;
+  }
+
+  .section__comment > div {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .section__commentbox {
+    grid-column: 2/3;
+  }
+
+  .section__avater {
+    grid-column: 1/2;
+  }
+
+  .section__btn {
+    grid-column: 3/4;
+  }
+
+  .section__avater, .section__btn, .section__commentbox {
+    grid-row: 1/2;
+  }
+
+  textarea {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1017px) {
+  .content__body {
+    max-width: 1017px;
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
-    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
     if (currentUser == "") {
       alert("Vui lòng đăng nhập để sử dụng chức năng này.");
       return;
