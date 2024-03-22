@@ -1,87 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add and Remove Category</title>
-        <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <style>
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        margin: 5px 0;
-        position: relative;
-    }
-    .deleteButton {
-        margin-left: 10px;
-        cursor: pointer;
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .deleteButton:hover {
-        color: red;
-    }
-    li:hover .deleteButton {
-        display: inline-block;
-    }
-</style>
-    </head>
-    <body>
-
-        <select id="category">
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
-            <!-- Add more options as needed -->
-        </select>
-        <button onclick="addCategory()">Add</button>
-
-        <ul id="categoryList">
-            <!-- Categories will be added here -->
-        </ul>
-
-        <button onclick="getValues()">Get Values</button>
-
-        <script>
-function addCategory() {
-    var selectElement = document.getElementById("category");
-    var selectedOption = selectElement.options[selectElement.selectedIndex];
-    var categoryId = selectedOption.value;
-    var categoryName = selectedOption.textContent;
-
-    var ulElement = document.getElementById("categoryList");
-    var liElement = document.createElement("li");
-    liElement.textContent = categoryName;
-    
-    var deleteButton = document.createElement("span");
-    deleteButton.innerHTML = `&ensp; <i class="fa-solid fa-trash-can"></i>`;
-    deleteButton.className = "deleteButton";
-    deleteButton.onclick = function() {
-        ulElement.removeChild(liElement);
-    };
-    
-    liElement.appendChild(deleteButton);
-    ulElement.appendChild(liElement);
-}
-
-function getValues() {
-    var categoryList = document.getElementById("categoryList");
-    var items = categoryList.getElementsByTagName("li");
-    var values = [];
-    for (var i = 0; i < items.length; i++) {
-        values.push(items[i].textContent);
-    }
-    console.log("Values:", values);
-    // Đây là nơi bạn có thể sử dụng mảng 'values' cho mục đích của bạn
-}
-</script>
-        <script src="https://kit.fontawesome.com/a1fe2ce90b.js"
-            crossorigin="anonymous"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="radio" name="fruit" value="apple" disabled checked> Apple<br>
+        <input type="radio" name="fruit" value="orange" disabled checked> Orange<br>
+        <input type="radio" name="fruit" value="banana" disabled> Banana<br>
+        <input type="submit" value="Submit">
+      </form>
+</body>
 </html>

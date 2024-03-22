@@ -14,7 +14,7 @@
 //       director: "Christopher Nolan",
 //       cast: ["Cillian Murphy", "Emily Blunt", "Matt Damon"],
 //       nationality: "American",
-//       summary:
+//       summ   ary:
 //         "The story of American scientist J. Robert Oppenheimer and his pivotal role in the development of the atomic bomb.",
 //       episode: 8,
 //     },

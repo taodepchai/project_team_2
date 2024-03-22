@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <td class="dt-type-numeric"><p>${national[i].name} <img src=${national[i].img} alt=""width="200px" height="130px" style="object-fit: cover;"></p></td>
           
             <td class="status dt-type-numeric">
-                <button onclick="deleteNational(${i})" class="text-dark"><i
+                <button onclick="deleteNational(${i})" class="text-dark delBtn"><i
                         class="fa-solid fa-trash-can"></i>
                     Delete</button>
             

@@ -14,7 +14,7 @@
   z-index: 4;
   left: 0;
   top: 0;
-  width: 100%;
+ max-width: 100%; 
 
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
@@ -27,7 +27,8 @@
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  max-width:70%;
+
 }
 
 .close {
@@ -67,7 +68,7 @@
   background: #fff;
   padding: 30px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-  min-height: 500px;
+  min-height: 200px;
 }
 
 .input-data {
