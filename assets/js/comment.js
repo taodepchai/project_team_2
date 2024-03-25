@@ -59,9 +59,11 @@ const newId = () => {
       comment.replies.forEach((item) => ids.push(item.id));
     }
   });
-
-  id = Math.max(...ids) + 1;
-
+  if (ids.length === 0) {
+    id = 1; 
+  } else {
+    id = Math.max(...ids) + 1;
+  }
   return id;
 };
 

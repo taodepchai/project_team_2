@@ -23,13 +23,17 @@ li:hover {
 li {
   padding: 10px;
 }
-.status button{
+.updateBtn{
   border: none;
   padding: 10px;
 }
-.status button:first-child:hover{
-  background-color: #f80a0a;
+.delBtn{
+  border: none;
+  padding: 10px;
 }
-.status button:last-child:hover{
-  background-color: #01f029;
+.updateBtn:hover{
+  background-color: var(--green);
+}
+.delBtn:hover{
+  background-color: var(--red);
 }

@@ -88,9 +88,10 @@
     // Lấy thông tin từ URL
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
-    let filmName = urlParams.get("film");
+    let filmName = urlParams.get("film"); 
     let episodeNumber = urlParams.get("ep");
     let data = films.find((film) => film.name === filmName);
+    console.log(data);
     // Hiển thị thông tin trên trang
     let filmInfoDiv = document.getElementById("filmInfo");
     filmInfoDiv.innerHTML = `
@@ -162,5 +163,6 @@
       }
       alert("Phim đã được thêm vào thư viện của bạn.");
     });
-  </script>
+  </script> 
+ 
 </html>

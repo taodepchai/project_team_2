@@ -1,5 +1,5 @@
 import { createCommentBox, createUserComment } from "./tempcomment.js";
-import { $DATA } from "./datacomment.js";
+import { $DATA, saveDataComment } from "./datacomment.js";
 import { CurrentUser } from "./comment.js";
 
 const time = [];
@@ -65,22 +65,6 @@ function showRefName() {
   textArea.value = `@${refName}, `;
 }
 
-export function upVote() {
-  const span = getElementByTagName.call(this, "span");
-  const score = this.score;
-  const newScore = score + 1;
-  this.score = newScore;
-  span.textContent = `${this.score}`;
-}
-
-export function downVote() {
-  const span = getElementByTagName.call(this, "span");
-  const score = this.score;
-  const newScore = score > 0 ? score - 1 : score;
-  this.score = newScore;
-  span.textContent = `${this.score}`;
-}
-
 function getCommentContent() {
   const textArea = getElementByTagName.call(this, "textArea");
   const span = document.createElement("span");
@@ -113,7 +97,7 @@ export function reply() {
       }
     });
   }
-
+  
   const li = getElementByTagName.call(this, "li");
 
   let ul;
@@ -127,6 +111,7 @@ export function reply() {
   showTime.call(user);
 
   this.open = false;
+  saveDataComment()
 }
 
 export function send() {
@@ -136,7 +121,7 @@ export function send() {
     $DATA.currentUser.username,
     $DATA.currentUser.image
   );
-
+ console.log(user);
   user.content = textArea.value.trim();
   const temp = createUserComment.call(user);
   ul.append(temp);
@@ -146,7 +131,10 @@ export function send() {
 
   textArea.value = "";
 
+ 
   $DATA.comments.push(user);
+
+ saveDataComment();
 }
 
 function deleteTemplate() {
@@ -159,6 +147,12 @@ function deleteTimeRunner(id) {
     if (userId == id) time.splice(index, 1);
   });
 }
+function deleteData(id){
+  $DATA.comments.forEach(element => {
+console.log(id);
+   if (element.id===id) $DATA.comments.splice(id-1,1);
+  });
+}
 
 export function deleteComment() {
   this.active = false;
@@ -168,7 +162,9 @@ export function deleteComment() {
   });
   deleteTemplate.call(this);
   deleteTimeRunner(this.id);
+  deleteData(this.id);
   console.log(this);
+  saveDataComment();
 }
 
 
@@ -186,6 +182,8 @@ function editTemplate() {
   this.content = pureText;
 
   removeEditBox.call(this);
+
+  saveDataComment();
 }
 
 export function removeEditBox() {
@@ -196,6 +194,7 @@ export function removeEditBox() {
   div.removeChild(textArea);
   div.removeChild(divUpdate);
   div.setAttribute("aria-toggle", "false");
+  saveDataComment();
 }
 function editTime() {
   const date = new Date();
@@ -237,6 +236,7 @@ export function edit() {
   this.edited.time = editTime();
   editTemplate.call(this);
   refreshTimer.call(this);
+  saveDataComment();
 }
 
 export class Time {

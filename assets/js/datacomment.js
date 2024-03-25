@@ -1,27 +1,22 @@
-export const $DATA = {
+let userList=JSON.parse(localStorage.getItem("userList"));
+let currentUser=JSON.parse(localStorage.getItem("currentUser"));
+
+let queryString = window.location.search;
+let urlParams = new URLSearchParams(queryString);
+let filmName = urlParams.get("film"); 
+let episodeNumber = urlParams.get("ep");
+let data = films.find((film) => film.name === filmName);
+
+
+export const $DATA =
+ {
   currentUser: {
     image: {
+      webp: `${currentUser.avatarUrl}`,
     },
-    username: "Dũng",
+    username: `${currentUser.username}`,
   },
-  comments: [
-
-    {
-      id: 2,
-      content:
-        "Phim như cc, nói chung là xóa web,Phim như cc, nói chung là xóa web, Phim như cc, nói chung là xóa web, cái gì quan trọng nói 3 lần",
-      createdAt: "2 weeks ago",
-      score: 5,
-      user: {
-        image: {
-        },
-        username: "Linhtranne",
-      },
-      replies: [
-        
-      ],
-    },
-  ],
+  comments: data.$DATA.comments||[],
 };
 
 (function () {
@@ -42,3 +37,15 @@ export const $DATA = {
     flagData(comment);
   });
 })();
+export function saveDataComment() {
+  let filmsList=JSON.parse(localStorage.getItem("films"));
+  for (let i = 0; i < filmsList.length; i++) {
+    if (filmsList[i].name===filmName) {
+       filmsList[i].$DATA=$DATA;
+       break;
+    }
+  }
+  console.log($DATA);
+
+  localStorage.setItem("films",JSON.stringify(filmsList));
+}
