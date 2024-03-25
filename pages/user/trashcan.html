@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: radial-gradient(rgb(53, 16, 16), #0f0f0f);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .film-list ul {
+        background: #ccc;
+        padding: 20px;
+      }
+
+      .film-list ul li {
+        background: rgb(152, 126, 126);
+      }
+
+      header {
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0px;
+      }
+
+      .back-home {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(34, 29, 29);
+        color: #fff;
+        border: none;
+      }
+
+      .back-home:hover {
+        background-color: #444444;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+
+      .film-list {
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .film-list h2 {
+        color: #fff;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .film-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .film-poster {
+        width: 150px;
+        height: 225px;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+
+      .film-info {
+        flex: 1;
+      }
+
+      .film-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .film-description {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .film-favorite-btn {
+        background-color: #f00;
+        border: none;
+        color: #fff;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s;
+      }
+
+      .film-favorite-btn:hover {
+        background-color: #cc0000;
+      }
+
+      .film-filter p {
+        color: #fff;
+      }
+
+      .film-filter {
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .film-genre select {
+        background-color: #0f0f0f;
+        padding: 10px;
+        color: #fff;
+      }
+
+      .year-of-film-release select {
+        background-color: #0f0f0f;
+        padding: 10px;
+        color: #fff;
+      }
+
+      .sort-film select {
+        background-color: #0f0f0f;
+        padding: 10px;
+        color: #fff;
+      }
+
+      .nation-film select {
+        background-color: #0f0f0f;
+        padding: 10px;
+        color: #fff;
+      }
+
+      .filter-button {
+        background-color: #f00;
+        color: #fff;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+    </style>
+    <title>Favorite Films</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="/pages/display.html" class="back-home">Back Home</a>
+      <h1>Trash Can</h1>
+      <button>
+        <!--================ Nhét cái avatar vào đây ===================-->
+      </button>
+    </header>
+    <main>
+      <section class="film-list">
+        <h2 style="font-size: 50px">Trash Can</h2>
+        <section class="film-filter">
+          <div class="film-genre">
+            <p><i class="fa-solid fa-list"></i> Thể loại</p>
+            <select name="" id="">
+              <option value="select">Select Genre</option>
+              <option value="Biography">Biography</option>
+              <option value="Drama">Drama</option>
+              <option value="History">History</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Romance">Romance</option>
+              <option value="War">War</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Action">Action</option>
+              <option value="Music">Music</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Sport">Sport</option>
+            </select>
+          </div>
+          <div class="year-of-film-release">
+            <p><i class="fa-regular fa-calendar-days"></i> Năm Phát hành</p>
+            <select name="" id="">
+              <option value="2008-2009">2008-2009</option>
+              <option value="2008-2009">2010-2011</option>
+              <option value="2008-2009">2012-2013</option>
+              <option value="2008-2009">2014-2015</option>
+              <option value="2008-2009">2016-2017</option>
+              <option value="2008-2009">2018-2019</option>
+              <option value="2008-2009">2020-2021</option>
+              <option value="2008-2009">2022-2023</option>
+              <option value="2008-2009">2024-2025</option>
+            </select>
+          </div>
+          <div class="sort-film">
+            <p><i class="fa-solid fa-layer-group"></i> Sắp xếp</p>
+            <select name="" id="">
+              <option value="oldest">oldest</option>
+              <option value="Latest">Latest</option>
+            </select>
+          </div>
+          <div class="nation-film">
+            <p><i class="fa-solid fa-globe"></i> Quốc Gia</p>
+            <select name="" id="">
+              <option value="viet-nam">vietnam</option>
+              <option value="america">America</option>
+            </select>
+          </div>
+          <button class="filter-button">Lọc</button>
+        </section>
+        <ul></ul>
+      </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy danh sách phim từ local storage
+            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            let library = currentUser.library || [];
+            let trashList = document.querySelector(".film-list ul");
+            trashList.innerHTML = "";
+            // Duyệt qua danh sách phim và tạo các phần tử hiển thị
+            library.forEach(function (film, index) {
+              // Tạo phần tử cho từng phim
+              let listItem = document.createElement("li");
+              listItem.classList.add("film-item");
+        
+              let posterImg = document.createElement("img");
+              posterImg.src = film.poster;
+              posterImg.alt = "Film poster";
+              posterImg.classList.add("film-poster");
+        
+              let filmInfo = document.createElement("div");
+              filmInfo.classList.add("film-info");
+        
+              let filmTitle = document.createElement("h3");
+              filmTitle.classList.add("film-title");
+              filmTitle.textContent = film.name;
+        
+              let filmDescription = document.createElement("p");
+              filmDescription.classList.add("film-description");
+              filmDescription.textContent = film.summary;
+        
+              // Tạo nút "Remove from Favorites"
+              let removeBtn = document.createElement("button");
+              removeBtn.classList.add("film-favorite-btn", "restore-btn"); // Thêm class restore-btn
+              removeBtn.textContent = "Restore";
+        
+              // Sự kiện click để xóa phim khỏi thư viện
+              removeBtn.addEventListener("click", function () {
+                event.stopPropagation();
+                // Thêm lại phim vào thư viện
+                library.push(film);
+                currentUser.library = library;
+                listItem.remove();
+                // Lưu lại vào trong local của tất cả đối tượng liên quan đến library
+                localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+                userList.forEach((element) => {
+                  if (element.username == currentUser.username) {
+                    element = currentUser;
+                  }
+                });
+                localStorage.setItem("userList", JSON.stringify(userList));
+              });
+        
+              filmInfo.appendChild(filmTitle);
+              filmInfo.appendChild(filmDescription);
+              filmInfo.appendChild(removeBtn); // Thêm nút Restore vào phần tử film-info
+        
+              listItem.appendChild(posterImg);
+              listItem.appendChild(filmInfo);
+        
+              trashList.appendChild(listItem);
+            });
+          });
+        
+    </script>
+  </body>
+</html>
