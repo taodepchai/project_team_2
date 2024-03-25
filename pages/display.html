@@ -34,7 +34,7 @@
         </li>
 
         <li>
-          <a href="">New/Popular Movies</a>
+          <button onclick="history()">History</button>
         </li>
       </ul>
     </div>
@@ -309,6 +309,8 @@
       slides[currentIndex].classList.add("active");
     }, 3000);
 
+
+    
     // Hàm lọc phim theo thể loại
     function filterFilmsByGenre(genre) {
       // Lặp qua tất cả các phim
@@ -328,13 +330,17 @@
 
     }
     let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
+    let username = currentUser.username;
+    function history(){
+      window.location.href=`/pages/user/history.html?username=${username}`;
+    }
     function profile() {
-      let username = currentUser.username;
+      
       console.log(username);
       window.location.href = `/pages/user/userinfo.html?username=${username}`;
     }
     function login() {
-      window.location.href = "/pages/user/login.html"
+      window.location.href = "/pages/user/login.html";
     }
     function logout() {
       swal({
