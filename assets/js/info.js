@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderInfoRight(data);
   console.table(films);
   let addToLibraryButton = document.querySelector(".add-to-library-button");
-
+  
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
     let currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];

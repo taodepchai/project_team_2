@@ -25,6 +25,11 @@ function validateForm() {
     document.getElementById("phoneError").innerHTML = "";
   }
 
+  if (/\s/.test(username)) {
+    alert("Tên đăng nhập không được chứa dấu cách!");
+    return;
+  }
+
   var userList = JSON.parse(localStorage.getItem("userList")) || [];
   var existingUser = userList.find(function (user) {
     return user.username === username;

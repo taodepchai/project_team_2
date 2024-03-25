@@ -17,7 +17,7 @@
 //     episode: 20,
 //   },
 //   {
-//     name: "The Reunion Wedding",
+//     name: "Anyone But You",
 //     img: "https://images.metahub.space/logo/medium/tt26047818/img",
 //     release_year: 2023,
 //     genres: ["Comedy", "Romance"],
@@ -86,7 +86,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "Air Force",
+//     name: "Land Of Bad",
 //     img: "https://images.metahub.space/logo/medium/tt19864802/img",
 //     release_year: 2024,
 //     runtime: "100m",
@@ -103,7 +103,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "Summer Estate",
+//     name: "Saltburn",
 //     img: "https://images.metahub.space/logo/medium/tt17351924/img",
 //     release_year: 2023,
 //     runtime: "100m",
@@ -120,7 +120,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "Von Erich",
+//     name: "The Iron Claw",
 //     img: "https://images.metahub.space/logo/medium/tt21064584/img",
 //     release_year: 2023,
 //     runtime: "100m",
@@ -154,7 +154,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "The Cranky Teacher",
+//     name: "THe Holdovers",
 //     img: "https://images.metahub.space/logo/medium/tt14849194/img",
 //     release_year: 2023,
 //     runtime: "100m",
@@ -188,7 +188,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "30 Years Later",
+//     name: "All Of Us Strangers",
 //     img: "https://images.metahub.space/logo/medium/tt21192142/img",
 //     release_year: 2023,
 //     runtime: "100m",
@@ -222,7 +222,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "The Son's Dilemma",
+//     name: "Anatomy Of A Fall",
 //     img: "https://images.metahub.space/logo/medium/tt17009710/img",
 //     release_year: 2023,
 //     runtime: "100m",
@@ -239,7 +239,7 @@
 //     episode: 8,
 //   },
 //   {
-//     name: "First Class Fib",
+//     name: "Update",
 //     img: "https://live.metahub.space/logo/medium/tt21830902/img",
 //     release_year: 2024,
 //     runtime: "100m",

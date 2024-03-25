@@ -99,7 +99,8 @@
     `;
 
     //render ep
-    function renderInfoRight(data) {
+    //render ep
+    function renderInfoRight(data, episodeNumber) {
       const background = document.createElement("div");
       background.classList.add("background");
 
@@ -108,15 +109,22 @@
       for (let i = 0; i < data.episode; i++) {
         let buttonEp = document.createElement("div");
         buttonEp.classList.add("stream-info");
-        buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
+
+        // Kiểm tra xem có phải là tập phim hiện tại không để thay đổi nền
+        let temp = i+1;
+        if (temp === parseInt(episodeNumber)) {
+          buttonEp.classList.add("episode-link");
+        }
+
+        buttonEp.innerHTML = `<a .episode-link href="/pages/watchFilm.html?film=${
           data.name
         }&ep=${i + 1}">
-                    <img src="${data.background_img}" alt="">
-                    Episode ${i + 1}<i
-                      class="fa-solid fa-circle-play fa-2xl"
-                      style="color: #00ff40"
-                    ></i>
-                  </a>`;
+                <img src="${data.background_img}" alt="">
+                Episode ${i + 1}<i
+                  class="fa-solid fa-circle-play fa-2xl"
+                  style="color: #00ff40"
+                ></i>
+              </a>`;
         background.appendChild(buttonEp);
       }
       background.appendChild(streamInfo);
@@ -128,7 +136,8 @@
 
       document.body.appendChild(infoRight);
     }
-    renderInfoRight(data);
+    // Sử dụng hàm renderInfoRight với tham số currentEpisode truyền vào
+    renderInfoRight(data, episodeNumber);
 
     let addToLibraryButton = document.querySelector(".add-to-library-button");
 

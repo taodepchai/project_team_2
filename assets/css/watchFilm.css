@@ -36,12 +36,14 @@ a{
     background-color: #312e2e;
 }
 .watch-film {
+
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 180px;
     margin-left:60px ;
 }
 .film-display iframe{
+   
     border-radius: 20px;
 }
 .film-information {
@@ -56,6 +58,9 @@ a{
     border-radius: 20px;
 }
 
+.episode-link {
+background-color: lightgray;
+  }
 body::-webkit-scrollbar {
     width: 10px;
   }
