@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <td>${userList[i].email}</td>
           <td>${userList[i].date}</td>
           <td class="status">
-              <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-eye"></i></a>
+              <a href="javascript:void(0)" onclick="printInfoUser(${i})"><i class="fa-solid fa-eye"></i></a>
               <a href="javascript:void(0)" onclick="lockAcc(${i})"><i class="fa-solid fa-lock-open"></i></a>
               <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-crown"></i></a>
           </td>
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   new DataTable("#table");
 });
-// Sự kiện mở(khóa acc); 
+// Sự kiện mở(khóa acc);
 function lockAcc(index) {
   Swal.fire({
     title: "Tài khoản này sẽ bị khóa?",
@@ -39,11 +39,13 @@ function lockAcc(index) {
       let statusAcc = document.querySelectorAll(".status");
       statusAcc[index].innerHTML = `
           <td class="status">
-              <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-eye"></i></a>
+              <a href="javascript:void(0)" onclick="printInfoUser(${i})"><i class="fa-solid fa-eye"></i></a>
               <a href="javascript:void(0)" onclick="openAcc(${index})"><i class="fa-solid fa-lock"></i></a>
               <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-crown"></i></a>
           </td>
         `;
+      userList[index].status = "Blocked";
+      localStorage.setItem("userList", JSON.stringify(userList));
     }
   });
 }
@@ -60,11 +62,16 @@ function openAcc(index) {
       let statusAcc = document.querySelectorAll(".status");
       statusAcc[index].innerHTML = `
           <td class="status">
-              <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-eye"></i></a>
+              <a href="javascript:void(0)" onclick="printInfoUser(${i})"><i class="fa-solid fa-eye"></i></a>
               <a href="javascript:void(0)" onclick="lockAcc(${index})"><i class="fa-solid fa-lock-open"></i></a>
               <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-crown"></i></a>
           </td>
         `;
+      userList[index].status = "Normal";
+      localStorage.setItem("userList", JSON.stringify(userList));
     }
   });
+}
+function printInfoUser(index) {
+  openModal();
 }
