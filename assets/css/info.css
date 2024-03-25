@@ -227,3 +227,7 @@ body {
     width: 160px;
     height: auto;
   }
+
+  .episode-link {
+   background-color: lightgray;
+  }

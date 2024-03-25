@@ -128,12 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
   renderInfoRight(data);
   console.table(films);
   let addToLibraryButton = document.querySelector(".add-to-library-button");
-
+  
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
     let currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
     if (currentUser == "") {
-      alert("Vui lòng đăng nhập để sử dụng chức năng này.");
+      swal({
+          title: "ERROR!",
+          text: "Vui lòng đăng nhập để sử dụng chức năng này!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
       return;
     }
     // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
@@ -142,7 +148,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let library = currentUser.library || [];
     for (let i = 0; i < library.length; i++) {
       if (library[i].name === films[filmId].name) {
-        alert("Phim đã tồn tại trong thư viện của bạn.");
+        swal({
+          title: "ERROR!",
+          text: "Phim đã tồn tại trong thư viện của bạn!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
         return;
       }
     }
@@ -157,6 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
       userList[userIndex] = currentUser;
       localStorage.setItem("userList", JSON.stringify(userList));
     }
-    alert("Phim đã được thêm vào thư viện của bạn.");
+    swal("Good job!", "Phim đã được thêm vào thư viện của bạn!", "success");
   });
 });

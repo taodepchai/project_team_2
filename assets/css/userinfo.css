@@ -65,6 +65,25 @@ h1 {
   background-color: #ff3e4d;
 }
 
+#changePassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#submitPassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
 .profile-head {
   width: 100%;
   text-align: left;

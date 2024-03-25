@@ -44,14 +44,14 @@
         <div class="spacer"></div>
         <div class="form-group">
           <label for="email" class="form-label">Tên tài khoản</label>
-          <input id="username" name="username" type="text" placeholder="" class="form-control" />
-          <span class="form-message"></span>
+          <input id="username" name="username" type="text" placeholder="*Nhập tên tài khoản" class="form-control" />
+          <span id="usernameError" class="form-message"></span>
         </div>
 
         <div class="form-group">
           <label for="password" class="form-label">Mật khẩu</label>
-          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control" />
-          <span class="form-message"></span>
+          <input id="password" name="password" type="password" placeholder="*Nhập mật khẩu" class="form-control" />
+          <span id="passwordError" class="form-message"></span>
         </div>
 
         <div class="form-group f-term">
@@ -59,8 +59,9 @@
           <label for="agree" class="form-label">
             Tôi đồng ý với tất cả các tuyên bố trong
             <a href="/pages/user/ternofsv.html">Terms of service</a></label>
-          <span class="form-message"></span>
         </div>
+        <br>
+        <span id="agreeError" class="form-message"></span>
         <div class="sign-up">
           <div>
             <button class="form-submit">Đăng nhập</button>
@@ -73,5 +74,6 @@
   <script src="/vendor/datas.js"></script>
   <script src="/assets/js/login.js"></script>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </html>

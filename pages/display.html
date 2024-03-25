@@ -34,7 +34,7 @@
         </li>
 
         <li>
-          <a href="">New/Popular Movies</a>
+          <button onclick="history()">History</button>
         </li>
       </ul>
     </div>
@@ -93,6 +93,7 @@
             <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
             <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log
               out</a><br>
+            <a href="/pages/user/premium.html"><i class="fa-solid fa-crown"></i> Get premium</a>
           </div>
         </li>
 
@@ -105,7 +106,7 @@
 
   <!-- render film -->
   <h1>Film-Movie</h1>
-  
+
   <div class="nav-buttons">
     <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
     <div class="filmList" id="filmList"></div>
@@ -116,7 +117,7 @@
   <section class="footer-main">
     <div class="footer-top">
       <div class="footer-top-left">
-        <p>Social network</p>
+        <p>Contact us via Social Networks:</p>
       </div>
       <div class="footer-top-right">
         <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
@@ -135,12 +136,12 @@
         <div class="footer-buttom-left-logo">
           <img src="/assets/img/logo.png" alt="" width="300px">
         </div>
-        <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
+        <p>Making you satisfied is our motto.</p>
       </div>
       <div class="footer-buttom-right">
         <ul>
           <li><b>Contact Us</b></li>
-          <li>thieunguyen11022005@gmail.com</li>
+          <li>thieune123@gmail.com</li>
           <li>linhne123@gmail.com</li>
           <li>dungne123@gmail.com</li>
           <li>hoangne123@gmail.com</li>
@@ -183,7 +184,7 @@
     </div>
     <div class="final-words">
       &#169;
-      <p>2024 Copyright team 2</p>
+      <p>2024 Copyright by team 2</p>
     </div>
   </section>
 
@@ -306,6 +307,8 @@
       slides[currentIndex].classList.add("active");
     }, 3000);
 
+
+    
     // Hàm lọc phim theo thể loại
     function filterFilmsByGenre(genre) {
       // Lặp qua tất cả các phim
@@ -325,17 +328,34 @@
 
     }
     let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
+    let username = currentUser.username;
+    function history(){
+      window.location.href=`/pages/user/history.html?username=${username}`;
+    }
     function profile() {
-      let username = currentUser.username;
+      
       console.log(username);
       window.location.href = `/pages/user/userinfo.html?username=${username}`;
     }
     function login() {
-      window.location.href = "/pages/user/login.html"
+      window.location.href = "/pages/user/login.html";
     }
     function logout() {
-      localStorage.removeItem("currentUser");
-      login();
+      swal({
+        title: "có phải bạn muốn đăng xuất ra khỏi trang web!",
+        //text: "có phải bạn muốn đăng xuất ra khỏi trang web!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            localStorage.removeItem("currentUser");
+            login();
+          } else {
+            swal("Đăng xuất thất bại.");
+          }
+        });
     }
     document.addEventListener("DOMContentLoaded", function () {
       let signinBtn = document.getElementById("signinBtn");
@@ -348,7 +368,7 @@
         let username = currentUser.username;
         avtURL = currentUser.avatarUrl;
         usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-        usernameDrop.innerHTML = `${username}`
+        usernameDrop.innerHTML = `${username}`  
 
       } else {
         signinBtn.style.display = "block";
@@ -358,5 +378,6 @@
 
   </script>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </html>
