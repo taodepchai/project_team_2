@@ -82,7 +82,7 @@ body{
    position: relative;
    width: 1090px;
    z-index: 3;
-   height: 580px;
+   height: 650px;
    background-image: url(/assets/images/netflix_background.png);
    background-repeat: no-repeat;
    background-size: cover;
@@ -255,4 +255,8 @@ body{
 
 .sign-up a:hover{
    color: red;
+}
+.form-message{
+   color: red;
+   margin-top: 20px;
 }

@@ -171,14 +171,12 @@
     <a href="/pages/display.html" class="back-home">Back Home</a>
     <h1>A collection of my all-time favorite films</h1>
     <button>
-
       <!--================ Nhét cái avatar vào đây ===================-->
-
     </button>
   </header>
   <main>
     <section class="film-list">
-      <h2 style="font-size: 50px;">My Favorite Films</h2>
+      <h2 style="font-size: 50px">My Favorite Films</h2>
       <section class="film-filter">
         <div class="film-genre">
           <p><i class="fa-solid fa-list"></i> Thể loại</p>
@@ -234,8 +232,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       // Lấy danh sách phim từ local storage
       let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      let library =
-        currentUser.library || [];
+      let library = currentUser.library || [];
       let filmList = document.querySelector(".film-list ul");
       filmList.innerHTML = "";
       // Duyệt qua danh sách phim và tạo các phần tử hiển thị
@@ -267,17 +264,34 @@
 
         // Sự kiện click để xóa phim khỏi thư viện
         removeBtn.addEventListener("click", function () {
-          library.splice(index, 1);
-          currentUser.library = library;
-          listItem.remove();
-          // Lưu lại vào trong local của tất cả đối tượng liên quan đến library
-          localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-          userList.forEach((element) => {
-            if (element.username == currentUser.username) {
-              element = currentUser;
-            }
-          });
-          localStorage.setItem("userList", JSON.stringify(userList));
+
+          event.stopPropagation();
+          swal({
+            title: "Bạn có chắc chắn muốn xoá phim khỏi danh sách yêu thích?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                swal("Phim đã được xoá khỏi danh sách yêu thích", {
+                  icon: "success",
+                });
+                library.splice(index, 1);
+                currentUser.library = library;
+                listItem.remove();
+                // Lưu lại vào trong local của tất cả đối tượng liên quan đến library
+                localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+                userList.forEach((element) => {
+                  if (element.username == currentUser.username) {
+                    element = currentUser;
+                  }
+                });
+                localStorage.setItem("userList", JSON.stringify(userList));
+              } else {
+                swal("Xoá thất bại");
+              }
+            });
         });
 
         listItem.addEventListener("click", function () {
@@ -301,6 +315,6 @@
     });
   </script>
 </body>
-<script src="https://kit.fontawesome.com/40a8505060.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </html>

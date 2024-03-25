@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>watch</title>
+    <link rel="stylesheet" href="/assets/css/watchFilm.css" />
+    <link rel="stylesheet" href="/assets/css/info.css" />
+  </head>
+
+  <body>
+    <section class="watch-film">
+      <div class="film-display">
+        <iframe
+          width="1200px"
+          height="700px"
+          src="https://ww1.vuaphimmoiz.net/jwplayer?source=https%3A%2F%2Fhls.streamcdn.xyz%2Fm3u8%2F1e438f10-8de2-57dd-87e3-103ccf3be6bb&id=&type=hls"
+          frameborder="0"
+        >
+        </iframe>
+        <div class="function-buttons">
+          <a href=""
+            ><i class="fa-solid fa-arrow-up-right-from-square"></i> Phóng to</a
+          >
+          <a href=""><i class="fa-solid fa-forward-step"></i> Chuyển tập</a>
+          <a href=""><i class="fa-solid fa-circle-exclamation"></i> Báo cáo</a>
+          <button  class="add-to-library-button"
+            ><i class="fa-regular fa-square-plus"></i> thêm vào danh sách</button
+          >
+        </div>
+        <div id="filmInfo"></div>
+        <div class="film-comment">pull coment</div>
+      </div>
+    </section>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/40a8505060.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    let films = JSON.parse(localStorage.getItem("films"));
+    // Lấy thông tin từ URL
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let filmName = urlParams.get("film");
+    let episodeNumber = urlParams.get("ep");
+    let data = films.find((film) => film.name === filmName);
+    // Hiển thị thông tin trên trang
+    let filmInfoDiv = document.getElementById("filmInfo");
+    filmInfoDiv.innerHTML = `
+        <h2>Watch ${filmName}, Episode ${episodeNumber}</h2>
+        <p>${data.summary}</p>
+    `;
+
+    //render ep
+    function renderInfoRight(data) {
+      const background = document.createElement("div");
+      background.classList.add("background");
+
+      const streamInfo = document.createElement("div");
+      streamInfo.classList.add("stream-info");
+      for (let i = 0; i < data.episode; i++) {
+        let buttonEp = document.createElement("div");
+        buttonEp.classList.add("stream-info");
+        buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
+          data.name
+        }&ep=${i + 1}">
+                    <img src="${data.background_img}" alt="">
+                    Episode ${i + 1}<i
+                      class="fa-solid fa-circle-play fa-2xl"
+                      style="color: #00ff40"
+                    ></i>
+                  </a>`;
+        background.appendChild(buttonEp);
+      }
+      background.appendChild(streamInfo);
+
+      const infoRight = document.createElement("div");
+      infoRight.classList.add("info-right");
+
+      infoRight.appendChild(background);
+
+      document.body.appendChild(infoRight);
+    }
+    renderInfoRight(data);
+
+    let addToLibraryButton = document.querySelector(".add-to-library-button");
+
+    // Thêm sự kiện click vào nút "Add to Library"
+    addToLibraryButton.addEventListener("click", function () {
+      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (currentUser == "") {
+        alert("Vui lòng đăng nhập để sử dụng chức năng này.");
+        return;
+      }
+      // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
+      let filmId = parseInt(this.getAttribute("data-film-id"));
+      let userList = JSON.parse(localStorage.getItem("userList"));
+      let library = currentUser.library || [];
+      for (let i = 0; i < library.length; i++) {
+        if (library[i].name === films[filmId].name) {
+          alert("Phim đã tồn tại trong thư viện của bạn.");
+          return;
+        }
+      }
+      let updatedLibrary = [...currentUser.library, films[filmId]];
+      currentUser.library = updatedLibrary;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+      const userIndex = userList.findIndex(
+        (user) => user.username === currentUser.username
+      );
+      if (userIndex !== -1) {
+        userList[userIndex] = currentUser;
+        localStorage.setItem("userList", JSON.stringify(userList));
+      }
+      alert("Phim đã được thêm vào thư viện của bạn.");
+    });
+  </script>
+</html>

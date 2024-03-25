@@ -14,21 +14,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function login() {
   const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
+  const password = document.getElementById("password").value;
   const agreeCheckbox = document.getElementById("agree");
-
-  if (username === "" || password === "") {
-    alert("Vui lòng điền đầy đủ thông tin đăng nhập.");
+  if (username === "") {
+    document.getElementById("usernameError").innerHTML = "Vui lòng điền đầy đủ thông tin tên đăng nhập";
     return;
+  }else {
+    document.getElementById("usernameError").innerHTML = "";
   }
+  if (password === "") {
+    document.getElementById("passwordError").innerHTML = "Vui lòng điền đầy đủ thông tin tên mật khẩu";
+    return;
+  }else {
+    document.getElementById("passwordError").innerHTML = "";
+  }
+  
   if (!agreeCheckbox.checked) {
-    alert("Vui lòng đồng ý với các điều khoản dịch vụ.");
+    document.getElementById("agreeError").innerHTML = "Vui lòng đồng ý với các điều khoản dịch vụ.";
     return;
   }
 
   const userListString = localStorage.getItem("userList");
   if (!userListString) {
-    alert("Không có tài khoản người dùng nào được tìm thấy.");
+    swal({
+          title: "ERROR!",
+          text: "Không có tài khoản người dùng nào được tìm thấy!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
     return;
   }
 
@@ -37,13 +51,19 @@ function login() {
     userList = JSON.parse(userListString);
   } catch (error) {
     console.error("Lỗi khi phân tích cú pháp dữ liệu người dùng:", error);
-    alert("Đã xảy ra lỗi khi đọc dữ liệu người dùng.");
+    swal({
+          title: "ERROR!",
+          text: "Đã xảy ra lỗi khi đọc dữ liệu người dùng!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
     return;
   }
 
   if (!Array.isArray(userList)) {
     console.error("Dữ liệu người dùng không phải là một mảng.");
-    alert("Dữ liệu người dùng không hợp lệ.");
+    document.getElementById("usernameError").innerHTML = "Dữ liệu người dùng không hợp lệ.";
     return;
   }
   if (username == "admin" && password == "admin") {
@@ -54,14 +74,27 @@ function login() {
       (user) => user.username === username && user.password === password
     );
     if (loggedInUser) {
-      alert("Đăng nhập thành công!");
       console.log(loggedInUser);
       localStorage.setItem("currentUser", JSON.stringify(loggedInUser));
-      window.location.href = "/pages/display.html";
+      swal({
+    title: "Success",
+    text: "Bạn đã đăng nhập thành công",
+    icon: "success",
+    // buttons: true,
+    dangerMode: true,
+  })
+  .then(() => {
+    window.location.href = "/pages/display.html";
+  });
+      
     } else {
-      alert(
-        "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu."
-      );
+      swal({
+          title: "ERROR!",
+          text: "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
     }
   }
 }

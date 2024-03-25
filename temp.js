@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   renderFilmData(data);
+
   function renderInfoRight(data) {
     const background = document.createElement("div");
     background.classList.add("background");
@@ -105,15 +106,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < data.episode; i++) {
       let buttonEp = document.createElement("div");
       buttonEp.classList.add("stream-info");
-      buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
-        data.name
-      }&ep=${i + 1}">
+      buttonEp.innerHTML = `<button>
                 <img src="${data.background_img}" alt="">
                 Episode ${i + 1}<i
                   class="fa-solid fa-circle-play fa-2xl"
                   style="color: #00ff40"
                 ></i>
-              </a>`;
+              </button>`;
       background.appendChild(buttonEp);
     }
     background.appendChild(streamInfo);
@@ -131,35 +130,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
-    let currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser == "") {
-      swal({
-          title: "ERROR!",
-          text: "Vui lòng đăng nhập để sử dụng chức năng này!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
+      alert("Vui lòng đăng nhập để sử dụng chức năng này.");
       return;
     }
-    // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
+
     let filmId = parseInt(this.getAttribute("data-film-id"));
     let userList = JSON.parse(localStorage.getItem("userList"));
     let library = currentUser.library || [];
+
     for (let i = 0; i < library.length; i++) {
       if (library[i].name === films[filmId].name) {
-        swal({
-          title: "ERROR!",
-          text: "Phim đã tồn tại trong thư viện của bạn!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
+        // Remove the film from the library
+        library = library.filter((film) => film.name !== films[filmId].name);
+        currentUser.library = library;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        const userIndex = userList.findIndex(
+          (user) => user.username === currentUser.username
+        );
+        if (userIndex !== -1) {
+          userList[userIndex] = currentUser;
+          localStorage.setItem("userList", JSON.stringify(userList));
+        }
+
+        this.innerHTML = `<img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library`;
+        this.querySelector("img").setAttribute(
+          "src",
+          "/assets/img/new-folder.png"
+        );
+        alert("Phim đã được xóa khỏi thư viện của bạn.");
         return;
       }
     }
-    let updatedLibrary = [...currentUser.library, films[filmId]];
-    currentUser.library = updatedLibrary;
+
+    // Add the film to the library
+    for (let i = 0; i < films.length; i++) {
+      if (films[i].id === filmId) {
+        library.push(films[i]);
+        break;
+      }
+    }
+    currentUser.library = library;
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
     const userIndex = userList.findIndex(
@@ -169,6 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
       userList[userIndex] = currentUser;
       localStorage.setItem("userList", JSON.stringify(userList));
     }
-    swal("Good job!", "Phim đã được thêm vào thư viện của bạn!", "success");
+
+    this.innerHTML = `<img src="/assets/img/remove-folder.png" alt="" /> &ensp; Remove from Library`;
+    this.querySelector("img").setAttribute(
+      "src",
+      "/assets/img/remove-folder.png"
+    );
+    alert("Phim đã được thêm vào thư viện của bạn.");
   });
 });

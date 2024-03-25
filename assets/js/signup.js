@@ -16,22 +16,36 @@ function validateForm() {
     document.getElementById("emailError").innerHTML = "";
   }
 
-  var phoneRegex = /^[0-9]{10,}$/;
+  var phoneRegex = /^[0-9]{10,15}$/;
   if (!phoneRegex.test(phone)) {
-    document.getElementById("phoneError").innerHTML =
-      "Số điện thoại không hợp lệ";
+    // console.log(1);
+    document.getElementById("phoneError").innerHTML ="Số điện thoại không hợp lệ";
     return;
   } else {
+    // console.log(1);
+
     document.getElementById("phoneError").innerHTML = "";
   }
-
+  if (/\s/.test(username)) {
+    document.getElementById("usernameError").innerHTML ="Tài khoản không chứa dấu cách!";
+    return;
+  }
+  
+  if (password === "") {
+    document.getElementById("errorPassword").innerHTML ="Vui lòng nhập mật khẩu!";
+    return;
+  }
+  if (password.length < 6) {
+    document.getElementById("errorPassword").innerHTML ="Mật khẩu không hợp lệ!";
+    return;
+  }
   var userList = JSON.parse(localStorage.getItem("userList")) || [];
   var existingUser = userList.find(function (user) {
     return user.username === username;
   });
 
   if (existingUser) {
-    alert("Tài khoản đã được sử dụng!");
+    document.getElementById("usernameError").innerHTML ="Tài khoản đã được sử dụng!";
     return;
   }
   var existingEmail = userList.find(function (user) {
@@ -39,14 +53,14 @@ function validateForm() {
   });
 
   if (existingEmail) {
-    alert("Email đã được sử dụng!");
+    document.getElementById("emailError").innerHTML = "Email đã được sử dụng!";
     return;
   }
   if (password !== confirmPassword) {
-    alert("Mật khẩu không khớp!");
+    document.getElementById("passwordError").innerHTML ="Mật khẩu không trùng khớp";
     return;
   } else if (!agree) {
-    alert("Bạn phải đồng ý với điều khoản!");
+    document.getElementById("formMessageError").innerHTML ="Bạn phải đồng ý với điều khoản!";
     return;
   } else {
     // Tạo đối tượng user mới
@@ -68,9 +82,18 @@ function validateForm() {
     // Lưu mảng userList vào localStorage
     localStorage.setItem("userList", JSON.stringify(userList));
 
-    alert("Đăng ký thành công!");
+    swal({
+    title: "Success",
+    text: "Bạn đã đăng ký thành công",
+    icon: "success",
+    // buttons: true,
+    dangerMode: true,
+  })
+  .then(() => {
     window.location.href = "/pages/user/login.html";
+  });
   }
+  
 }
 
 document.addEventListener("DOMContentLoaded", function () {
