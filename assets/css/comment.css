@@ -302,7 +302,9 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
+  height: 100%;
   background-color: rgba(50, 65, 82, 0.7);
+  color: black;
 }
 
 .model__card {
@@ -445,4 +447,12 @@ textarea:focus-visible {
 
 .hidden {
   display: none;
+}
+
+.model__container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: auto;
 }
