@@ -105,17 +105,29 @@
             deleteButton.textContent = "Xoá khỏi lịch sử xem";
             deleteButton.onclick = function () {
               // Xoá mục lịch sử
-              let index = currentUser.history.findIndex(
-                (historyItem) =>
-                  historyItem.film === item.film &&
-                  historyItem.episode === item.episode
-              );
-              currentUser.history.splice(index, 1);
-              tempUser.history.splice(index, 1);
-              localStorage.setItem("currentUser",JSON.stringify(tempUser));
-              localStorage.setItem("userList", JSON.stringify(userList));
-              // Xóa phần tử hiển thị
-              feedItem.remove();
+              swal({
+                title: "Bạn có chắc chắn muốn xoá phim lịch sử xem?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              }).then((willDelete) => {
+                if (willDelete) {
+                  swal("Phim đã được xoá khỏi lịch sử xem", {
+                    icon: "success",
+                  });
+                  let index = currentUser.history.findIndex(
+                    (historyItem) =>
+                      historyItem.film === item.film &&
+                      historyItem.episode === item.episode
+                  );
+                  currentUser.history.splice(index, 1);
+                  tempUser.history.splice(index, 1);
+                  localStorage.setItem("currentUser", JSON.stringify(tempUser));
+                  localStorage.setItem("userList", JSON.stringify(userList));
+                  // Xóa phần tử hiển thị
+                  feedItem.remove();
+                }
+              });
             };
 
             infoContent.appendChild(h3);
@@ -131,9 +143,9 @@
 
             // Gắn feed__item vào feed__section
             feedSection.appendChild(feedItem);
-          // document.getElementById("feed__item").addEventListener("click", function(){
-           //window.location.href=`/pages/watchFilm.html?film=${film.name}&ep=${item.episode}`;
-           //});
+            // document.getElementById("feed__item").addEventListener("click", function(){
+            //window.location.href=`/pages/watchFilm.html?film=${film.name}&ep=${item.episode}`;
+            //});
           }
         });
       });
@@ -158,22 +170,34 @@
       document
         .getElementById("deleteAllButton")
         .addEventListener("click", function () {
-          let confirmation = confirm("Bạn có chắc muốn xóa toàn bộ lịch sử?");
-          if (confirmation) {
-            let urlParams = new URLSearchParams(window.location.search);
-            let username = urlParams.get("username");
-            currentUser.history = [];
-            localStorage.setItem("currentUser",JSON.stringify(currentUser));
-            let currentUserIndex = userList.findIndex(
-              (user) => user.username === username
-            );
-            if (currentUserIndex !== -1) {
-              userList[currentUserIndex] = currentUser;
-              localStorage.setItem("userList", JSON.stringify(userList));
-              document.querySelector(".feed__section").innerHTML = "";
-            }
-          }
+          swal({
+            title: "Bạn có chắc chắn muốn xoá toàn bộ lịch sử?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              swal("toàn bộ lịch sử đã được xoá", {
+                icon: "success",
+              });
+              let urlParams = new URLSearchParams(window.location.search);
+              let username = urlParams.get("username");
+              currentUser.history = [];
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
+              let currentUserIndex = userList.findIndex(
+                (user) => user.username === username
+              );
+              if (currentUserIndex !== -1) {
+                userList[currentUserIndex] = currentUser;
+                localStorage.setItem("userList", JSON.stringify(userList));
+                document.querySelector(".feed__section").innerHTML = "";
+              }
+            } 
+          });
+
+          
         });
     </script>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>

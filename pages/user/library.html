@@ -426,9 +426,7 @@
                   }
                 });
                 localStorage.setItem("userList", JSON.stringify(userList));
-              } else {
-                swal("Xoá thất bại");
-              }
+              } 
             });
         });
 
@@ -477,8 +475,6 @@
         if (willDelete) {
           localStorage.removeItem("currentUser");
           login();
-        } else {
-          swal("Đăng xuất thất bại.");
         }
       });
   }
