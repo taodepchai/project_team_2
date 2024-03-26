@@ -22,6 +22,7 @@ btnSend.addEventListener("click", send);
 btnCancel.addEventListener("click", closeModel);
 
 btnDelete.addEventListener("click", function () {
+
   deleteComment.call(user);
   closeModel();
 });

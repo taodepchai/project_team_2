@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
               alt="imdb"
             /></p></td>
           <td class="status dt-type-numeric">
-              <button onclick="deleteMovie(${i})" class="text-dark"><i
+              <button  onclick="deleteMovie(${i})" class="text-dark delBtn"><i
                       class="fa-solid fa-trash-can"></i>
                   Delete</button>
-              <button onclick="updateMovie(${i})" class="text-dark"><i
+              <button onclick="updateMovie(${i})" class="text-dark updateBtn"><i
                       class="fa-solid fa-wrench"></i>
                   Update</button>
       

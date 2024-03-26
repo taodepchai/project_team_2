@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <td class="dt-type-numeric"><p>${genreList[i]}</td>
           
             <td class="status dt-type-numeric">
-                <button onclick="deleteGenres(${i})" class="text-dark"><i
+                <button onclick="deleteGenres(${i})" class="text-dark delBtn"><i
                         class="fa-solid fa-trash-can"></i>
                     Delete</button>
             

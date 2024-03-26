@@ -74,6 +74,10 @@ function validateForm() {
       status: "Normal",
       library:[],
       avatarUrl:"/assets/images/clone.jpg",
+      history:[],
+      $DATA:{
+        comments:[],
+      }
     };
 
     // Thêm user mới vào mảng userList

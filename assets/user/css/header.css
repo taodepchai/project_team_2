@@ -30,6 +30,12 @@ li{
     align-items: center;
 }
 
+.header-left ul li button{
+    gap: 40px;
+color: white; 
+background-color: #000;  
+border: none; align-items: center;
+}
 .header-right ul .header-right-sign-in button{
     background-color: red;
     border: none;
