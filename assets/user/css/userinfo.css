@@ -1,0 +1,175 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/assets/images/netflix_background.png");
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  color: #e50914;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+#avatar {
+  max-width: 70%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  width: 400px;
+  height: 100%;
+}
+
+.file-input {
+  display: none;
+}
+
+#edit-avatar,
+#edit-button {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#edit-avatar:hover,
+#edit-button:hover {
+  background-color: #ff3e4d;
+}
+
+#changePassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#submitPassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.profile-head {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profile-head h5 {
+  color: #e5e5e5;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e5e5e5;
+}
+
+p {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  margin: 0 10px;
+}
+
+#error-messages {
+  color: red;
+  margin-bottom: 10px;
+}
+
+#edit-buttons {
+  text-align: center;
+}
+
+#save-button,
+#undo-button {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+#save-button:hover,
+#undo-button:hover {
+  background-color: #ff3e4d;
+}
+
+#personal-info {
+  width: 100%;
+}
+
+#avatar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-form {
+  width: 100%;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/user/css/login.css" />
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <div class="login-container">
+    <div>
+      <div class="logo">
+        <img src="/vendor/images/netflix_logo.png" alt="netflix" />
+      </div>
+      <div class="register">
+        <div>Đăng nhập</div>
+        <p>
+          Đăng nhập để truy cập tất cả các tính năng của dịch vụ của chúng
+          tôi. Quản lý doanh nghiệp của bạn ở một nơi. Nó miễn phí
+        </p>
+        <div class="social">
+          <a data-toggle="tooltip" title="Facebook" href=""><i class="fab fa-facebook-f"></i></a>
+          <a data-toggle="tooltip" title="Google" href=""><i class="fab fa-google"></i></a>
+          <a data-toggle="tooltip" title="Pinterest" href=""><i class="fab fa-pinterest-p"></i></a>
+          <a data-toggle="tooltip" title="Github" href=""><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-login">
+      <form class="form" id="form-2">
+        <h3 class="heading">Đăng nhập</h3>
+        <div class="spacer"></div>
+        <div class="form-group">
+          <label for="email" class="form-label">Tên tài khoản</label>
+          <input id="username" name="username" type="text" placeholder="*Nhập tên tài khoản" class="form-control" />
+          <span id="usernameError" class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input id="password" name="password" type="password" placeholder="*Nhập mật khẩu" class="form-control" />
+          <span id="passwordError" class="form-message"></span>
+        </div>
+
+        <div class="form-group f-term">
+          <input id="agree" name="agree" type="checkbox" class="form-control" />
+          <label for="agree" class="form-label">
+            Tôi đồng ý với tất cả các tuyên bố trong
+            <a href="/pages/user/ternofsv.html">Terms of service</a></label>
+        </div>
+        <br>
+        <span id="agreeError" class="form-message"></span>
+        <div class="sign-up">
+          <div>
+            <button class="form-submit">Đăng nhập</button>
+          </div>
+          <a href="signup.html">Bạn chưa có tài khoàn?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/vendor/datas.js"></script>
+  <script src="/assets/user/js/login.js"></script>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</html>

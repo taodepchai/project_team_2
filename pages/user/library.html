@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="stylesheet" href="/assets/user/css/library.css">
+  <title>Favorite Films</title>
+</head>
+
+<body>
+  <header>
+    <a href="/pages/display.html" class="back-home">Back Home</a>
+    <h1>A collection of my all-time favorite films</h1>
+    <section class="header-main">
+
+      <div class="header-right">
+        <ul>
+          </li>
+          <li class="header-right-sign-in" id="signinBtn">
+            <button onclick="login()">
+              <p style="color: aliceblue">Sign in</p>
+            </button>
+          </li>
+
+
+          <!-- avt -->
+          <li>
+            <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
+              <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
+            </div>
+            <div class="header-right-sign-in-content"><br>
+              <a href="" id="dropdownUsername"></a><br>
+              <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
+              <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>
+                &ensp; Log
+                out</a><br>
+              <a href="/pages/user/premium.html"><i class="fa-solid fa-crown"></i> Get premium</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="film-list">
+      <h2 style="font-size: 50px">My Favorite Films</h2>
+      <section class="film-filter">
+        <div class="film-genre">
+          <p><i class="fa-solid fa-list"></i> Thể loại</p>
+          <select name="" id="">
+            <option value="select">Select Genre</option>
+            <option value="Biography">Biography</option>
+            <option value="Drama">Drama</option>
+            <option value="History">History</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Romance">Romance</option>
+            <option value="War">War</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action">Action</option>
+            <option value="Music">Music</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Sport">Sport</option>
+          </select>
+        </div>
+        <div class="year-of-film-release">
+          <p><i class="fa-regular fa-calendar-days"></i> Năm Phát hành</p>
+          <select name="" id="">
+            <option value="2008-2009">2008-2009</option>
+            <option value="2008-2009">2010-2011</option>
+            <option value="2008-2009">2012-2013</option>
+            <option value="2008-2009">2014-2015</option>
+            <option value="2008-2009">2016-2017</option>
+            <option value="2008-2009">2018-2019</option>
+            <option value="2008-2009">2020-2021</option>
+            <option value="2008-2009">2022-2023</option>
+            <option value="2008-2009">2024-2025</option>
+          </select>
+        </div>
+        <div class="sort-film">
+          <p><i class="fa-solid fa-layer-group"></i> Sắp xếp</p>
+          <select name="" id="">
+            <option value="oldest">oldest</option>
+            <option value="Latest">Latest</option>
+          </select>
+        </div>
+        <div class="nation-film">
+          <p><i class="fa-solid fa-globe"></i> Quốc Gia</p>
+          <select name="" id="">
+            <option value="viet-nam">vietnam</option>
+            <option value="america">America</option>
+          </select>
+        </div>
+        <button class="filter-button">Lọc</button>
+      </section>
+      <ul></ul>
+    </section>
+  </main>
+  <script src="/assets/user/js/library.js">
+    
+  </script>
+</body>
+<script src="https://kit.fontawesome.com/bd9aef7112.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>
