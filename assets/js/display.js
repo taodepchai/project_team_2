@@ -149,8 +149,6 @@ function logout() {
     if (willDelete) {
       localStorage.removeItem("currentUser");
       login();
-    } else {
-      swal("Đăng xuất thất bại.");
     }
   });
 }
