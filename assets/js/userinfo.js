@@ -133,68 +133,79 @@ function undoEdit() {
 // Lưu thông tin đã chỉnh sửa
 // Lưu thông tin đã chỉnh sửa
 function saveInfo() {
-  var avatarInput = document.getElementById("edit-avatar-input");
-  var avatar = document.getElementById("avatar");
-  var editedEmail = document.getElementById("edit-email").value.trim();
-  var editedPhone = document.getElementById("edit-phone").value;
-  var errorMessages = [];
-  var currentPassword = tempUser.password;
-  var errorContainer = document.getElementById("error-messages");
-  errorContainer.innerHTML = "";
-
-  // Kiểm tra và hiển thị thông báo lỗi nếu có
-  if (!isValidEmail(editedEmail)) {
-    document.getElementById("edit-email").classList.add("error");
-    errorMessages.push("Vui lòng nhập địa chỉ Email hợp lệ.");
-  }
-
-  if (isNaN(editedPhone) || editedPhone.length !== 10) {
-    document.getElementById("edit-phone").classList.add("error");
-    errorMessages.push("Vui lòng nhập số điện thoại hợp lệ (10 số).");
-  }
-
-  // Hiển thị thông báo lỗi
-  if (errorMessages.length > 0) {
-    errorMessages.forEach(function (message) {
-      var errorMessageElement = document.createElement("p");
-      errorMessageElement.innerText = message;
-      errorContainer.appendChild(errorMessageElement);
-    });
-
-    errorContainer.scrollIntoView({ behavior: "smooth" });
-  } else {
-    // Lấy thông tin người dùng từ localStorage
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const userList = JSON.parse(localStorage.getItem("userList"));
-
-    // Cập nhật thông tin chỉnh sửa vào thông tin người dùng hiện tại
-    currentUser.name = document.getElementById("edit-name").value;
-    currentUser.email = editedEmail;
-    currentUser.phone = editedPhone;
-    currentUser.password = currentPassword;
-
-    // Cập nhật thông tin người dùng trong danh sách người dùng
-    userList.forEach(function (user, index) {
-      if (user.username === currentUser.username) {
-        userList[index] = currentUser;
+  swal({
+    title: "Bạn có chắc chắn muốn thay đổi thông tin của bạn thôi?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      var avatarInput = document.getElementById("edit-avatar-input");
+      var avatar = document.getElementById("avatar");
+      var editedEmail = document.getElementById("edit-email").value.trim();
+      var editedPhone = document.getElementById("edit-phone").value;
+      var errorMessages = [];
+      var currentPassword = tempUser.password;
+      var errorContainer = document.getElementById("error-messages");
+      errorContainer.innerHTML = "";
+    
+      // Kiểm tra và hiển thị thông báo lỗi nếu có
+      if (!isValidEmail(editedEmail)) {
+        document.getElementById("edit-email").classList.add("error");
+        errorMessages.push("Vui lòng nhập địa chỉ Email hợp lệ.");
       }
-    });
-
-    // Lưu lại danh sách người dùng đã được cập nhật vào localStorage
-    localStorage.setItem("userList", JSON.stringify(userList));
-
-    // Hiển thị lại thông tin người dùng
-    document.getElementById("name").textContent = currentUser.name;
-    document.getElementById("email").textContent = currentUser.email;
-    document.getElementById("phone").textContent = currentUser.phone;
-
-    // Hiển thị thông báo thành công
-    var successMessageElement = document.createElement("p");
-    successMessageElement.innerText = "Thông tin đã được cập nhật thành công.";
-    errorContainer.appendChild(successMessageElement);
-    errorContainer.scrollIntoView({ behavior: "smooth" });
-    location.reload();
-  }
+    
+      if (isNaN(editedPhone) || editedPhone.length !== 10) {
+        document.getElementById("edit-phone").classList.add("error");
+        errorMessages.push("Vui lòng nhập số điện thoại hợp lệ (10 số).");
+      }
+    
+      // Hiển thị thông báo lỗi
+      if (errorMessages.length > 0) {
+        errorMessages.forEach(function (message) {
+          var errorMessageElement = document.createElement("p");
+          errorMessageElement.innerText = message;
+          errorContainer.appendChild(errorMessageElement);
+        });
+    
+        errorContainer.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Lấy thông tin người dùng từ localStorage
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        const userList = JSON.parse(localStorage.getItem("userList"));
+    
+        // Cập nhật thông tin chỉnh sửa vào thông tin người dùng hiện tại
+        currentUser.name = document.getElementById("edit-name").value;
+        currentUser.email = editedEmail;
+        currentUser.phone = editedPhone;
+        currentUser.password = currentPassword;
+    
+        // Cập nhật thông tin người dùng trong danh sách người dùng
+        userList.forEach(function (user, index) {
+          if (user.username === currentUser.username) {
+            userList[index] = currentUser;
+          }
+        });
+    
+        // Lưu lại danh sách người dùng đã được cập nhật vào localStorage
+        localStorage.setItem("userList", JSON.stringify(userList));
+    
+        // Hiển thị lại thông tin người dùng
+        document.getElementById("name").textContent = currentUser.name;
+        document.getElementById("email").textContent = currentUser.email;
+        document.getElementById("phone").textContent = currentUser.phone;
+    
+        // Hiển thị thông báo thành công
+        var successMessageElement = document.createElement("p");
+        successMessageElement.innerText = "Thông tin đã được cập nhật thành công.";
+        errorContainer.appendChild(successMessageElement);
+        errorContainer.scrollIntoView({ behavior: "smooth" });
+        location.reload();
+      }
+    }
+  });
+  
 }
 
 // Cập nhật thông tin người dùng trong localStorage
@@ -242,6 +253,7 @@ function verifyOldPassword() {
 }
 
 function changePassword() {
+  
   document.getElementById("personal-info").style.display = "none";
   document.getElementById("edit-form").style.display = "none";
   document.getElementById("changePassword").style.display = "none";
@@ -254,48 +266,53 @@ document
 
 // Hàm lưu mật khẩu mới
 function savePassword() {
-  var oldPassword = document.getElementById("old-password").value;
-  var newPassword = document.getElementById("new-password").value;
-  var confirmPassword = document.getElementById("confirm-new-password").value;
-  var errorContainer = document.getElementById("error-messages");
-  errorContainer.innerHTML = "";
-
-  // Kiểm tra xem mật khẩu mới và xác nhận mật khẩu mới có khớp nhau không
-  if (newPassword !== confirmPassword) {
-    var errorMessageElement = document.createElement("p");
-    errorMessageElement.innerText =
-      "Mật khẩu mới và Xác nhận mật khẩu mới không khớp.";
-    errorContainer.appendChild(errorMessageElement);
-    errorContainer.scrollIntoView({ behavior: "smooth" });
-    return;
-  }
-
-  // Kiểm tra xem mật khẩu hiện tại có đúng không
-  var userPassword = tempUser.password; // Mật khẩu hiện tại của người dùng
-  if (oldPassword !== userPassword) {
-    var errorMessageElement = document.createElement("p");
-    errorMessageElement.innerText = "Mật khẩu cũ không chính xác.";
-    errorContainer.appendChild(errorMessageElement);
-    errorContainer.scrollIntoView({ behavior: "smooth" });
-    return;
-  }
-
-  // Lưu mật khẩu mới vào thông tin người dùng và cập nhật vào localStorage
-  var updatedUserInfo = {
-    username: document.getElementById("username").textContent,
-    name: document.getElementById("name").textContent,
-    email: document.getElementById("email").textContent,
-    phone: document.getElementById("phone").textContent,
-    status: document.getElementById("status").textContent,
-    avatarUrl: document.getElementById("avatar").src,
-    password: newPassword, // Lưu mật khẩu mới
-  };
-
-  updateUserInfoInLocalStorage(updatedUserInfo);
-
-  // Hiển thị thông báo thành công
-  var successMessageElement = document.createElement("p");
-  successMessageElement.innerText = "Mật khẩu đã được cập nhật thành công.";
-  errorContainer.appendChild(successMessageElement);
-  errorContainer.scrollIntoView({ behavior: "smooth" });
+  swal({
+            title: "Bạn có chắc chắn muốn đổi mật khẩu?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                  var oldPassword = document.getElementById("old-password").value;
+                  var newPassword = document.getElementById("new-password").value;
+                  var confirmPassword = document.getElementById("confirm-new-password").value;
+                  var errorContainer = document.getElementById("error-messages");
+                  errorContainer.innerHTML = "";
+                
+                  // Kiểm tra xem mật khẩu mới và xác nhận mật khẩu mới có khớp nhau không
+                  if (newPassword !== confirmPassword) {
+                    var errorMessageElement = document.createElement("p");
+                    errorMessageElement.innerText =
+                      "Mật khẩu mới và Xác nhận mật khẩu mới không khớp.";
+                    errorContainer.appendChild(errorMessageElement);
+                    errorContainer.scrollIntoView({ behavior: "smooth" });
+                    return;
+                  }
+                
+                  // Kiểm tra xem mật khẩu hiện tại có đúng không
+                  var userPassword = tempUser.password; // Mật khẩu hiện tại của người dùng
+                  if (oldPassword !== userPassword) {
+                    var errorMessageElement = document.createElement("p");
+                    errorMessageElement.innerText = "Mật khẩu cũ không chính xác.";
+                    errorContainer.appendChild(errorMessageElement);
+                    errorContainer.scrollIntoView({ behavior: "smooth" });
+                    return;
+                  }
+                
+                  // Lưu mật khẩu mới vào thông tin người dùng và cập nhật vào localStorage
+                  var updatedUserInfo = {
+                    username: document.getElementById("username").textContent,
+                    name: document.getElementById("name").textContent,
+                    email: document.getElementById("email").textContent,
+                    phone: document.getElementById("phone").textContent,
+                    status: document.getElementById("status").textContent,
+                    avatarUrl: document.getElementById("avatar").src,
+                    password: newPassword, // Lưu mật khẩu mới
+                  };
+                
+                  updateUserInfoInLocalStorage(updatedUserInfo);
+                  location.reload();
+                }
+            });
 }
