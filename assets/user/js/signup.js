@@ -73,7 +73,7 @@ function validateForm() {
       country: country,
       status: "Normal",
       library:[],
-      avatarUrl:"/assets/images/clone.jpg",
+      avatarUrl:"/vendor/images/clone.jpg",
       history:[],
       $DATA:{
         comments:[],
