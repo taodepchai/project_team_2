@@ -16,8 +16,9 @@
     .header-container {
       display: flex;
       width: 100%;
-      justify-content: space-evenly;
+      justify-content: space-around;
       z-index: 2;
+      align-items: center;
     }
 
     .container {
@@ -91,9 +92,121 @@
     .option label {
       margin-right: 10px;
     }
-    
-    
 
+
+
+
+
+
+
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .header-main {
+      z-index: 3;
+      top: 0px;
+      padding-bottom: 20px;
+    }
+
+    .header-right ul .header-right-sign-in button {
+      background-color: red;
+      border: none;
+      border-radius: 5px;
+      width: 70px;
+      height: 30px;
+    }
+
+
+    .header-right ul {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-left a {
+      width: 120px;
+      padding: 10px;
+    }
+
+    .header-left a:hover {
+      color: #d5d5d5;
+    }
+
+    .header-left a:active {
+      background-color: rgb(160, 160, 160);
+      transition: all 0.01s;
+    }
+
+    .header-right ul .header-right-sign-in button:hover {
+      background-color: rgb(136, 0, 0);
+    }
+
+    .header-right .header-right-sign-in .usernameLink {
+      top: 20px;
+    }
+
+    .header-right ul,
+    li {
+      position: relative;
+    }
+
+    /* ------------------sign-in------------------------------ */
+
+
+    .header-right-sign-in-content {
+      left: -35px;
+      position: absolute;
+      background-color: #000000;
+      border-radius: 10px;
+      /* margin-left: 10px; */
+      display: none;
+      padding: 5px;
+      width: 130px;
+      text-align: center;
+      color: #fffefe;
+    }
+
+    .header-right ul li .header-right-sign-in-content a {
+      display: block;
+      width: 100%;
+      color: rgb(255, 255, 255);
+      border-radius: 5px;
+      height: 20px;
+    }
+
+    .header-right ul li .header-right-sign-in-content button {
+      display: block;
+      width: 100%;
+      background: none;
+      border: none;
+      color: rgb(255, 255, 255);
+      border-radius: 5px;
+      height: 20px;
+    }
+
+    .header-right ul li .header-right-sign-in-content a i {
+
+      color: rgb(255, 255, 255);
+
+    }
+
+    .header-right ul li .header-right-sign-in-content a:hover {
+      background-color: rgb(110, 107, 107);
+    }
+
+    .header-right ul li .header-right-sign-in-content button:hover {
+      background-color: rgb(110, 107, 107);
+    }
+
+    .header-right ul li:hover .header-right-sign-in-content {
+      display: block;
+    }
   </style>
 </head>
 
@@ -105,6 +218,7 @@
         <input type="text" placeholder="Enter keyword... " id="searchInput" />
         <button>Search</button>
       </div>
+
       <details style="z-index: 1">
         <summary>Advance Search</summary>
         <div class="container">
@@ -122,6 +236,35 @@
           </div>
         </div>
       </details>
+      <section class="header-main">
+
+        <div class="header-right">
+          <ul>
+            <li class="header-right-sign-in" id="signinBtn">
+              <button onclick="login()">
+                <p style="color: aliceblue">Sign in</p>
+              </button>
+            </li>
+
+
+            <!-- avt -->
+            <li>
+              <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
+                <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
+              </div>
+              <div class="header-right-sign-in-content"><br>
+                <a href="" id="dropdownUsername"></a><br>
+                <button onclick="profile()"><i class="fa-solid fa-user"></i> &ensp; Profile</button><br>
+                <a href="javascript:void(0)" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>
+                  &ensp; Log
+                  out</a><br>
+                <a href="/pages/user/premium.html"><i class="fa-solid fa-crown"></i> Get premium</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
     </div>
   </header>
 
@@ -262,5 +405,52 @@
 </script>
 
 <script src="https://kit.fontawesome.com/bd9aef7112.js" crossorigin="anonymous"></script>
+<script src="/assets/js/display.js"></script>
+<script>
+  let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
+  function profile() {
+    let username = currentUser.username;
+    console.log(username);
+    window.location.href = `/pages/user/userinfo.html?username=${username}`;
+  }
+  function login() {
+    window.location.href = "/pages/user/login.html"
+  }
+  function logout() {
+    swal({
+      title: "có phải bạn muốn đăng xuất ra khỏi trang web!",
+      //text: "có phải bạn muốn đăng xuất ra khỏi trang web!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          localStorage.removeItem("currentUser");
+          login();
+        } else {
+          swal("Đăng xuất thất bại.");
+        }
+      });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    let signinBtn = document.getElementById("signinBtn");
+    let usernameBtn = document.getElementById("usernameBtn");
+    let usernameLink = document.getElementById("usernameLink");
+    let usernameDrop = document.getElementById("dropdownUsername");
+    if (currentUser) {
+      signinBtn.style.display = "none";
+      usernameBtn.style.display = "block";
+      let username = currentUser.username;
+      avtURL = currentUser.avatarUrl;
+      usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
+      usernameDrop.innerHTML = `${username}`
+
+    } else {
+      signinBtn.style.display = "block";
+      usernameBtn.style.display = "none";
+    }
+  });
+</script>
 
 </html>
