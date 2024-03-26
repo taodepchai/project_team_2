@@ -18,26 +18,16 @@
         <!-- Set up modal -->
         <script defer src="/vendor/js/modal.js"></script>
         <link rel="stylesheet" href="/vendor/css/modal.css">
+        <link rel="stylesheet" href="/assets/admin/css/style.css">
+
     </head>
     <body>
-        <header>  
-            <h2><i class="fa-solid fa-user-tie fa-2xl"
-                    style="color: #ffffff;"></i></h2>
-            <h2 style="color: aliceblue;">Manager <i
-                    class="fa-solid fa-shield-dog" style="color: #ffffff;"></i>
-                <i
-                    class="fa-solid fa-shield-cat"
-                    style="color: #ffffff;"></i></h2>
-            <div>
-                <a class="text-white" href="#"> <i
-                        class="fa-solid fa-right-from-bracket"></i> Sign out</a>
-            </div>
-        </header>
-        <hr>
+    
         <div class="container-fluid">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark"
                     id="sidebar">
+                    
                 </div>
                 <div class="col py-3">
                     <button onclick="openModal()" class="btn-danger position-absolute addBtn"><i class="fa-solid fa-plus"></i> Thêm Phim</button>
@@ -55,6 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                         </tbody>
                     </table>
                 </div>
@@ -82,7 +73,9 @@
                             <input type="text" id="director" name="director" required>
                             <div class="underline"></div>
                             <label for="director">Đạo Diễn</label>
-                        </div>
+                        </div> 
+                      
+                            
                 
                         <div class="input-data">
                             <input type="number" id="release_year" name="release_year" required>
@@ -90,11 +83,7 @@
                             <label for="release_year">Năm Phát Hành</label>
                         </div>
                 
-                        <div class="input-data">
-                            <input type="text" id="genre" name="genre" required>
-                            <div class="underline"></div>
-                            <label for="genre">Thể Loại</label>
-                        </div>
+                      
                         <div class="input-data">
                             <input type="url" id="background" name="background" accept="image/*" required>
                             <div class="underline"></div>
@@ -105,7 +94,15 @@
                             <div class="underline"></div>
                             <label for="national">Quốc Gia</label>
                         </div>
-                
+                         <div >
+                            <select id="genresList" >
+                                <option value="">Chọn thể loại Phim</option>
+                            </select>
+                            <button class="btn btn-primary btn-sm active " onclick="addGenres()">ADD</button>
+                            <ul class="addList list-group d-flex flex-row flex-lg-wrap">
+                                
+                            </ul>
+                        </div>
                     </div>
                     <div class="wrapper">
                         <div >
@@ -122,7 +119,7 @@
                             <div class="underline"></div>
                             <label for="rating">Đánh Giá</label>
                         </div>
-                
+                      
                         <div class="input-data">
                             <input type="url" id="poster" name="poster" accept="image/*" required>
                             <div class="underline"></div>

@@ -1,10 +1,7 @@
+let sidebar = document.querySelector("#sidebar");
 
-let sidebar=document.querySelector("#sidebar");
-
-
-window.onload=function () {
-    
-    sidebar.innerHTML=`
+window.onload = function () {
+  sidebar.innerHTML = `
     <div
     class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
     <a href="/"
@@ -18,7 +15,7 @@ window.onload=function () {
             </a>
         </li>
         <li>
-            <a href="http://127.0.0.1:5501/pages/admin/dashboard.html"" class="nav-link px-0 align-middle text-white">
+            <a href="http://127.0.0.1:5501/pages/admin/dashboad.html" class="nav-link px-0 align-middle text-white">
                 <i class="fa-solid fa-chart-line"></i><span> Dashboard</span>  </a>
          
         </li>
@@ -31,15 +28,19 @@ window.onload=function () {
                 <i class="fa-solid fa-user"></i> <span> User</span> </a>
         </li>
         <li>
-            <a href="http://127.0.0.1:5501/pages/admin/category.html"" class="nav-link px-0 align-middle text-white">
-              <i class="fa-solid fa-layer-group"></i>  <span> Category</span> </a>
+            <a href="http://127.0.0.1:5501/pages/admin/genres.html"" class="nav-link px-0 align-middle text-white">
+              <i class="fa-solid fa-layer-group"></i>  <span> Genres</span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5501/pages/user/login.html"" class="nav-link px-0 align-middle text-white">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> <span> Sign out</span> </a>
         </li>
         
     </ul>
     <hr>
     </div>`;
-}
+};
 
 function openPages(position) {
-    location.assign(`http://127.0.0.1:5501${position}.html`)
+  location.assign(`http://127.0.0.1:5501${position}.html`);
 }

@@ -5,7 +5,6 @@ let tbody = document.querySelector("tbody");
 let movieName = document.querySelector("#movie_name");
 let director = document.querySelector("#director");
 let yearRelease = document.querySelector("#release_year");
-let genre = document.querySelector("#genre");
 let backgroundImg = document.querySelector("#background");
 let actors = document.querySelector("#actors");
 let rating = document.querySelector("#rating");
@@ -13,7 +12,7 @@ let posterImg = document.querySelector("#poster");
 let posterImgName = document.querySelector("#iconImage");
 let national = document.querySelector("#national");
 let description = document.querySelector("#description");
-
+var genre = [];
 // nút submit của modal
 let submitBtn = document.querySelector(".modal-button");
 function saveFilms(films) {
@@ -25,11 +24,17 @@ function deleteMovie(index) {
   location.reload();
 }
 function saveInputMovie(index) {
+  var categoryList = document.querySelector("addList");
+  var items = document.querySelectorAll(".addList li");
+  for (var i = 0; i < items.length; i++) {
+    genre.push(items[i].textContent);
+  }
+  console.log(genre.join(","));
   film = {
     name: `${movieName.value}`,
     img: `${posterImgName.value}`,
     release_year: `${yearRelease.value}`,
-    genres: `${genre.value.split(",")}`,
+    genres: `${genre.join(" ,")}`,
     poster: `${posterImg.value}`,
     runtime: `100m`,
     rating: `${rating.value}`,
@@ -43,8 +48,8 @@ function saveInputMovie(index) {
 
   if (index < 0) films.push(film);
   else films[index] = film;
-  saveFilms(films); 
-   location.reload();
+  saveFilms(films);
+  location.reload();
 }
 function updateMovie(index) {
   openModal();
@@ -84,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
               alt="imdb"
             /></p></td>
           <td class="status dt-type-numeric">
-              <button onclick="deleteMovie(${i})" class="text-dark"><i
+              <button  onclick="deleteMovie(${i})" class="text-dark delBtn"><i
                       class="fa-solid fa-trash-can"></i>
                   Delete</button>
-              <button onclick="updateMovie(${i})" class="text-dark"><i
+              <button onclick="updateMovie(${i})" class="text-dark updateBtn"><i
                       class="fa-solid fa-wrench"></i>
                   Update</button>
       
@@ -96,3 +101,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   new DataTable("#table");
 });
+
+let genres = JSON.parse(localStorage.getItem("currentGenres"));
+console.log(genres);
+let genresList = document.querySelector("#genresList");
+for (let i = 0; i < genres.length; i++) {
+  genresList.innerHTML += `
+   <option >${genres[i]}</option>
+   `;
+}
+function addGenres() {
+  var selectElement = document.getElementById("genresList");
+  var selectedOption = selectElement.options[selectElement.selectedIndex];
+  var ulElement = document.querySelector(".addList");
+  var liElement = document.createElement("li");
+  liElement.textContent = selectedOption.textContent;
+  liElement.setAttribute("class", "p-2 list-group-item  ");
+  ulElement.appendChild(liElement);
+
+  var deleteButton = document.createElement("button");
+  deleteButton.innerHTML = `&ensp; <i class="fa-solid fa-trash-can"></i>`;
+  deleteButton.className = "deleteButton";
+  deleteButton.onclick = function () {
+    ulElement.removeChild(liElement);
+  };
+  deleteButton.setAttribute("class", "btn p-1 item");
+  liElement.appendChild(deleteButton);
+  ulElement.appendChild(liElement);
+}

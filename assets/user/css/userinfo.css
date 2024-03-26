@@ -34,12 +34,15 @@ h1 {
 .profile-img {
   text-align: center;
   margin-bottom: 20px;
+  border-radius: 50%;
 }
 
 #avatar {
   max-width: 70%;
   border-radius: 50%;
   margin-bottom: 10px;
+  width: 400px;
+  height: 100%;
 }
 
 .file-input {
@@ -62,6 +65,25 @@ h1 {
   background-color: #ff3e4d;
 }
 
+#changePassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#submitPassword{
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
 .profile-head {
   width: 100%;
   text-align: left;
