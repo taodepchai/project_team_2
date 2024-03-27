@@ -4,7 +4,6 @@ import { $DATA } from "./datacomment.js";
 import { reply, Time } from "./eventcomment.js";
 import { createUserComment, createNestedComment } from "./tempcomment.js";
 
-
 export let isCurrentUser = false;
 
 (function () {
@@ -15,7 +14,6 @@ export let isCurrentUser = false;
     $DATA.comments.forEach((comment) => {
       let li, div;
       let user__name = $DATA.currentUser.username;
-
       if (comment.user.username === user__name) {
         isCurrentUser = true;
         li = createUserComment.call(comment);
@@ -60,7 +58,7 @@ const newId = () => {
     }
   });
   if (ids.length === 0) {
-    id = 1; 
+    id = 1;
   } else {
     id = Math.max(...ids) + 1;
   }

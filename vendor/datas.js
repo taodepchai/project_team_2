@@ -513,26 +513,3 @@
 // ];
 // localStorage.setItem("currentGenres", JSON.stringify(Genres));
 
-// const userList = [
-//   {
-//     username: "hoangkp",
-//     name: "accaa",
-//     email: "d@a.c",
-//     phone: "0989718265",
-//     password: "1234567",
-//     status: "normal",
-//     country: "Pháp",
-//     date: "19/2/2024",
-//   },
-//   {
-//     username: "B23DTCN169",
-//     password: "123456",
-//     name: "ácc",
-//     email: "cbcca@hacc.cca",
-//     phone: "0987651782",
-//     status: "normal",
-//     country: "Pháp",
-//     date: "19/2/2024",
-//   },
-// ];
-// localStorage.setItem("userList", JSON.stringify(userList));

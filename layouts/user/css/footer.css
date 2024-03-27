@@ -73,9 +73,11 @@ li{
     display: flex;
     gap: 50px;
 }
-.footer-buttom-right ul,li{
+.footer-buttom-right ul{
     padding-top: 30px;
-
+}
+.footer-buttom-right ul li{
+    padding-top: 30px;
 }
 .footer-buttom-right ul li a{
     color: aliceblue;

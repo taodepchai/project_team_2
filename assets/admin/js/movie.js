@@ -27,24 +27,27 @@ function saveInputMovie(index) {
   var categoryList = document.querySelector("addList");
   var items = document.querySelectorAll(".addList li");
   for (var i = 0; i < items.length; i++) {
-    genre.push(items[i].textContent);
+    genre.push(items[i].textContent.trim());
   }
-  console.log(genre.join(","));
   film = {
     name: `${movieName.value}`,
     img: `${posterImgName.value}`,
     release_year: `${yearRelease.value}`,
-    genres: `${genre.join(" ,")}`,
+    genres: [...genre],
     poster: `${posterImg.value}`,
     runtime: `100m`,
     rating: `${rating.value}`,
-    background_img: `${backgroundImg}`,
+    background_img: `${backgroundImg.value}`,
     director: `${director.value}`,
-    cast: `${actors.value.split(",")}`,
+    cast: actors.value.split(","),
     nationality: `${national.value}`,
     summary: `${description.value}`,
     episode: 8,
+    $DATA: {
+      comments: [],
+    },
   };
+
 
   if (index < 0) films.push(film);
   else films[index] = film;
@@ -67,7 +70,6 @@ function updateMovie(index) {
   description.value = films[index].summary;
   // deleteMovie(index);
   submitBtn.setAttribute("onclick", `saveInputMovie(${index})`);
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {

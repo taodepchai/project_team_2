@@ -121,7 +121,12 @@ export function send() {
     $DATA.currentUser.username,
     $DATA.currentUser.image
   );
- console.log(user);
+  console.log(user.user.username);
+    if (user.user.username==`undefined`) {
+   
+      alert("Vui lòng đăng nhập để thực hiện tính năng này");
+      return
+    }
   user.content = textArea.value.trim();
   const temp = createUserComment.call(user);
   ul.append(temp);
