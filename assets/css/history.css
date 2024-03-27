@@ -87,6 +87,7 @@ div[class*=box] {
     padding: 0;
     border: 0;
     background: transparent;
+    position: relative;
 }
  .search-history{
     background-color: hsl(0, 0%, 100%);

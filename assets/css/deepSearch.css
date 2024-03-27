@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    z-index: 2;
+    align-items: center;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    max-width: 200px;
+    z-index: 2;
+  }
+
+  header {
+    left: 20%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+
+  details {
+    display: block;
+    height: auto;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  header {
+    display: block;
+  }
+
+  .search-box {
+    margin-top: 10px;
+  }
+
+  .search-box input {
+    padding: 8px;
+    width: 200px;
+    border-radius: 7px;
+  }
+
+  .search-box button {
+    padding: 8px 12px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .option {
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+  .option input {
+    width: 20px;
+  }
+
+  .option label {
+    margin-right: 10px;
+  }
+
+
+
+
+
+
+
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .header-main {
+    z-index: 3;
+    top: 0px;
+    padding-bottom: 20px;
+  }
+
+  .header-right ul .header-right-sign-in button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 30px;
+  }
+
+
+  .header-right ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header-left a {
+    width: 120px;
+    padding: 10px;
+  }
+
+  .header-left a:hover {
+    color: #d5d5d5;
+  }
+
+  .header-left a:active {
+    background-color: rgb(160, 160, 160);
+    transition: all 0.01s;
+  }
+
+  .header-right ul .header-right-sign-in button:hover {
+    background-color: rgb(136, 0, 0);
+  }
+
+  .header-right .header-right-sign-in .usernameLink {
+    top: 20px;
+  }
+
+  .header-right ul,
+  li {
+    position: relative;
+  }
+
+  /* ------------------sign-in------------------------------ */
+
+
+  .header-right-sign-in-content {
+    left: -35px;
+    position: absolute;
+    background-color: #000000;
+    border-radius: 10px;
+    /* margin-left: 10px; */
+    display: none;
+    padding: 5px;
+    width: 130px;
+    text-align: center;
+    color: #fffefe;
+  }
+
+  .header-right ul li .header-right-sign-in-content a {
+    display: block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+  }
+
+  .header-right ul li .header-right-sign-in-content button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+  }
+
+  .header-right ul li .header-right-sign-in-content a i {
+
+    color: rgb(255, 255, 255);
+
+  }
+
+  .header-right ul li .header-right-sign-in-content a:hover {
+    background-color: rgb(110, 107, 107);
+  }
+
+  .header-right ul li .header-right-sign-in-content button:hover {
+    background-color: rgb(110, 107, 107);
+  }
+
+  .header-right ul li:hover .header-right-sign-in-content {
+    display: block;
+  }
