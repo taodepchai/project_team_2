@@ -38,7 +38,7 @@ function saveInputMovie(index) {
     poster: `${posterImg.value}`,
     runtime: `100m`,
     rating: `${rating.value}`,
-    background_img: `${backgroundImg}`,
+    background_img: `${backgroundImg.value}`,
     director: `${director.value}`,
     cast: `${actors.value.split(",")}`,
     nationality: `${national.value}`,

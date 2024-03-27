@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("/assets/images/netflix_background.png");
+  background-image: url("/vendor/images/netflix_background.png");
   background-size: cover;
   color: white;
 }

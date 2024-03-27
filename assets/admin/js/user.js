@@ -39,7 +39,7 @@ function lockAcc(index) {
       let statusAcc = document.querySelectorAll(".status");
       statusAcc[index].innerHTML = `
           <td class="status">
-              <a href="javascript:void(0)" onclick="printInfoUser(${i})"><i class="fa-solid fa-eye"></i></a>
+              <a href="javascript:void(0)" onclick="printInfoUser(${index})"><i class="fa-solid fa-eye"></i></a>
               <a href="javascript:void(0)" onclick="openAcc(${index})"><i class="fa-solid fa-lock"></i></a>
               <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-crown"></i></a>
           </td>
@@ -62,7 +62,7 @@ function openAcc(index) {
       let statusAcc = document.querySelectorAll(".status");
       statusAcc[index].innerHTML = `
           <td class="status">
-              <a href="javascript:void(0)" onclick="printInfoUser(${i})"><i class="fa-solid fa-eye"></i></a>
+              <a href="javascript:void(0)" onclick="printInfoUser(${index})"><i class="fa-solid fa-eye"></i></a>
               <a href="javascript:void(0)" onclick="lockAcc(${index})"><i class="fa-solid fa-lock-open"></i></a>
               <a href="javascript:void(0)" onclick=""><i class="fa-solid fa-crown"></i></a>
           </td>

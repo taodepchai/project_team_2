@@ -1,5 +1,5 @@
-films = JSON.parse(localStorage.getItem("films"));
-images = JSON.parse(localStorage.getItem("films"));
+let films = JSON.parse(localStorage.getItem("films"));
+let images = JSON.parse(localStorage.getItem("films"));
 function renderFilm() {
   let filmList = document.getElementById("filmList");
   filmList.innerHTML = "";
@@ -111,22 +111,6 @@ setInterval(() => {
   slides[currentIndex].classList.add("active");
 }, 3000);
 
-// Hàm lọc phim theo thể loại
-function filterFilmsByGenre(genre) {
-  // Lặp qua tất cả các phim
-  if (genre !== "select") {
-    films.forEach((film, index) => {
-      let filmElement = document.getElementById(`film-${index}`);
-      if (film.genres.includes(genre)) {
-        filmElement.style.display = "block";
-      } else {
-        filmElement.style.display = "none";
-      }
-    });
-  } else {
-    renderFilm();
-  }
-}
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
 let username = currentUser.username;
 function history() {
@@ -161,29 +145,13 @@ document.addEventListener("DOMContentLoaded", function () {
     signinBtn.style.display = "none";
     usernameBtn.style.display = "block";
     let username = currentUser.username;
+    let fullname = currentUser.name;
     avtURL = currentUser.avatarUrl;
     usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`;
+    usernameDrop.innerHTML = `${fullname}`;
   } else {
     signinBtn.style.display = "block";
     usernameBtn.style.display = "none";
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  let signinBtn = document.getElementById("signinBtn");
-  let usernameBtn = document.getElementById("usernameBtn");
-  let usernameLink = document.getElementById("usernameLink");
-  let usernameDrop = document.getElementById("dropdownUsername");
-  if (currentUser) {
-    signinBtn.style.display = "none";
-    usernameBtn.style.display = "block";
-    let username = currentUser.username;
-    avtURL = currentUser.avatarUrl;
-    usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`;
-  } else {
-    signinBtn.style.display = "block";
-    usernameBtn.style.display = "none";
-  }
-});

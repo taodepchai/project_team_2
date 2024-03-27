@@ -102,13 +102,17 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < data.episode; i++) {
       let buttonEp = document.createElement("div");
       buttonEp.classList.add("stream-info");
-      buttonEp.innerHTML = `<button>
-          <img src="${data.background_img}" alt="">
-          Episode ${i + 1}<i
-            class="fa-solid fa-circle-play fa-2xl"
-            style="color: #00ff40"
-          ></i>
-        </button>`;
+      buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
+        data.name
+      }&ep=${i + 1}">
+     
+                <img src="${data.background_img}" alt="">
+                ${data.name}
+                Episode ${i + 1}<i
+                  class="fa-solid fa-circle-play fa-2xl"
+                  style="color: #00ff40"
+                ></i>
+              </a>`;
       background.appendChild(buttonEp);
     }
     background.appendChild(streamInfo);

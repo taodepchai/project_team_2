@@ -108,8 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
       buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
         data.name
       }&ep=${i + 1}">
+     
                 <img src="${data.background_img}" alt="">
-                Episode ${i + 1}<i
+                ${data.name}
+                Episode$ ${i + 1}<i
                   class="fa-solid fa-circle-play fa-2xl"
                   style="color: #00ff40"
                 ></i>
@@ -128,18 +130,20 @@ document.addEventListener("DOMContentLoaded", function () {
   renderInfoRight(data);
   console.table(films);
   let addToLibraryButton = document.querySelector(".add-to-library-button");
-  
+
   // Thêm sự kiện click vào nút "Add to Library"
   addToLibraryButton.addEventListener("click", function () {
     let currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
     if (currentUser == "") {
       swal({
-          title: "ERROR!",
-          text: "Vui lòng đăng nhập để sử dụng chức năng này!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
+        title: "ERROR!",
+        text: `Vui lòng  đăng nhập để sử dụng chức năng này!`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(() => {
+        window.location.href = "/pages/user/login.html";
+      });
       return;
     }
     // Lấy filmId từ thuộc tính data-film-id của nút "Add to Library"
@@ -154,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
           icon: "warning",
           buttons: true,
           dangerMode: true,
-        })
+        });
         return;
       }
     }

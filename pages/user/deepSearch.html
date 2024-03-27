@@ -12,89 +12,31 @@
     <header>
       <div class="header-container">
         <h1>Movie Search</h1>
-        <div style="z-index: 1" class="search-box">
-          <input type="text" placeholder="Enter keyword... " id="searchInput" />
+        <div class="search-box">
+          <input type="text" placeholder="Search...  " id="searchInput" />
           <button>Search</button>
         </div>
-
-        <details style="z-index: 1">
-          <summary>Advance Search</summary>
-          <div class="container">
-            <div class="option">
-              <input type="checkbox" id="genre1" name="genre" value="Action" />
-              <label for="genre1">Action</label>
-            </div>
-            <div class="option">
-              <input type="checkbox" id="genre2" name="genre" value="Comedy" />
-              <label for="genre2">Comedy</label>
-            </div>
-            <div class="option">
-              <input type="checkbox" id="genre3" name="genre" value="Drama" />
-              <label for="genre3">Drama</label>
-            </div>
-          </div>
-        </details>
-        <section class="header-main">
-          <div class="header-right">
-            <ul>
-              <li class="header-right-sign-in" id="signinBtn">
-                <button onclick="login()">
-                  <p style="color: aliceblue">Sign in</p>
-                </button>
-              </li>
-
-              <!-- avt -->
-              <li>
-                <div
-                  class="header-right-sign-in"
-                  id="usernameBtn"
-                  style="display: none"
-                >
-                  <div
-                    class="avatarDropdown"
-                    onclick="toggleDropdown()"
-                    id="usernameLink"
-                  ></div>
-                </div>
-                <div class="header-right-sign-in-content">
-                  <br />
-                  <a href="" id="dropdownUsername"></a><br />
-                  <button onclick="profile()">
-                    <i class="fa-solid fa-user"></i> &ensp; Profile</button
-                  ><br />
-                  <a href="javascript:void(0)" onclick="logout()"
-                    ><i class="fa-solid fa-right-from-bracket"></i> &ensp; Log
-                    out</a
-                  ><br />
-                  <a href="/pages/user/premium.html"
-                    ><i class="fa-solid fa-crown"></i> Get premium</a
-                  >
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
       </div>
     </header>
-
-    <h1>Film-Movie</h1>
-    <div class="nav-buttons">
-      <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
-      <div class="filmList" id="filmList"></div>
-      <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
-    </div>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2024 Movie Search. All rights reserved.</p>
+    <div class="container_body">
+      <div class="body_left" id="body_left">
       </div>
-    </footer>
-  </body>
+      <div class="body_right">
+        
+          <div class="filmList" id="filmList"></div>
+        </div>
+      </div>
+    </div>
   <script src="/assets/user/js/deepSearch.js"></script>
 
   <script
     src="https://kit.fontawesome.com/bd9aef7112.js"
     crossorigin="anonymous"
   ></script>
+  <script>
+
+    
+    
+  </script>
   <script src="/assets/user/js/display.js"></script>
 </html>

@@ -37,10 +37,11 @@ background-color: #000;
 border: none; align-items: center;
 }
 .header-right ul .header-right-sign-in button{
+
     background-color: red;
     border: none;
     border-radius: 5px;
-    width: 70px;
+    width: 90px;
     height: 30px;
 }
 
@@ -184,7 +185,9 @@ border: none; align-items: center;
     height: 20px;
 }
 .header-right ul li .header-right-sign-in-content button {
-    display: block;
+    display: flex;
+    justify-content: center;
+
     width: 100%;
     background: none;
     border: none;
