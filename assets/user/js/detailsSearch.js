@@ -68,7 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     actionButtons.classList.add("action-button");
     actionButtons.innerHTML = `
           <div class="action-button-element">
+<<<<<<< HEAD:assets/js/detailsSearch.js
+            <button class="add-to-library-button" data-film-id="${filmId}><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
+=======
             <button class="add-to-library-button" data-film-id="${filmId}><img src="/vendor/images/new-folder.png" alt="" /> &ensp; Add to Library</button>
+>>>>>>> b5fc542400de397a8f1e993c56d4579d4dc9de3b:assets/user/js/detailsSearch.js
             <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
             <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
           </div>

@@ -16,25 +16,19 @@
 <body>
   <section class="header-main">
     <div class="header-left">
-      <ul>
+      <ul class="navbar-list">
         <li>
           <img src="/vendor/images/logo.png" alt="" width="200px" />
         </li>
         <li>
-          <a href="">Home</a>
+          <a href="/pages/user/deepSearch.html" class="navbar-link">Search</a>
         </li>
         <li>
-          <a href=""><i class="fa-solid fa-film"></i> Film</a>
-        </li>
-        <li>
-          <a href="/pages/user/deepSearch.html">Search</a>
-        </li>
-        <li>
-          <a href="/pages/user/library.html">Library</a>
+          <a href="/pages/user/library.html" class="navbar-link">Library</a>
         </li>
 
         <li>
-          <button onclick="history()">History</button>
+          <a href="javascript:void(0)" onclick="history() " class="navbar-link">History</a>
         </li>
       </ul>
     </div>
@@ -82,8 +76,6 @@
           </button>
         </li>
 
-
-        <!-- avt -->
         <li>
           <div class="header-right-sign-in" id="usernameBtn" style="display:none;">
             <div class="avatarDropdown" onclick="toggleDropdown()" id="usernameLink"></div>
@@ -101,17 +93,767 @@
     </div>
   </section>
 
-  <!-- slide show -->
   <div class="slideshow" id="slideshow"></div>
 
-  <!-- render film -->
   <h1>Film-Movie</h1>
 
   <div class="nav-buttons">
     <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
     <div class="filmList" id="filmList"></div>
+
     <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+    
   </div>
+
+  <section class="upcoming">
+    <div class="container">
+
+      <div class="flex-wrapper">
+
+        <div class="title-wrapper">
+          <h2 class="h2 section-title">Phim sắp chiếu</h2>
+        </div>
+
+        <ul class="filter-list">
+
+          <li>
+            <button class="filter-btn">Phim lẻ</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Phim bộ</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Anime</button>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="movies-list ">
+
+        <li>
+          <div class="movie-card">
+            <!-- chỗ này để nhấp qua cái thông tin phim này -->
+            <a href="">          
+              <figure class="card-banner">
+                <img src="" alt="The Northman movie poster">
+              </figure>
+            </a> 
+
+            <div class="title-wrapper">
+              <a href="">
+                <h3 class="card-title">Tên phim</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">HD</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT137M">137 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>8.5</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/upcoming-2.png"
+                  alt="Doctor Strange in the Multiverse of Madness movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Doctor Strange in the Multiverse of Madness</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">4K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT126M">126 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>NR</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/upcoming-3.png" alt="Memory movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Memory</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="">N/A</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>NR</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/upcoming-4.png"
+                  alt="The Unbearable Weight of Massive Talent movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">The Unbearable Weight of Massive Talent</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">HD</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT107M">107 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>NR</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+  <section class="service">
+    <div class="container">
+
+      <div class="service-banner">
+        <figure>
+          <img src="/assets/images/service-banner.jpg" alt="HD 4k resolution! only $3.99">
+        </figure>
+
+        <a href="/pages/user/premium.html"  class="service-btn">
+          <span>Get Premium</span>
+
+          <ion-icon name="download-outline"></ion-icon>
+        </a>
+      </div>
+
+      <div class="service-content">
+
+        <p class="service-subtitle">Dịch vụ của StupidCíne</p>
+
+        <h2 class="h2 service-title">Trải nghiệm tuyệt vời với các bộ phim</h2>
+
+        <p class="service-text">
+          Trở thành khách hàng đặc biệt của chúng tôi khi đăng kí gói Premium ngay bây giờ và
+          trải nghiệm  chương trình xem với chất lượng tốt nhất hiện nay
+        </p>
+
+        <ul class="service-list">
+
+          <li>
+            <div class="service-card">
+
+              <div class="card-icon">
+                <ion-icon name="tv"></ion-icon>
+              </div>
+
+              <div class="card-content">
+                <h3 class="h3 card-title">Tải về các bộ phim yêu thích và xem chúng</h3>
+
+                <p class="card-text">
+                  Lo lắng khi không có mạng hoặc đem tivi vào núi? Đừng lo khi bạn có thể tải phim về và xem
+                  bất cứ nơi đầu kể cả khi không có mạng :3
+                </p>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="service-card">
+
+              <div class="card-icon">
+                <ion-icon name="videocam"></ion-icon>
+              </div>
+
+              <div class="card-content">
+                <h3 class="h3 card-title">Xem bằng mọi phương tiện .</h3>
+
+                <p class="card-text">
+                  Bạn không có PC? StupidCiné có trên điện thoại, bạn không có điện thoại? StupidCiné
+                  có trên cả TV, đem cả thế giới phim vào phòng ngủ của bạn.
+                </p>
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="top-rated">
+    <div class="container">
+
+      <p class="section-subtitle">
+        Featured Themes</p>
+
+      <h2 class="h2 section-title">Movie Themes</h2>
+
+      <ul class="filter-list">
+
+        <li>
+          <button class="filter-btn">Horrior</button>
+        </li>
+
+        <li>
+          <button class="filter-btn">Funny</button>
+        </li>
+
+        <li>
+          <button class="filter-btn">Drama</button>
+        </li>
+      </ul>
+
+      <ul class="movies-list">
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-1.png" alt="Sonic the Hedgehog 2 movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Sonic the Hedgehog 2</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT122M">122 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.8</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-2.png" alt="Morbius movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Morbius</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">HD</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT104M">104 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>5.9</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-3.png" alt="The Adam Project movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">The Adam Project</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">4K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT106M">106 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.0</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-4.png" alt="Free Guy movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Free Guy</h3>
+              </a>
+
+              <time datetime="2021">2021</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">4K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT115M">115 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.7</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-5.png" alt="The Batman movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">The Batman</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">4K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT176M">176 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.9</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-6.png" alt="Uncharted movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Uncharted</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">HD</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT116M">116 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.0</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-7.png" alt="Death on the Nile movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Death on the Nile</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT127M">127 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>6.5</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-8.png" alt="The King's Man movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">The King's Man</h3>
+              </a>
+
+              <time datetime="2021">2021</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">HD</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT131M">131 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>7.0</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+
+  <section class="tv-series">
+    <div class="container">
+
+      <p class="section-subtitle">Best Film on StupidCiné</p>
+
+      <h2 class="h2 section-title">Top Rates</h2>
+
+      <ul class="movies-list">
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-1.png" alt="Moon Knight movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Moon Knight</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT47M">47 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>8.6</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-2.png" alt="Halo movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Halo</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT59M">59 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>8.8</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-3.png" alt="Vikings: Valhalla movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Vikings: Valhalla</h3>
+              </a>
+
+              <time datetime="2022">2022</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">2K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT51M">51 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>8.3</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="movie-card">
+
+            <a href="./info.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-4.png" alt="Money Heist movie poster">
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./info.html">
+                <h3 class="card-title">Money Heist</h3>
+              </a>
+
+              <time datetime="2017">2017</time>
+            </div>
+
+            <div class="card-meta">
+              <div class="badge badge-outline">4K</div>
+
+              <div class="duration">
+                <ion-icon name="time-outline"></ion-icon>
+
+                <time datetime="PT70M">70 min</time>
+              </div>
+
+              <div class="rating">
+                <ion-icon name="star"></ion-icon>
+
+                <data>8.3</data>
+              </div>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="cta">
+    <div class="container">
+
+      <div class="title-wrapper">
+        <h2 class="cta-title">Sở hữu premium ngay</h2>
+
+        <p class="cta-text">
+          Điền email của bạn để có thể bắt đầu với premium
+        </p>
+      </div>
+
+      <form action="" class="cta-form">
+        <input type="email" name="email" required placeholder="Enter your email" class="email-field">
+
+        <button type="submit" class="cta-form-btn">Bắt đầu</button>
+      </form>
+
+    </div>
+  </section>
+
+</article>
+</main>
 
   <!-- footer -->
   <section class="footer-main">
