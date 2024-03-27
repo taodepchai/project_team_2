@@ -36,11 +36,14 @@ a{
     background-color: #312e2e;
 }
 .watch-film {
-
     display: flex;
     justify-content: space-between;
     margin-top: 180px;
     margin-left:60px ;
+}
+
+.watch-film .film-display{
+    width: 1000px;
 }
 .film-display iframe{
    
@@ -60,6 +63,10 @@ a{
 
 .episode-link {
 background-color: lightgray;
+  }
+
+  .watch-film .film-display .filmInfo p{
+    width: 200px;
   }
 body::-webkit-scrollbar {
     width: 10px;

@@ -68,7 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     actionButtons.classList.add("action-button");
     actionButtons.innerHTML = `
           <div class="action-button-element">
+<<<<<<< HEAD:assets/js/detailsSearch.js
+            <button class="add-to-library-button" data-film-id="${filmId}><img src="/assets/img/new-folder.png" alt="" /> &ensp; Add to Library</button>
+=======
             <button class="add-to-library-button" data-film-id="${filmId}><img src="/vendor/images/new-folder.png" alt="" /> &ensp; Add to Library</button>
+>>>>>>> b5fc542400de397a8f1e993c56d4579d4dc9de3b:assets/user/js/detailsSearch.js
             <button><i class="fa-solid fa-clapperboard" style="color: #ffffff"></i> Trailer</button>
             <button><i class="fa-solid fa-share-nodes" style="color: #ffffff"></i></button>
           </div>
@@ -102,13 +106,17 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < data.episode; i++) {
       let buttonEp = document.createElement("div");
       buttonEp.classList.add("stream-info");
-      buttonEp.innerHTML = `<button>
-          <img src="${data.background_img}" alt="">
-          Episode ${i + 1}<i
-            class="fa-solid fa-circle-play fa-2xl"
-            style="color: #00ff40"
-          ></i>
-        </button>`;
+      buttonEp.innerHTML = `<a href="/pages/watchFilm.html?film=${
+        data.name
+      }&ep=${i + 1}">
+     
+                <img src="${data.background_img}" alt="">
+                ${data.name}
+                Episode ${i + 1}<i
+                  class="fa-solid fa-circle-play fa-2xl"
+                  style="color: #00ff40"
+                ></i>
+              </a>`;
       background.appendChild(buttonEp);
     }
     background.appendChild(streamInfo);

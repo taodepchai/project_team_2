@@ -1,9 +1,9 @@
-* {
-  margin: 0px;
-  padding: 0;
-  font-family: sans-serif;
-  color: #e5e5e5;
-  font-family: sans-serif;
+*{
+    margin: 6px;
+    padding: 0;
+    font-family: sans-serif;
+    color: #e5e5e5;
+    font-family: sans-serif;
 }
 a {
   text-decoration: none;
@@ -30,22 +30,17 @@ li {
   align-items: center;
 }
 
-.header-left ul li button {
-  gap: 40px;
-  color: white;
-  background-color: #000;
-  border: none;
-  align-items: center;
-}
-.header-right ul .header-right-sign-in button {
-  background-color: red;
-  border: none;
-  border-radius: 5px;
-  width: 70px;
-  height: 30px;
+
+.header-right ul .header-right-sign-in button{
+
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
 }
 
-.header-right input {
+.header-main input {
   padding: 8px;
   border-radius: 5px;
   border: none;
@@ -149,7 +144,7 @@ li {
   display: block;
 }
 /* ---------------------Search----------------- */
-.header-right ul .header-right-search button {
+ .header-main button {
   position: absolute;
   cursor: pointer;
   left: 246px;
@@ -160,7 +155,7 @@ li {
   border: none;
   background-color: red;
 }
-.header-right ul .header-right-search button:hover {
+.header-right-search button:hover {
   background-color: rgb(136, 0, 0);
 }
 /* ------------------sign-in------------------------------ */
@@ -186,13 +181,15 @@ li {
   height: 20px;
 }
 .header-right ul li .header-right-sign-in-content button {
-  display: block;
-  width: 100%;
-  background: none;
-  border: none;
-  color: rgb(255, 255, 255);
-  border-radius: 5px;
-  height: 20px;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
 }
 .header-right ul li .header-right-sign-in-content a i {
   color: rgb(255, 255, 255);
@@ -210,10 +207,28 @@ li {
 .header-main ul li {
   padding-top: 30px;
 }
-.header-main .header-left .sideBar{
+/* .header-main .header-left .navbar-list{
+  display: none;
+} */
+.menu-button{
   display: none;
 }
+.menu-button i{
+  font-size: 30px;
+}
+@media only screen and (max-width: 1350px) {
+  .hideOnMobile{
+    display: none;
+  }
+  .menu-button{
+    display: block;
+  }
+  .header-main{
+    justify-content: space-between;
+  }
+  .header-left ul{
+    width: 57vw;
+    justify-content: space-between;
+  }
 
-@media only screen and (max-width: 1120px) {
-    
 }

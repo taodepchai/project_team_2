@@ -1,6 +1,6 @@
-import { createCommentBox, createUserComment } from "./tempcomment.js";
-import { $DATA, saveDataComment } from "./datacomment.js";
 import { CurrentUser } from "./comment.js";
+import { $DATA, saveDataComment } from "./datacomment.js";
+import { createCommentBox, createUserComment } from "./tempcomment.js";
 
 const time = [];
 setInterval(() => {
@@ -97,7 +97,7 @@ export function reply() {
       }
     });
   }
-  
+
   const li = getElementByTagName.call(this, "li");
 
   let ul;
@@ -111,7 +111,7 @@ export function reply() {
   showTime.call(user);
 
   this.open = false;
-  saveDataComment()
+  saveDataComment();
 }
 
 export function send() {
@@ -121,12 +121,16 @@ export function send() {
     $DATA.currentUser.username,
     $DATA.currentUser.image
   );
-  console.log(user.user.username);
-    if (user.user.username==`undefined`) {
-   
-      alert("Vui lòng đăng nhập để thực hiện tính năng này");
-      return
-    }
+  if (user.user.username == `undefined`) {
+    swal({
+      title: "Vui lòng đăng nhập để thực hiện chức năng này!",
+      text: "",
+      icon: "warning",
+      dangerMode: true,
+    });
+    return;
+  }
+  console.log(user);
   user.content = textArea.value.trim();
   const temp = createUserComment.call(user);
   ul.append(temp);
@@ -136,10 +140,9 @@ export function send() {
 
   textArea.value = "";
 
- 
   $DATA.comments.push(user);
 
- saveDataComment();
+  saveDataComment();
 }
 
 function deleteTemplate() {
@@ -152,10 +155,10 @@ function deleteTimeRunner(id) {
     if (userId == id) time.splice(index, 1);
   });
 }
-function deleteData(id){
-  $DATA.comments.forEach(element => {
-console.log(id);
-   if (element.id===id) $DATA.comments.splice(id-1,1);
+function deleteData(id) {
+  $DATA.comments.forEach((element) => {
+    console.log(id);
+    if (element.id === id) $DATA.comments.splice(id - 1, 1);
   });
 }
 
@@ -171,7 +174,6 @@ export function deleteComment() {
   console.log(this);
   saveDataComment();
 }
-
 
 function editTemplate() {
   const textArea = getElementByClassName.call(this, "input__edit");

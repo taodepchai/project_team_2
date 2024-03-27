@@ -405,87 +405,91 @@
 // localStorage.setItem("films", JSON.stringify(films));
 
 // const national = [
-//   {
-//     name: "Anh",
-//     img: "https://www.worldometers.info/img/flags/uk-flag.gif",
-//   },
-//   {
-//     name: "Mỹ",
-//     img: "https://www.worldometers.info/img/flags/us-flag.gif",
-//   },
-//   {
-//     name: "Pháp",
-//     img: "https://www.worldometers.info/img/flags/fr-flag.gif",
-//   },
-//   {
-//     name: "Đức",
-//     img: "https://www.worldometers.info/img/flags/gm-flag.gif",
-//   },
-//   {
-//     name: "Ý",
-//     img: "https://www.worldometers.info/img/flags/it-flag.gif",
-//   },
-//   {
-//     name: "Tây Ban Nha",
-//     img: "https://www.worldometers.info/img/flags/sp-flag.gif",
-//   },
-//   {
-//     name: "Nhật Bản",
-//     img: "https://www.worldometers.info/img/flags/ja-flag.gif",
-//   },
-//   {
-//     name: "Hàn Quốc",
-//     img: "https://www.worldometers.info/img/flags/ks-flag.gif",
-//   },
-//   {
-//     name: "Trung Quốc",
-//     img: "https://www.worldometers.info/img/flags/ch-flag.gif",
-//   },
-//   {
-//     name: "Úc",
-//     img: "https://www.worldometers.info/img/flags/as-flag.gif",
-//   },
-//   {
-//     name: "Canada",
-//     img: "https://www.worldometers.info/img/flags/ca-flag.gif",
-//   },
-//   {
-//     name: "Nga",
-//     img: "https://www.worldometers.info/img/flags/rs-flag.gif",
-//   },
-//   {
-//     name: "Ấn Độ",
-//     img: "https://www.worldometers.info/img/flags/in-flag.gif",
-//   },
-//   {
-//     name: "Brazil",
-//     img: "https://www.worldometers.info/img/flags/br-flag.gif",
-//   },
-//   {
-//     name: "Mexico",
-//     img: "https://www.worldometers.info/img/flags/mx-flag.gif",
-//   },
-//   {
-//     name: "Argentina",
-//     img: "https://www.worldometers.info/img/flags/ar-flag.gif",
-//   },
-//   {
-//     name: "Indonesia",
-//     img: "https://www.worldometers.info/img/flags/id-flag.gif",
-//   },
-//   {
-//     name: "Thái Lan",
-//     img: "https://www.worldometers.info/img/flags/th-flag.gif",
-//   },
-//   {
-//     name: "Hà Lan",
-//     img: "https://www.worldometers.info/img/flags/nl-flag.gif",
-//   },
-//   {
-//     name: "Thụy Sĩ",
-//     img: "https://www.worldometers.info/img/flags/sz-flag.gif",
-//   },
-// ];
+//     {
+//         name:"All",
+//     },
+//     {
+//       name: "British",
+//       img: "https://www.worldometers.info/img/flags/uk-flag.gif",
+//     },
+//     {
+//       name: "American",
+//       img: "https://www.worldometers.info/img/flags/us-flag.gif",
+//     },
+//     {
+//       name: "France",
+//       img: "https://www.worldometers.info/img/flags/fr-flag.gif",
+//     },
+//     {
+//       name: "Germany",
+//       img: "https://www.worldometers.info/img/flags/gm-flag.gif",
+//     },
+//     {
+//       name: "Italy",
+//       img: "https://www.worldometers.info/img/flags/it-flag.gif",
+//     },
+//     {
+//       name: "Spain",
+//       img: "https://www.worldometers.info/img/flags/sp-flag.gif",
+//     },
+//     {
+//       name: "Japanese",
+//       img: "https://www.worldometers.info/img/flags/ja-flag.gif",
+//     },
+//     {
+//       name: "South Korea",
+//       img: "https://www.worldometers.info/img/flags/ks-flag.gif",
+//     },
+//     {
+//       name: "China",
+//       img: "https://www.worldometers.info/img/flags/ch-flag.gif",
+//     },
+//     {
+//       name: "Australia",
+//       img: "https://www.worldometers.info/img/flags/as-flag.gif",
+//     },
+//     {
+//       name: "Canada",
+//       img: "https://www.worldometers.info/img/flags/ca-flag.gif",
+//     },
+//     {
+//       name: "Russia",
+//       img: "https://www.worldometers.info/img/flags/rs-flag.gif",
+//     },
+//     {
+//       name: "India",
+//       img: "https://www.worldometers.info/img/flags/in-flag.gif",
+//     },
+//     {
+//       name: "Brazil",
+//       img: "https://www.worldometers.info/img/flags/br-flag.gif",
+//     },
+//     {
+//       name: "Mexico",
+//       img: "https://www.worldometers.info/img/flags/mx-flag.gif",
+//     },
+//     {
+//       name: "Argentina",
+//       img: "https://www.worldometers.info/img/flags/ar-flag.gif",
+//     },
+//     {
+//       name: "Indonesia",
+//       img: "https://www.worldometers.info/img/flags/id-flag.gif",
+//     },
+//     {
+//       name: "Thailand",
+//       img: "https://www.worldometers.info/img/flags/th-flag.gif",
+//     },
+//     {
+//       name: "Netherlands",
+//       img: "https://www.worldometers.info/img/flags/nl-flag.gif",
+//     },
+//     {
+//       name: "Switzerland",
+//       img: "https://www.worldometers.info/img/flags/sz-flag.gif",
+//     },
+//   ];
+  
 
 // localStorage.setItem("currentNational", JSON.stringify(national));
 
@@ -507,7 +511,7 @@
 //   "Sports",
 //   "Music",
 //   "Political",
-//   "Manga/Anime",
+//   "Anime",
 //   "Mystery",
 //   "Detective",
 // ];
