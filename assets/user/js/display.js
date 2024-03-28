@@ -155,7 +155,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
+let checkAdmin = document.getElementById("admin");
+if(currentUser.status === "Admin"){
+  checkAdmin.style.display ="block";
+} else {
+  checkAdmin.style.display="none";
+}
+
+let premium = document.getElementById("premium");
+if(currentUser.status ==='Premium'){
+  premium.style.display = 'none';
+} else{
+  premium.style.display= 'block';
+}
+
+
 let renderUpcoming = document.querySelector(".upcoming  .movies-list");
+
+
 
 for (let i = 0; i < 4; i++) {
   renderUpcoming.innerHTML += `

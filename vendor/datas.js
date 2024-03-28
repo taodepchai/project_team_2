@@ -424,20 +424,6 @@
 
 // localStorage.setItem("films", JSON.stringify(films));
 
-// const user = {
-//   username: "admin",
-//   password: "admin",
-//   name: "admin",
-//   email: "admin@gmail.com",
-//   phone: "0877637286",
-//   country: "none",
-//   status: "Admin",
-//   library: [],
-//   avatarUrl: "/vendor/images/clone.jpg",
-//   history: [],
-// };
-
-// localStorage.setItem("userList", JSON.stringify(user));
 // const national = [
 //   {
 //     name: "All",
