@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
      
                 <img src="${data.background_img}" alt="">
                 ${data.name}
-                Episode$ ${i + 1}<i
+                Episode ${i + 1}<i
                   class="fa-solid fa-circle-play fa-2xl"
                   style="color: #00ff40"
                 ></i>
@@ -139,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "ERROR!",
         text: `Vui lòng  đăng nhập để sử dụng chức năng này!`,
         icon: "warning",
-        buttons: true,
         dangerMode: true,
       }).then(() => {
         window.location.href = "/pages/user/login.html";
