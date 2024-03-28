@@ -155,3 +155,125 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+let renderUpcoming = document.querySelector(".upcoming  .movies-list");
+
+for (let i = 0; i < 4; i++) {
+  renderUpcoming.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}
+
+let renderTopRated = document.querySelector(".top-rated  .movies-list");
+
+for (let i = 4; i < 12; i++) {
+  renderTopRated.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}
+
+let renderTvSeries = document.querySelector(".tv-series  .movies-list");
+
+for (let i = 12; i < 16; i++) {
+  renderTvSeries.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}

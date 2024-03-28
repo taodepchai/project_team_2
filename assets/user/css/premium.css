@@ -292,3 +292,157 @@ input:focus {
 .modal-footer-1 button{
     width: 200px;
 }
+
+
+
+@media screen and (max-width: 1400px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+    }
+    .premium h1 img {
+        width: 15vw;
+    }
+
+    .premium h1 p {
+        font-size: 5vw;
+    }
+
+    .premium h2 {
+        font-size: 5vw;
+        width: 80%;
+    }
+
+    .premium-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .premium-3_1 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .premium-3 h1 {
+        font-size: 5vw;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal-header h2 {
+        font-size: 3vw;
+    }
+
+    .premium-1 .premium-1_1{
+        padding:    0px;
+    }
+
+    .premium-1_1 p {
+        font-size: 2vw;
+    }
+
+    .premium-1_1 {
+        width: 40%;
+        padding: 0; 
+    }
+
+    .premium-1 p {
+        font-size: 2vw;
+    }
+
+    .premium-1_1_1 p {
+        font-size: 0.8vw;
+    }
+
+    .premium-1_1_1 a {
+        font-size: 0.8vw;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .data-premium .data-premium-1 p {
+        font-size: 2vw;
+    }
+
+    .data-premium div p {
+        font-size: 3.5vw;
+    }
+
+    .close {
+        font-size: 2vw;
+    }
+
+    .modal-button {
+        font-size: 3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal {
+        width: 90%;
+    }
+
+    .wrapper2 {
+        width: 100%;
+    }
+
+    .modal-header {
+        font-size: 3vw;
+    }
+
+    .wrapper2 div h2 {
+        font-size: 3vw;
+    }
+
+    .input-data {
+        font-size: 2vw;
+    }
+
+    .input-data input:focus~label,
+    .input-data input:valid~label {
+        transform: translateY(-6vw);
+        font-size: 3vw;
+        color: #4158d0;
+    }
+
+    .wrapper2 p {
+        font-size: 2vw;
+    }
+
+    .modal-footer-1 button {
+        width: 3vw;
+    }
+
+    .premium-3 h1 {
+        font-size: 4vw;
+    }
+
+    .premium-3_1_1 {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .premium-header h2 {
+        width: auto;
+    }
+
+    .premium-3_1 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}

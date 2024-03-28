@@ -1,11 +1,13 @@
 films = JSON.parse(localStorage.getItem("films"));
 images = JSON.parse(localStorage.getItem("films"));
+let year = [];
 
 function renderFilms(films) {
   let filmList = document.getElementById("filmList");
   filmList.innerHTML = "";
 
   films.forEach((film, index) => {
+    year.push(film.release_year);
     let filmElement = document.createElement("div");
     filmElement.addEventListener("click", function () {
       window.location.href = `/pages/user/detailsLSearch.html?filmName=${film.name}`;
@@ -85,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let genreCheckboxes = document.querySelectorAll(".body_left .genres input");
   genreCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
-      console.log(checkbox.value);
       filterFilmsByGenre(currentGenres);
     });
   });
@@ -171,7 +172,6 @@ function filterFilmsByNational(currentNational) {
   nationalRadio.forEach((radio) => {
     if (radio.checked) {
       radioNational.push(radio.value);
-      console.log(radio.value);
       // if (radio.value === "All"){
       //   renderFilms(films);
       //   return;
@@ -200,8 +200,90 @@ function filterFilmsByNational(currentNational) {
 }
 
 // Gắn sự kiện change cho các ô radio để kích hoạt việc lọc phim khi chọn thể loại
-let nationalRadio = document.querySelectorAll(".body_left input");
-nationalRadio.forEach((radio) => {
-  radio.addEventListener("change", filterFilmsByNational);
-});
+
+
 renderFilms(films);
+
+let yearList = [...new Set(year)];
+
+yearList.unshift("All");
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderyear();
+  // Lắng nghe sự kiện change của các checkbox thể loại
+  function renderyear() {
+    let bodyLeft = document.getElementById("body_left");
+    // Xóa nội dung cũ trước khi render
+
+    if (yearList) {
+      // Tạo thẻ details
+      let yearDetails = document.createElement("details");
+      yearDetails.setAttribute("class", "year");
+      let summary = document.createElement("summary");
+      summary.textContent = "Year";
+      yearDetails.appendChild(summary);
+      let yearDiv = document.createElement("div");
+      yearDetails.appendChild(yearDiv);
+
+      yearList.forEach((year) => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = "radio";
+        input.name = "year";
+        input.value = year;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(year));
+        yearDiv.appendChild(label);
+        yearDiv.appendChild(document.createElement("br"));
+      });
+
+      bodyLeft.appendChild(yearDetails); // Thêm details vào bodyLeft
+    }
+  }
+
+
+function filterFilmsByYear(yearList) {
+  // Lấy danh sách các ô radio year
+  let yearRadio = document.querySelectorAll(
+    ".year input[type='radio']"
+  );
+
+  // Tạo một mảng chứa giá trị của các ô radio đã được chọn
+  let radioYear = [];
+  yearRadio.forEach((radio) => {
+    if (radio.checked) {
+      radioYear.push(radio.value);
+      // if (radio.value === "All"){
+      //   renderFilms(films);
+      //   return;
+      // }
+    }
+  });
+  if (radioYear[0] === "All") {
+    renderFilms(films);
+    return;
+  }
+  // Kiểm tra xem có radio nào được chọn không
+  if (radioYear.length === 0) {
+    renderFilms(films);
+    return; // Thêm return để kết thúc hàm nếu không có radio nào được chọn
+  }
+console.log(radioYear);
+  // Lọc danh sách phim dựa trên các ô radio đã được chọn
+  let filteredFilms = films.filter((film) => {
+    let filmYear = film.release_year|| [];
+    console.log(filmYear);
+    // Kiểm tra xem year của bộ phim có trong mảng radioyear hay không
+    return radioYear[0].includes(filmYear);
+  });
+  console.log(filteredFilms);
+  // Hiển thị lại danh sách phim đã được lọc
+  renderFilms(filteredFilms);
+}
+let yearRadio = document.querySelectorAll(".body_left .year input");
+yearRadio.forEach((radio) => {
+  radio.addEventListener("change", function () {
+    filterFilmsByYear(yearList);
+  });
+});
+});

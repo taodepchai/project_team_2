@@ -15,6 +15,7 @@
 //     summary:
 //       "The story of American scientist J. Robert Oppenheimer and his pivotal role in the development of the atomic bomb.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -36,6 +37,7 @@
 //       "After an amazing first date, Bea and Ben's fiery attraction turns ice-cold--until they find themselves unexpectedly reunited at a destination wedding in Australia. So they do what any two mature adults would do: pretend to be a couple.",
 
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -56,6 +58,7 @@
 //     summary:
 //       "Auschwitz commandant Rudolf Höss and his wife Hedwig strive to build a dream life for their family in a house and garden beside the camp.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -76,6 +79,7 @@
 //     summary:
 //       "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -96,6 +100,7 @@
 //     summary:
 //       "The story of how reggae icon Bob Marley overcame adversity, and the journey behind his revolutionary music.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -116,6 +121,7 @@
 //     summary:
 //       "A rookie air force combat controller and a seasoned drone pilot support a Delta Force team as they try to shift a mission gone wrong into a rescue operation.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -136,6 +142,7 @@
 //     summary:
 //       "A student at Oxford University finds himself drawn into the world of a charming and aristocratic classmate, who invites him to his eccentric family's sprawling estate for a summer never to be forgotten.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -156,6 +163,7 @@
 //     summary:
 //       "The true story of the inseparable Von Erich brothers, who made history in the intensely competitive world of professional wrestling in the early 1980s.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -176,6 +184,7 @@
 //     summary:
 //       "After spending the night together on the night of their college graduation, Dexter and Emma are shown each year on the same date to see where they are in their lives. They are sometimes together, sometimes not, on that day.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -196,6 +205,7 @@
 //     summary:
 //       "A cranky history teacher at a remote prep school is forced to remain on campus over the holidays with a troubled student who has no place to go and a grieving cook.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -216,6 +226,7 @@
 //     summary:
 //       "One man's brutal campaign for vengeance takes on national stakes after he is revealed to be a former operative of a powerful and clandestine organization known as 'Beekeepers'.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -236,6 +247,7 @@
 //     summary:
 //       "A screenwriter drawn back to his childhood home enters into a fledgling relationship with a mysterious neighbor as he then discovers his parents appear to be living just as they were on the day they died, 30 years before.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -256,6 +268,7 @@
 //     summary:
 //       "After a Black Friday riot ends in tragedy, a mysterious Thanksgiving-inspired killer terrorizes Plymouth, Massachusetts - the birthplace of the infamous holiday.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -276,6 +289,7 @@
 //     summary:
 //       "A woman is suspected of her husband's murder, and their blind son faces a moral dilemma as the main witness.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -296,6 +310,7 @@
 //     summary:
 //       "When Ana is upgraded to first class on a work trip, she meets handsome Will, who mistakes Ana for her boss, Claire. A white lie then sets off a glamorous chain of events, romance and opportunity, until her fib threatens to surface.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -316,6 +331,7 @@
 //     summary:
 //       "Cady Heron is a hit with the Plastics, an A-list girl clique at her new school. But everything changes when she makes the mistake of falling for Aaron Samuels, the ex-boyfriend of alpha Plastic Regina George.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -336,6 +352,7 @@
 //     summary:
 //       "When oil is discovered in 1920s Oklahoma under Osage Nation land, the Osage people are murdered one by one - until the FBI steps in to unravel the mystery.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -356,6 +373,7 @@
 //     summary:
 //       "A novelist who's fed up with the establishment profiting from 'Black' entertainment uses a pen name to write a book that propels him into the heart of hypocrisy and the madness he claims to disdain.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -376,6 +394,7 @@
 //     summary:
 //       "With dreams of opening a shop in a city renowned for its chocolate, a young and poor Willy Wonka discovers that the industry is run by a cartel of greedy chocolatiers.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -396,6 +415,7 @@
 //     summary:
 //       "Tanjiro undergoes rigorous training with the Stone Hashira, Himejima, in his quest to become a Hashira. Meanwhile, Muzan continues to search for Nezuko and Ubuyashiki.",
 //     episode: 8,
+//     status: "Normal",
 //     $DATA: {
 //       comments: [],
 //     },
@@ -404,92 +424,105 @@
 
 // localStorage.setItem("films", JSON.stringify(films));
 
+// const user = {
+//   username: "admin",
+//   password: "admin",
+//   name: "admin",
+//   email: "admin@gmail.com",
+//   phone: "0877637286",
+//   country: "none",
+//   status: "Admin",
+//   library: [],
+//   avatarUrl: "/vendor/images/clone.jpg",
+//   history: [],
+// };
+
+// localStorage.setItem("userList", JSON.stringify(user));
 // const national = [
-//     {
-//         name:"All",
-//     },
-//     {
-//       name: "British",
-//       img: "https://www.worldometers.info/img/flags/uk-flag.gif",
-//     },
-//     {
-//       name: "American",
-//       img: "https://www.worldometers.info/img/flags/us-flag.gif",
-//     },
-//     {
-//       name: "France",
-//       img: "https://www.worldometers.info/img/flags/fr-flag.gif",
-//     },
-//     {
-//       name: "Germany",
-//       img: "https://www.worldometers.info/img/flags/gm-flag.gif",
-//     },
-//     {
-//       name: "Italy",
-//       img: "https://www.worldometers.info/img/flags/it-flag.gif",
-//     },
-//     {
-//       name: "Spain",
-//       img: "https://www.worldometers.info/img/flags/sp-flag.gif",
-//     },
-//     {
-//       name: "Japanese",
-//       img: "https://www.worldometers.info/img/flags/ja-flag.gif",
-//     },
-//     {
-//       name: "South Korea",
-//       img: "https://www.worldometers.info/img/flags/ks-flag.gif",
-//     },
-//     {
-//       name: "China",
-//       img: "https://www.worldometers.info/img/flags/ch-flag.gif",
-//     },
-//     {
-//       name: "Australia",
-//       img: "https://www.worldometers.info/img/flags/as-flag.gif",
-//     },
-//     {
-//       name: "Canada",
-//       img: "https://www.worldometers.info/img/flags/ca-flag.gif",
-//     },
-//     {
-//       name: "Russia",
-//       img: "https://www.worldometers.info/img/flags/rs-flag.gif",
-//     },
-//     {
-//       name: "India",
-//       img: "https://www.worldometers.info/img/flags/in-flag.gif",
-//     },
-//     {
-//       name: "Brazil",
-//       img: "https://www.worldometers.info/img/flags/br-flag.gif",
-//     },
-//     {
-//       name: "Mexico",
-//       img: "https://www.worldometers.info/img/flags/mx-flag.gif",
-//     },
-//     {
-//       name: "Argentina",
-//       img: "https://www.worldometers.info/img/flags/ar-flag.gif",
-//     },
-//     {
-//       name: "Indonesia",
-//       img: "https://www.worldometers.info/img/flags/id-flag.gif",
-//     },
-//     {
-//       name: "Thailand",
-//       img: "https://www.worldometers.info/img/flags/th-flag.gif",
-//     },
-//     {
-//       name: "Netherlands",
-//       img: "https://www.worldometers.info/img/flags/nl-flag.gif",
-//     },
-//     {
-//       name: "Switzerland",
-//       img: "https://www.worldometers.info/img/flags/sz-flag.gif",
-//     },
-//   ];
-  
+//   {
+//     name: "All",
+//   },
+//   {
+//     name: "British",
+//     img: "https://www.worldometers.info/img/flags/uk-flag.gif",
+//   },
+//   {
+//     name: "American",
+//     img: "https://www.worldometers.info/img/flags/us-flag.gif",
+//   },
+//   {
+//     name: "France",
+//     img: "https://www.worldometers.info/img/flags/fr-flag.gif",
+//   },
+//   {
+//     name: "Germany",
+//     img: "https://www.worldometers.info/img/flags/gm-flag.gif",
+//   },
+//   {
+//     name: "Italy",
+//     img: "https://www.worldometers.info/img/flags/it-flag.gif",
+//   },
+//   {
+//     name: "Spain",
+//     img: "https://www.worldometers.info/img/flags/sp-flag.gif",
+//   },
+//   {
+//     name: "Japanese",
+//     img: "https://www.worldometers.info/img/flags/ja-flag.gif",
+//   },
+//   {
+//     name: "South Korea",
+//     img: "https://www.worldometers.info/img/flags/ks-flag.gif",
+//   },
+//   {
+//     name: "China",
+//     img: "https://www.worldometers.info/img/flags/ch-flag.gif",
+//   },
+//   {
+//     name: "Australia",
+//     img: "https://www.worldometers.info/img/flags/as-flag.gif",
+//   },
+//   {
+//     name: "Canada",
+//     img: "https://www.worldometers.info/img/flags/ca-flag.gif",
+//   },
+//   {
+//     name: "Russia",
+//     img: "https://www.worldometers.info/img/flags/rs-flag.gif",
+//   },
+//   {
+//     name: "India",
+//     img: "https://www.worldometers.info/img/flags/in-flag.gif",
+//   },
+//   {
+//     name: "Brazil",
+//     img: "https://www.worldometers.info/img/flags/br-flag.gif",
+//   },
+//   {
+//     name: "Mexico",
+//     img: "https://www.worldometers.info/img/flags/mx-flag.gif",
+//   },
+//   {
+//     name: "Argentina",
+//     img: "https://www.worldometers.info/img/flags/ar-flag.gif",
+//   },
+//   {
+//     name: "Indonesia",
+//     img: "https://www.worldometers.info/img/flags/id-flag.gif",
+//   },
+//   {
+//     name: "Thailand",
+//     img: "https://www.worldometers.info/img/flags/th-flag.gif",
+//   },
+//   {
+//     name: "Netherlands",
+//     img: "https://www.worldometers.info/img/flags/nl-flag.gif",
+//   },
+//   {
+//     name: "Switzerland",
+//     img: "https://www.worldometers.info/img/flags/sz-flag.gif",
+//   },
+// ];
 
 // localStorage.setItem("currentNational", JSON.stringify(national));
 
@@ -516,4 +549,3 @@
 //   "Detective",
 // ];
 // localStorage.setItem("currentGenres", JSON.stringify(Genres));
-
