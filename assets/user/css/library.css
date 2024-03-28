@@ -3,19 +3,22 @@ body {
     margin: 0;
     padding: 0;
     background-image: radial-gradient(rgb(53, 16, 16), #0f0f0f);
+    height: 100%;
   }
 
   a {
     text-decoration: none;
   }
-
+  .film-list{
+    min-height: 28vh;
+  }
   .film-list ul {
     background: #ccc;
     padding: 20px;
   }
 
-  .film-list ul li {
-    background: rgb(152, 126, 126);
+  .film-list  li {
+    background: rgb(236, 109, 109);
   }
 
   header {
@@ -177,8 +180,15 @@ body {
     background-color: red;
     border: none;
     border-radius: 5px;
-    width: 70px;
+    width: 90px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-right ul .header-right-sign-in button p{
+    margin-top: 20px;
   }
 
 
@@ -265,4 +275,10 @@ body {
 
   .header-right ul li:hover .header-right-sign-in-content {
     display: block;
+  }
+  @media screen and(max-width: 800px) {
+    .film-filter{
+      display: flex;
+      flex-wrap: wrap;
+    }
   }

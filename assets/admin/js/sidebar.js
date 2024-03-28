@@ -3,7 +3,7 @@ let sidebar = document.querySelector("#sidebar");
 window.onload = function () {
   sidebar.innerHTML = `
     <div
-    class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    class="menu d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
     <a href="/"
         class="d-flex align-items-center align-middle px-0 text-white ">
         <span> Menu</span>
@@ -44,3 +44,63 @@ window.onload = function () {
 function openPages(position) {
   location.assign(`http://127.0.0.1:5501${position}.html`);
 }
+function showSidebar() {
+  const sidebar = document.querySelector(".header-nav-item");
+  sidebar.style.display = "block";
+}
+function hideSidebar() {
+  const sidebar = document.querySelector(".header-nav-item");
+  sidebar.style.display = "none";
+}
+let sidebarBtn = document.getElementById("bars");
+
+function resizeScr() {
+  let width = window.innerWidth;
+  if (width > 991) {
+    sidebarBtn.style.display = "none";
+  } else {
+    sidebarBtn.style.border = "none";
+    sidebarBtn.style.display = "block";
+  }
+}
+
+
+
+window.addEventListener("resize", resizeScr);
+
+
+// -------nav item for mobile
+document.querySelector(".header-nav-item").innerHTML = `<ul>
+                    <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
+                                viewBox="0 96 960 960" width="26">
+                                <path
+                                    d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+                            </svg></a></li>
+                    <li class="nav-item">
+                        <a href="http://127.0.0.1:5501/pages/admin/national.html">
+                            <i class="fa-solid fa-globe"></i> <span> National</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/pages/admin/dashboad.html">
+                            <i class="fa-solid fa-chart-line"></i><span> Dashboard</span> </a>
+
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/pages/admin/movie.html">
+                            <i class="fa-solid fa-film"></i> <span> Movie</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/pages/admin/user.html">
+                            <i class="fa-solid fa-user"></i> <span> User</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/pages/admin/genres.html">
+                            <i class="fa-solid fa-layer-group"></i> <span> Genres</span> </a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/pages/user/login.html">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> <span> Sign out</span> </a>
+                    </li>
+
+                </ul>`;

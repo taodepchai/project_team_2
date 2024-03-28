@@ -35,3 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   new DataTable("#table");
 });
+
+let addGenresBtn = document.getElementById("add-genres");
+function resizeSc() {
+  let width = window.innerWidth;
+
+  if (width > 1440) {
+    addGenresBtn.classList.remove("add-genres");
+  } else {
+    addGenresBtn.classList.add("add-genres");
+  }
+}
+
+window.addEventListener("resize", resizeSc);
+resizeSc();

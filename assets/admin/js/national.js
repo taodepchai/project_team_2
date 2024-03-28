@@ -1,10 +1,10 @@
-let national=JSON.parse(localStorage.getItem("currentNational"));
+let national = JSON.parse(localStorage.getItem("currentNational"));
 let tbody = document.querySelector("tbody");
 let submitBtn = document.querySelector(".modal-button");
-let nationalName=document.querySelector(".national_name");
-let linkImg=document.querySelector(".link_img");
+let nationalName = document.querySelector(".national_name");
+let linkImg = document.querySelector(".link_img");
 function saveNational(national) {
-    localStorage.setItem("currentNational",JSON.stringify(national));
+  localStorage.setItem("currentNational", JSON.stringify(national));
 }
 function deleteNational(index) {
   national.splice(index, 1);
@@ -14,23 +14,22 @@ function deleteNational(index) {
 function saveInputNational() {
   nation = {
     name: `${nationalName.value}`,
-    img:`${linkImg.value}`
+    img: `${linkImg.value}`,
   };
 
- national.push(nation);
+  national.push(nation);
   saveNational(national);
   location.reload();
-  
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    for (let i = 0; i < national.length; i++) {
-      tbody.innerHTML += `
+  for (let i = 0; i < national.length; i++) {
+    tbody.innerHTML += `
         <tr >
             <td class="dt-type-numeric"><p>${i + 1}</p></td>
-            <td class="dt-type-numeric"><p>${national[i].name} <img src=${national[i].img} alt=""width="200px" height="130px" style="object-fit: cover;"></p></td>
+            <td class="dt-type-numeric"><p>${national[i].name} <img src=${
+      national[i].img
+    } alt=""width="200px" height="130px" style="object-fit: cover;"></p></td>
           
             <td class="status dt-type-numeric">
                 <button onclick="deleteNational(${i})" class="text-dark delBtn"><i
@@ -40,6 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
         
             </td>
         </tr>`;
-    }
-    new DataTable("#table");
-  });
+  }
+  new DataTable("#table");
+});
+
+let addNationalBtn = document.getElementById("add-national");
+function openNational() {
+  let width = window.innerWidth;
+
+  if (width > 1440) {
+    addNationalBtn.classList.remove("add-openNational");
+  } else {
+    addNationalBtn.classList.add("add-openNational");
+  }
+}
+openNational();
+
+window.addEventListener("resize", openNational);

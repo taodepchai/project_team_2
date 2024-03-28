@@ -1,5 +1,5 @@
-films = JSON.parse(localStorage.getItem("films"));
-images = JSON.parse(localStorage.getItem("films"));
+let films = JSON.parse(localStorage.getItem("films"));
+let images = JSON.parse(localStorage.getItem("films"));
 function renderFilm() {
   let filmList = document.getElementById("filmList");
   filmList.innerHTML = "";
@@ -111,22 +111,6 @@ setInterval(() => {
   slides[currentIndex].classList.add("active");
 }, 3000);
 
-// Hàm lọc phim theo thể loại
-function filterFilmsByGenre(genre) {
-  // Lặp qua tất cả các phim
-  if (genre !== "select") {
-    films.forEach((film, index) => {
-      let filmElement = document.getElementById(`film-${index}`);
-      if (film.genres.includes(genre)) {
-        filmElement.style.display = "block";
-      } else {
-        filmElement.style.display = "none";
-      }
-    });
-  } else {
-    renderFilm();
-  }
-}
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
 let username = currentUser.username;
 function history() {
@@ -161,29 +145,153 @@ document.addEventListener("DOMContentLoaded", function () {
     signinBtn.style.display = "none";
     usernameBtn.style.display = "block";
     let username = currentUser.username;
+    let fullname = currentUser.name;
     avtURL = currentUser.avatarUrl;
     usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`;
+    usernameDrop.innerHTML = `${fullname}`;
   } else {
     signinBtn.style.display = "block";
     usernameBtn.style.display = "none";
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  let signinBtn = document.getElementById("signinBtn");
-  let usernameBtn = document.getElementById("usernameBtn");
-  let usernameLink = document.getElementById("usernameLink");
-  let usernameDrop = document.getElementById("dropdownUsername");
-  if (currentUser) {
-    signinBtn.style.display = "none";
-    usernameBtn.style.display = "block";
-    let username = currentUser.username;
-    avtURL = currentUser.avatarUrl;
-    usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`;
-  } else {
-    signinBtn.style.display = "block";
-    usernameBtn.style.display = "none";
-  }
-});
+
+let checkAdmin = document.getElementById("admin");
+if(currentUser.status === "Admin"){
+  checkAdmin.style.display ="block";
+} else {
+  checkAdmin.style.display="none";
+}
+
+let premium = document.getElementById("premium");
+if(currentUser.status ==='Premium'){
+  premium.style.display = 'none';
+} else{
+  premium.style.display= 'block';
+}
+
+
+let renderUpcoming = document.querySelector(".upcoming  .movies-list");
+
+
+
+for (let i = 0; i < 4; i++) {
+  renderUpcoming.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}
+
+let renderTopRated = document.querySelector(".top-rated  .movies-list");
+
+for (let i = 4; i < 12; i++) {
+  renderTopRated.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}
+
+let renderTvSeries = document.querySelector(".tv-series  .movies-list");
+
+for (let i = 12; i < 16; i++) {
+  renderTvSeries.innerHTML += `
+  <li>
+  <div class="movie-card">
+    <a href="/pages/info.html?filmId=${i}">          
+      <figure class="card-banner">
+        <img src="${films[i].poster}" alt="The Northman movie poster">
+      </figure>
+    </a> 
+
+    <div class="title-wrapper">
+      <a href="">
+        <h3 class="card-title">${films[i].name}</h3>
+      </a>
+
+      <time datetime="">${films[i].release_year}</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">HD</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT137M">${films[i].runtime}</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data>${films[i].rating}</data>
+      </div>
+    </div>
+
+  </div>
+</li>
+  `;
+}

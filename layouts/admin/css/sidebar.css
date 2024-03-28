@@ -7,13 +7,11 @@
 hr {
   margin: 0px;
 }
-header{
-  width: 100%;
-  height: 70px;
-  background-color: #333333;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
 }
 li:hover {
   background-color: #585858;
@@ -37,3 +35,52 @@ li {
 .delBtn:hover{
   background-color: var(--red);
 }
+
+
+
+
+.header-nav-item{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 3;
+}
+
+.add-genres{
+    background-color: blue;
+    position: relative;
+    left: 200px;
+    font-size: 10px;
+}
+
+
+
+
+
+.add-openModal{
+    background-color: blue;
+    position: relative;
+    left: 200px;
+    font-size: 10px;
+}
+
+
+
+.add-openNational{
+    background-color: blue;
+    position: relative;
+    left: 200px;
+    font-size: 10px;
+}
+
+

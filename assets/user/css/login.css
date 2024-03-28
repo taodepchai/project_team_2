@@ -70,7 +70,7 @@ body{
    height: 170%;
 
    position: absolute;
-   background-image: url(/assets/images/netflix_background.png);
+   background-image: url(/vendor/images/netflix_background.png);
    z-index: 2;
    filter: blur(13px);
    background-repeat: no-repeat;
@@ -83,7 +83,7 @@ body{
    width: 1090px;
    z-index: 3;
    height: 650px;
-   background-image: url(/assets/images/netflix_background.png);
+   background-image: url(/vendor/images/netflix_background.png);
    background-repeat: no-repeat;
    background-size: cover;
    display: flex;

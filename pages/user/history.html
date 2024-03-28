@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/b8ffcf0824.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/user/css/history.css" />
     <title>Lịch sử</title>
+    <link rel="stylesheet" href="/layouts/user/css/header.css">
+    <link rel="stylesheet" href="/layouts/user/css/footer.css">
+
   </head>
   <body>
+    <nav>
+
+    </nav>
     <main class="feed">
       <div class="button-history">
         <h1>Lịch sử xem phim</h1>
@@ -26,17 +30,19 @@
             id="searchInput"
             class="input-search"
             placeholder="Tìm kiếm trong lịch sử"
-            onkeyup="searchHistory()"
-          />
+            onkeyup="searchHistory()" />
         </div>
-        <br />
+        <br>
+        <br>
+        <br>
         <div class="box-3">
           <div class="btn btn-three" id="deleteAllButton">
             <span>Xóa toàn bộ lịch sử</span>
           </div>
         </div>
-
-        <br />
+        <br>
+        <br>
+        <br>
         <div class="box-3">
           <div class="btn btn-three">
             <span>Quản lí lịch sử hoạt động</span>
@@ -47,11 +53,14 @@
       <div class="feed__section" id="feed__section">
         <h2>Lịch sử</h2>
       </div>
-    </main>
 
-    <script src="/assets/user/js/history.js">
-      
-    </script>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="/assets/user/js/history.js"></script>
+    <script src="/layouts/user/js/footer.js"></script>
+    <script src="/layouts/user/js/header.js"></script>
   </body>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>

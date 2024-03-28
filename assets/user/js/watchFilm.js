@@ -20,6 +20,9 @@ let films = JSON.parse(localStorage.getItem("films"));
       // Thêm lịch sử xem
       function addToHistory(filmName, episodeNumber) {
         // Kiểm tra xem người dùng đã có lịch sử hay chưa
+        if (!currentUser.username){
+          return;
+        }
         if (!currentUser.history) {
           currentUser.history = [];
         }

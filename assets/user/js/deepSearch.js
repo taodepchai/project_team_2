@@ -1,11 +1,13 @@
 films = JSON.parse(localStorage.getItem("films"));
 images = JSON.parse(localStorage.getItem("films"));
+let year = [];
 
-function renderFilm(filmsToRender) {
+function renderFilms(films) {
   let filmList = document.getElementById("filmList");
   filmList.innerHTML = "";
 
-  filmsToRender.forEach((film, index) => {
+  films.forEach((film, index) => {
+    year.push(film.release_year);
     let filmElement = document.createElement("div");
     filmElement.addEventListener("click", function () {
       window.location.href = `/pages/user/detailsLSearch.html?filmName=${film.name}`;
@@ -26,28 +28,9 @@ function renderFilm(filmsToRender) {
   });
 }
 
-// ấn nút mũi tên thì cuộn trang phim
-function scrollFilms(direction) {
-  let container = document.getElementById("filmList");
-  let scrollAmount = 400;
-  if (direction === -1) {
-    container.scrollLeft -= scrollAmount;
-  } else {
-    container.scrollLeft += scrollAmount;
-  }
-  //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
-  let maxScrollLeft = container.scrollWidth - container.clientWidth;
-  if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
-    container.scrollTo({ left: 0, behavior: "smooth" });
-  } else if (direction === -1 && container.scrollLeft === 0) {
-    container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
-  }
-}
-document
-  .getElementById("searchInput")
-  .addEventListener("keyup", function (event) {
-    searchFilms();
-  });
+document.getElementById("searchInput").addEventListener("keyup", function () {
+  searchFilms();
+});
 function searchFilms() {
   // Lấy giá trị từ khóa tìm kiếm
   let keyword = document
@@ -66,96 +49,241 @@ function searchFilms() {
   });
 }
 
-function filterFilmsByGenre() {
+let currentGenres = JSON.parse(localStorage.getItem("currentGenres"));
+document.addEventListener("DOMContentLoaded", function () {
+  renderGenres();
+  // Lắng nghe sự kiện change của các checkbox thể loại
+  function renderGenres() {
+    let bodyLeft = document.getElementById("body_left");
+    bodyLeft.innerHTML = ""; // Xóa nội dung cũ trước khi render
+
+    if (currentGenres) {
+      // Tạo thẻ details
+      let genresDetails = document.createElement("details");
+      genresDetails.setAttribute("class", "genres");
+      let summary = document.createElement("summary");
+      summary.textContent = "Genres"; // Tiêu đề của details
+      genresDetails.appendChild(summary); // Thêm summary vào details
+      let genresDiv = document.createElement("div"); // Tạo một div để chứa các thẻ label
+      genresDetails.appendChild(genresDiv); // Thêm div vào details
+
+      // Tạo các thẻ label cho các thể loại và thêm vào div genresDiv
+      currentGenres.forEach((genre) => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = "checkbox";
+        input.name = "genre";
+        input.value = genre;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(genre));
+        genresDiv.appendChild(label);
+        genresDiv.appendChild(document.createElement("br"));
+      });
+
+      bodyLeft.appendChild(genresDetails); // Thêm details vào bodyLeft
+    }
+  }
+
+  let genreCheckboxes = document.querySelectorAll(".body_left .genres input");
+  genreCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      filterFilmsByGenre(currentGenres);
+    });
+  });
+});
+
+let currentNational = JSON.parse(localStorage.getItem("currentNational"));
+document.addEventListener("DOMContentLoaded", function () {
+  renderNational();
+  // Lắng nghe sự kiện change của các checkbox thể loại
+  function renderNational() {
+    let bodyLeft = document.getElementById("body_left");
+    // Xóa nội dung cũ trước khi render
+
+    if (currentNational) {
+      // Tạo thẻ details
+      let nationalDetails = document.createElement("details");
+      nationalDetails.setAttribute("class", "national");
+      let summary = document.createElement("summary");
+      summary.textContent = "National";
+      nationalDetails.appendChild(summary);
+      let nationalDiv = document.createElement("div");
+      nationalDetails.appendChild(nationalDiv);
+
+      currentNational.forEach((national) => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = "radio";
+        input.name = "national";
+        input.value = national.name;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(national.name));
+        nationalDiv.appendChild(label);
+        nationalDiv.appendChild(document.createElement("br"));
+      });
+
+      bodyLeft.appendChild(nationalDetails); // Thêm details vào bodyLeft
+    }
+  }
+
+  let nationalRadio = document.querySelectorAll(".body_left .national input");
+  nationalRadio.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      filterFilmsByNational(currentNational);
+    });
+  });
+});
+
+function filterFilmsByGenre(currentGenres) {
   // Lấy danh sách các ô checkbox thể loại
-  let genreCheckboxes = document.querySelectorAll('input[name="genre"]');
+  let genreCheckboxes = document.querySelectorAll(".body_left .genres input");
 
   // Tạo một mảng chứa giá trị của các ô checkbox đã được chọn
-  let checkedGenres = Array.from(genreCheckboxes)
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.value);
-
+  let checkedGenres = [];
+  genreCheckboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedGenres.push(checkbox.value);
+    }
+  });
   // Kiểm tra xem có checkbox nào được chọn không
   if (checkedGenres.length === 0) {
-    renderFilm(films);
-    return;
+    renderFilms(films);
   }
 
   // Lọc danh sách phim dựa trên các ô checkbox đã được chọn
-  let filteredFilms = films.filter((films) => {
-    // Đếm số lượng thể loại được chọn mà bộ phim chứa
-    let count = checkedGenres.reduce((total, genres) => {
-      return total + (films.genres && films.genres.includes(genres) ? 1 : 0);
-    }, 0);
+  let filteredFilms = films.filter((film) => {
+    let filmGenres = film.genres || [];
+    // Kiểm tra xem mỗi bộ phim có chứa tất cả các thể loại đã chọn không
+    return checkedGenres.every((genre) => filmGenres.includes(genre));
+  });
+  // Hiển thị lại danh sách phim đã được lọc
 
-    // Nếu số lượng thể loại được chọn mà bộ phim chứa bằng với số lượng thể loại được chọn
-    // thì bộ phim sẽ được lọc vào danh sách kết quả
-    return count === checkedGenres.length;
+  renderFilms(filteredFilms);
+}
+
+function filterFilmsByNational(currentNational) {
+  // Lấy danh sách các ô radio national
+  let nationalRadio = document.querySelectorAll(
+    ".national input[type='radio']"
+  );
+
+  // Tạo một mảng chứa giá trị của các ô radio đã được chọn
+  let radioNational = [];
+  nationalRadio.forEach((radio) => {
+    if (radio.checked) {
+      radioNational.push(radio.value);
+      // if (radio.value === "All"){
+      //   renderFilms(films);
+      //   return;
+      // }
+    }
+  });
+  if (radioNational[0] === "All") {
+    renderFilms(films);
+    return;
+  }
+  // Kiểm tra xem có radio nào được chọn không
+  if (radioNational.length === 0) {
+    renderFilms(films);
+    return; // Thêm return để kết thúc hàm nếu không có radio nào được chọn
+  }
+
+  // Lọc danh sách phim dựa trên các ô radio đã được chọn
+  let filteredFilms = films.filter((film) => {
+    let filmNational = film.nationality || [];
+    // Kiểm tra xem national của bộ phim có trong mảng radioNational hay không
+    return radioNational.includes(filmNational);
   });
 
   // Hiển thị lại danh sách phim đã được lọc
-  renderFilm(filteredFilms);
+  renderFilms(filteredFilms);
 }
 
-// Gắn sự kiện click cho nút search để kích hoạt tìm kiếm
-document.querySelector("button").addEventListener("click", searchFilms);
+// Gắn sự kiện change cho các ô radio để kích hoạt việc lọc phim khi chọn thể loại
 
-// Gắn sự kiện keyup cho ô nhập liệu để kích hoạt tìm kiếm khi người dùng nhập liệu
-document
-  .getElementById("searchInput")
-  .addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
-      searchFilms();
-    }
-  });
 
-// Gắn sự kiện change cho các ô checkbox để kích hoạt việc lọc phim khi chọn thể loại
-let genreCheckboxes = document.querySelectorAll('input[name="genre"]');
-genreCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", filterFilmsByGenre);
-});
+renderFilms(films);
 
-renderFilm(films);
+let yearList = [...new Set(year)];
 
-let currentUser = JSON.parse(localStorage.getItem("currentUser")) || "";
-function profile() {
-  let username = currentUser.username;
-  console.log(username);
-  window.location.href = `/pages/user/userinfo.html?username=${username}`;
-}
-function login() {
-  window.location.href = "/pages/user/login.html";
-}
-function logout() {
-  swal({
-    title: "có phải bạn muốn đăng xuất ra khỏi trang web!",
-    //text: "có phải bạn muốn đăng xuất ra khỏi trang web!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  }).then((willDelete) => {
-    if (willDelete) {
-      localStorage.removeItem("currentUser");
-      login();
-    } else {
-      swal("Đăng xuất thất bại.");
-    }
-  });
-}
+yearList.unshift("All");
+
 document.addEventListener("DOMContentLoaded", function () {
-  let signinBtn = document.getElementById("signinBtn");
-  let usernameBtn = document.getElementById("usernameBtn");
-  let usernameLink = document.getElementById("usernameLink");
-  let usernameDrop = document.getElementById("dropdownUsername");
-  if (currentUser) {
-    signinBtn.style.display = "none";
-    usernameBtn.style.display = "block";
-    let username = currentUser.username;
-    avtURL = currentUser.avatarUrl;
-    usernameLink.innerHTML = `<img src="${avtURL}" style="width: 50px; height :100%; border-radius: 50%;">`;
-    usernameDrop.innerHTML = `${username}`;
-  } else {
-    signinBtn.style.display = "block";
-    usernameBtn.style.display = "none";
+  renderyear();
+  // Lắng nghe sự kiện change của các checkbox thể loại
+  function renderyear() {
+    let bodyLeft = document.getElementById("body_left");
+    // Xóa nội dung cũ trước khi render
+
+    if (yearList) {
+      // Tạo thẻ details
+      let yearDetails = document.createElement("details");
+      yearDetails.setAttribute("class", "year");
+      let summary = document.createElement("summary");
+      summary.textContent = "Year";
+      yearDetails.appendChild(summary);
+      let yearDiv = document.createElement("div");
+      yearDetails.appendChild(yearDiv);
+
+      yearList.forEach((year) => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = "radio";
+        input.name = "year";
+        input.value = year;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(year));
+        yearDiv.appendChild(label);
+        yearDiv.appendChild(document.createElement("br"));
+      });
+
+      bodyLeft.appendChild(yearDetails); // Thêm details vào bodyLeft
+    }
   }
+
+
+function filterFilmsByYear(yearList) {
+  // Lấy danh sách các ô radio year
+  let yearRadio = document.querySelectorAll(
+    ".year input[type='radio']"
+  );
+
+  // Tạo một mảng chứa giá trị của các ô radio đã được chọn
+  let radioYear = [];
+  yearRadio.forEach((radio) => {
+    if (radio.checked) {
+      radioYear.push(radio.value);
+      // if (radio.value === "All"){
+      //   renderFilms(films);
+      //   return;
+      // }
+    }
+  });
+  if (radioYear[0] === "All") {
+    renderFilms(films);
+    return;
+  }
+  // Kiểm tra xem có radio nào được chọn không
+  if (radioYear.length === 0) {
+    renderFilms(films);
+    return; // Thêm return để kết thúc hàm nếu không có radio nào được chọn
+  }
+console.log(radioYear);
+  // Lọc danh sách phim dựa trên các ô radio đã được chọn
+  let filteredFilms = films.filter((film) => {
+    let filmYear = film.release_year|| [];
+    console.log(filmYear);
+    // Kiểm tra xem year của bộ phim có trong mảng radioyear hay không
+    return radioYear[0].includes(filmYear);
+  });
+  console.log(filteredFilms);
+  // Hiển thị lại danh sách phim đã được lọc
+  renderFilms(filteredFilms);
+}
+let yearRadio = document.querySelectorAll(".body_left .year input");
+yearRadio.forEach((radio) => {
+  radio.addEventListener("change", function () {
+    filterFilmsByYear(yearList);
+  });
+});
 });

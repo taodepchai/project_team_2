@@ -14,11 +14,11 @@
         <script defer src="/assets/admin/js/movie.js"></script>
         <script defer src="/assets/admin/js/sidebar.js"></script>
         <script src="/vendor/datas.js"></script>
-        <link rel="stylesheet" href="/layouts/admin/css/sidebar.css">
         <!-- Set up modal -->
         <script defer src="/vendor/js/modal.js"></script>
         <link rel="stylesheet" href="/vendor/css/modal.css">
         <link rel="stylesheet" href="/assets/admin/css/style.css">
+        <link rel="stylesheet" href="/layouts/admin/css/sidebar.css">
 
     </head>
     <body>
@@ -29,8 +29,12 @@
                     id="sidebar">
                     
                 </div>
+                <nav class="header-nav-item">
+                    
+                </nav>
                 <div class="col py-3">
-                    <button onclick="openModal()" class="btn-danger position-absolute addBtn"><i class="fa-solid fa-plus"></i> Thêm Phim</button>
+                    <button id="add-movie" onclick="openModal()" class="btn-danger position-absolute addBtn"><i class="fa-solid fa-plus"></i> Thêm Phim</button>
+                    <button id="bars" onclick="showSidebar()"><i class="fa-solid fa-bars"></i></button>
                     <table id="table"
                         class="table  table-striped table-hover table-dark"
                         style="width:100%">
@@ -61,7 +65,7 @@
                     <span class="close" onclick="closeModal()"><i class="fa-solid fa-x"></i></span>
                 </div>
                 <br>
-                <div class="modal-body">
+                <div class="modal-body" id="modal-body">
                     <div class="wrapper">
                         <div class="input-data">
                             <input type="text" id="movie_name" name="movie_title" required>
@@ -151,4 +155,5 @@
         src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script defer
         src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap4.js"></script>
+
 </html>
