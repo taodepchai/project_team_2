@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const usernameParam = new URLSearchParams(window.location.search).get(
     "username"
   );
-
+console.log(userInfo);
   userInfo.forEach((user) => {
     if (user.username === usernameParam) {
       console.log(user.password);

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-userList
+
 function login() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
@@ -63,19 +63,6 @@ function login() {
   if (!Array.isArray(userList)) {
     console.error("Dữ liệu người dùng không phải là một mảng.");
     document.getElementById("usernameError").innerHTML = "Dữ liệu người dùng không hợp lệ.";
-    return;
-  }
-  if (username == "admin" && password == "admin") {
-    swal({
-      title: "Success",
-      text: "Mừng bạn trở lại admin",
-      icon: "success",
-      // buttons: true,
-      dangerMode: true,
-    })
-    .then(() => {
-       window.location.href = `/pages/admin/movie.html`;
-    });
     return;
   } else {
     const loggedInUser = userList.find(

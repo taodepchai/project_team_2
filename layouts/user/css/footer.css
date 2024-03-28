@@ -101,7 +101,7 @@ li{
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     * {
         margin: 0px;
         padding: 0;
@@ -110,10 +110,10 @@ li{
         width: 100%;
     }
     .footer-top-left p{
-        font-size: 10px;
+        font-size: 2vw;
     }
     .footer-top-right a{
-        font-size: 10px;
+        font-size: 2vw;
         display: flex;
         gap: 0px;
     }
@@ -122,23 +122,23 @@ li{
         margin: auto;
     }
     .footer-buttom-left-logo img{
-        width: 70px;
+        width: 7vw;
     }
     .footer-buttom-right{
         display: flex;
-        gap: 10px;
+        gap: 2vw;
     }
     .footer-buttom-right ul li{
-        font-size: 8px;
+        font-size: 1.3vw;
     }
     .footer-buttom-right ul,li{
-        padding-top: 10px;
+        padding-top: 2vw;
 
     }
     .footer-buttom-left p{
-        font-size: 8px;
+        font-size: 2vw;
     }
     .final-words{
-        font-size: 8px;
+        font-size: 2vw;
     }
 }

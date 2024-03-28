@@ -273,3 +273,9 @@ body {
   .header-right ul li:hover .header-right-sign-in-content {
     display: block;
   }
+  @media screen and(max-width: 800px) {
+    .film-filter{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
