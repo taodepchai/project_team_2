@@ -1,6 +1,6 @@
 let userList=JSON.parse(localStorage.getItem("userList"));
 let currentUser=JSON.parse(localStorage.getItem("currentUser"));
-
+console.log(currentUser);
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
 let filmName = urlParams.get("film"); 

@@ -3,19 +3,22 @@ body {
     margin: 0;
     padding: 0;
     background-image: radial-gradient(rgb(53, 16, 16), #0f0f0f);
+    height: 100%;
   }
 
   a {
     text-decoration: none;
   }
-
+  .film-list{
+    min-height: 28vh;
+  }
   .film-list ul {
     background: #ccc;
     padding: 20px;
   }
 
-  .film-list ul li {
-    background: rgb(152, 126, 126);
+  .film-list  li {
+    background: rgb(236, 109, 109);
   }
 
   header {

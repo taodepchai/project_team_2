@@ -60,7 +60,6 @@ function login() {
       })
     return;
   }
-  console.log(userList);
   if (!Array.isArray(userList)) {
     console.error("Dữ liệu người dùng không phải là một mảng.");
     document.getElementById("usernameError").innerHTML = "Dữ liệu người dùng không hợp lệ.";

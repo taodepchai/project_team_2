@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Lấy danh sách phim từ local storage
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   let library = currentUser.library || [];
-  let filmList = document.querySelector(".film-list ul");
+  let filmList = document.querySelector(".film-list ");
   filmList.innerHTML = "";
   // Duyệt qua danh sách phim và tạo các phần tử hiển thị
   library.forEach(function (film, index) {

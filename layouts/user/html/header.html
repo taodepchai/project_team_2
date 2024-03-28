@@ -1,128 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/header.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/layouts/user/css/header.css">
+    </head>
 
-</head>
+    <body style="background-color: black;">
+        <!---------------------------header start------------------------------>
+        <nav>
+            <section class="header-main pc">
+                <div class="header-left">
 
-<body>
-    <!---------------------------header start------------------------------>
-    <section class="header-main">
-        <div class="header-left">
-            <ul>
-                <li>
-                    <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
-                </li>
-                <li>
-                    <a href="">Trang chủ</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa-solid fa-film"></i> Phim</a>
-                </li>
-                <li>
-                    <a href="">Thể loại <i class="fa-solid fa-caret-down"></i></a>
-                    <div class="header-left-genres">
-                        <h1
-                            style="display: flex;align-items: center; justify-content: center;color: #000;padding: 5px 0 20px;">
-                            thể loại
-                        </h1>
-                        <hr>
-                        <div style="display: flex;">
-                            <ul>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                                <li><a href="">Kinh dị</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="">Danh sách đã lưu</a>
-                </li>
+                    <ul class="navbar-list">
+                        <!-- Category -->
+                        <li class="menu-button" onclick="showSidebar()">
+                            <i class="fa-solid fa-list"></i>
+                        </li>
+                        <li>
+                            <a href="/pages/display.html"></a>
+                            <img src="/vendor/images/logo.png" alt
+                                width="200px" />
+                        </li>
+                        <li class="hideOnMobile">
+                            <a href="/pages/user/deepSearch.html"
+                                class="navbar-link">Search</a>
+                        </li>
+                        <li class="hideOnMobile">
+                            <a href="/pages/user/library.html"
+                                class="navbar-link">Library</a>
+                        </li>
 
-                <li>
-                    <a href="">Phim mới/Phổ biến</a>
-                </li>
-            </ul>
-        </div>
-        <div class="header-right">
-            <ul>
-                <li class="header-right-search">
-                    <input type="text" name="" id="searchInput" placeholder="Search" style="width: 300px;" />
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                </li>
-                <!-- ngôn ngữ -->
-                <li>
-                    <a href=""><i class="fa-solid fa-language"></i> Ngôn ngữ <i class="fa-solid fa-caret-down"></i></a>
-                    <div class="header-right-languages">
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <div style="display: flex; gap: 5px;">
-                                        <img src="/assets/img/vietNam.png" alt="" width="30px">
-                                        <p class="vietnamese">Việt Nam</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div style="display: flex; gap: 5px;">
-                                        <img src="/assets/img/tiengAnh.png" alt="" width="30px">
-                                        <p class="english">Tiếng Anh</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <!------------------- thông báo bằng js sử dụng ul -> li -> a--------------------->
-                <li>
-                    <a href="">
-                        <i class="fa-regular fa-bell"></i>
-                    </a>
-                    <div class="header-right-bell">
-                        <!--====== thêm vào đây =========-->
-                    </div>
-                </li>
-                <li class="header-right-sign-in">
-                    <button>
-                        <p style="color: aliceblue">sign in</p>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </section>
+                        <li class="hideOnMobile">
+                            <a href="javascript:void(0)" onclick="history() "
+                                class="navbar-link">History</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <ul>
 
-</body>
-<script src="https://kit.fontawesome.com/40a8505060.js" crossorigin="anonymous"></script>
+                        <li class="header-right-search hideOnMobile">
+                            <input type="text" name id="searchInput"
+                                placeholder="Search" style="width: 300px;" />
+                            <button><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </li>
+                        <!-- ngôn ngữ -->
+                        <li class="hideOnMobile">
+                            <a> Language <i
+                                    class="fa-solid fa-caret-down"></i></a>
+                            <div class="header-right-languages">
+                                <ul>
+                                    <li>
+                                        <a href>
+                                            <div
+                                                style="display: flex; gap: 5px;">
+                                                <img
+                                                    src="/vendor/images/vietNam.png"
+                                                    alt width="30px">
+                                                <p
+                                                    class="vietnamese">vietnamese</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href>
+                                            <div
+                                                style="display: flex; gap: 5px;">
+                                                <img
+                                                    src="/vendor/images/tiengAnh.png"
+                                                    alt width="30px">
+                                                <p class="english">English</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
+                        <li class="header-right-sign-in"
+                            id="signinBtn">
+                            <button onclick="login()">
+                                Sign in
+                            </button>
+                        </li>
+
+                        <li>
+                            <div class="header-right-sign-in" id="usernameBtn"
+                                style="display:none;">
+                                <div class="avatarDropdown"
+                                    onclick="toggleDropdown()"
+                                    id="usernameLink"></div>
+                            </div>
+                            <div class="header-right-sign-in-content"><br>
+                                <a href id="dropdownUsername"></a><br>
+                                <button onclick="profile()"><i
+                                        class="fa-solid fa-user"></i> &ensp;
+                                    Profile</button><br>
+                                <a href="javascript:void(0)"
+                                    onclick="logout()"><i
+                                        class="fa-solid fa-right-from-bracket"></i>
+                                    &ensp; Log
+                                    out</a><br>
+                                <a href="/pages/user/premium.html"><i
+                                        class="fa-solid fa-crown"></i> Get
+                                    premium</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+            <section class="header-main mobile">
+                <div class="header-left">
+                    <ul class="navbar-list">
+                        <li onclick="hideSidebar()"><i
+                                class="fa-solid fa-x"></i></li>
+                        <li class="header-right-search">
+                            <input type="text" name id="searchInput"
+                                placeholder="Search" style="width: 300px;" />
+                            <button><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </li>
+                        <li>
+                            <a href="/pages/user/deepSearch.html"
+                                class="navbar-link">Search</a>
+                        </li>
+                        <li>
+                            <a href="/pages/user/library.html"
+                                class="navbar-link">Library</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)" onclick="history() "
+                                class="navbar-link">History</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <ul>
+
+                        <!-- ngôn ngữ -->
+                        <li>
+                            <a href> Language <i
+                                    class="fa-solid fa-caret-down"></i></a>
+                            <div class="header-right-languages">
+                                <ul>
+                                    <li>
+                                        <a href>
+                                            <div
+                                                style="display: flex; gap: 5px;">
+                                                <img
+                                                    src="/vendor/images/vietNam.png"
+                                                    alt width="30px">
+                                                <p
+                                                    class="vietnamese">vietnamese</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href>
+                                            <div
+                                                style="display: flex; gap: 5px;">
+                                                <img
+                                                    src="/vendor/images/tiengAnh.png"
+                                                    alt width="30px">
+                                                <p class="english">English</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="header-right-sign-in" id="usernameBtn"
+                                style="display:none;">
+                                <div class="avatarDropdown"
+                                    onclick="toggleDropdown()"
+                                    id="usernameLink"></div>
+                            </div>
+                            <div class="header-right-sign-in-content"><br>
+                                <a href id="dropdownUsername"></a><br>
+                                <button onclick="profile()"><i
+                                        class="fa-solid fa-user"></i> &ensp;
+                                    Profile</button><br>
+                                <a href="javascript:void(0)"
+                                    onclick="logout()"><i
+                                        class="fa-solid fa-right-from-bracket"></i>
+                                    &ensp; Log
+                                    out</a><br>
+                                <a href="/pages/user/premium.html"><i
+                                        class="fa-solid fa-crown"></i> Get
+                                    premium</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </nav>
+
+    </body>
+    <script src="https://kit.fontawesome.com/40a8505060.js"
+        crossorigin="anonymous"></script>
+    <script src="/layouts/user/js/header.js"></script>
 </html>
