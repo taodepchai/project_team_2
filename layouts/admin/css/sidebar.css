@@ -35,6 +35,10 @@ li {
 .delBtn:hover{
   background-color: var(--red);
 }
+
+
+
+
 .header-nav-item{
     position: fixed;
     top: 0;
@@ -58,3 +62,25 @@ li {
     left: 200px;
     font-size: 10px;
 }
+
+
+
+
+
+.add-openModal{
+    background-color: blue;
+    position: relative;
+    left: 200px;
+    font-size: 10px;
+}
+
+
+
+.add-openNational{
+    background-color: blue;
+    position: relative;
+    left: 200px;
+    font-size: 10px;
+}
+
+

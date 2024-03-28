@@ -67,7 +67,6 @@ function updateMovie(index) {
   description.value = films[index].summary;
   // deleteMovie(index);
   submitBtn.setAttribute("onclick", `saveInputMovie(${index})`);
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -103,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let genres = JSON.parse(localStorage.getItem("currentGenres"));
-console.log(genres);
 let genresList = document.querySelector("#genresList");
 for (let i = 0; i < genres.length; i++) {
   genresList.innerHTML += `
@@ -129,3 +127,37 @@ function addGenres() {
   liElement.appendChild(deleteButton);
   ulElement.appendChild(liElement);
 }
+
+let addOpenModalBtn = document.getElementById("add-movie");
+function openModa() {
+  let width = window.innerWidth;
+
+  if (width > 1440) {
+    addOpenModalBtn.classList.remove("add-openModal");
+  } else {
+    addOpenModalBtn.classList.add("add-openModal");
+  }
+}
+openModa();
+
+window.addEventListener("resize", openModa);
+
+let addMovieBtn = document.getElementById("modal-body");
+let descriptionBtn = document.getElementById("description");
+let myModalBtn = document.getElementById("myModal");
+
+function movieBtn() {
+  let width = window.innerWidth;
+  if (width < 990) {
+    addMovieBtn.style.width = "90%";
+    addMovieBtn.style.margin = "auto";
+    descriptionBtn.style.width = "20vw";
+    myModalBtn.style.fontSize = "2vw";
+  } else {
+    addMovieBtn.style.width = "100%";
+    addMovieBtn.style.marginLeft = "0vw";
+    descriptionBtn.style.width = "25vw";
+    myModalBtn.style.fontSize = "1vw";
+  }
+}
+window.addEventListener("resize", movieBtn);
