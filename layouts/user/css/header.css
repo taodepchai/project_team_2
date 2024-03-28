@@ -24,7 +24,7 @@ li {
   padding-bottom: 20px;
 }
 
-.header-left ul {
+.pc ul {
   display: flex;
   gap: 0px;
   align-items: center;
@@ -36,8 +36,8 @@ li {
     background-color: red;
     border: none;
     border-radius: 5px;
-    width: 90px;
-    height: 30px;
+    width: 100px;
+    height: 40px;
 }
 
 .header-main input {
@@ -144,7 +144,7 @@ li {
   display: block;
 }
 /* ---------------------Search----------------- */
- .header-main button {
+ .header-right-search button {
   position: absolute;
   cursor: pointer;
   left: 246px;
@@ -205,30 +205,85 @@ li {
   display: block;
 }
 .header-main ul li {
-  padding-top: 30px;
+  padding: 15px 0px 15px 0px;
 }
-/* .header-main .header-left .navbar-list{
-  display: none;
-} */
 .menu-button{
   display: none;
 }
 .menu-button i{
   font-size: 30px;
 }
-@media only screen and (max-width: 1350px) {
+/* css cho  thanh nav mobile*/
+.mobile{
+  flex-direction: column;
+
+  position: fixed;
+  top: 0; 
+  left: 0;
+  height: 100vh;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.mobile .header-left ul{
+  width: auto;
+}
+.mobile .navbar-list{
+  flex-direction: column;
+  align-self: start;
+}
+.mobile .header-right ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile .header-right ul li {
+  padding: 0px;
+}
+
+@media  screen and (max-width: 1350px) {
   .hideOnMobile{
     display: none;
   }
   .menu-button{
     display: block;
   }
-  .header-main{
+   .pc{
     justify-content: space-between;
   }
-  .header-left ul{
+  .pc .header-left ul{
     width: 57vw;
     justify-content: space-between;
   }
-
+  .header-main .mobile{
+    justify-content: flex-start;
+  }
+  .mobile .header-left{
+    align-items: flex-start;
+  }
+  .mobile .header-right{
+    display: flex;
+  }
+}
+@media screen and (max-width:800px) {
+  .pc img{
+    width: 22vw;
+  }
+  .header-right ul  .header-right-sign-in  button {
+    width: 10vw;
+    height: 5vw;
+    font-size: 2vw;
+  }
+  .pc i {
+    font-size: 4vw;
+  }
+  .pc .header-left ul{
+    width: 59vw;
+  }
 }
