@@ -1,448 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/user/css/header.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-K1GAm2rrtoQ6YVkwOphmV6xXiq9T0iCIZoC2P4RllNmPVEMIcXZpPCXnhYT7Wg2bGqFPUlppcOo2U2EZnlv7xA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/assets/user/css/footer.css" />
-    <style>
-      body {
-        background-color: black;
-        color: white;
-        margin: 0;
-        padding: 0;
-        position: relative;
-      }
 
-      .header-main a {
-        color: #fff;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-K1GAm2rrtoQ6YVkwOphmV6xXiq9T0iCIZoC2P4RllNmPVEMIcXZpPCXnhYT7Wg2bGqFPUlppcOo2U2EZnlv7xA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/layouts/user/css/header.css">
+  <link rel="stylesheet" href="/layouts/user/css/footer.css" />
+  <link rel="stylesheet" href="/assets/user/css/display.css">
+</head>
 
-      .slideshow {
-        position: relative;
-        overflow: hidden;
-      }
+<body>
+  <nav>
 
-      .slideshow-item {
-        display: none;
-      }
+  </nav>
 
-      .slideshow-item.active {
-        display: block;
-      }
+  <div class="slideshow" id="slideshow"></div>
 
-      .slideshow img {
-        margin-top: 100px;
-        margin-left: 14%;
-        width: 70%;
-      }
+  <h1>Film-Movie</h1>
 
-      .slideshow-content {
-        margin-left: 14%;
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: white;
-        z-index: 1;
-      }
+  <div class="nav-buttons">
+    <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
+    <div class="filmList" id="filmList"></div>
 
-      .slideshow-content h1 {
-        font-size: 24px;
-        margin: 0;
-      }
+    <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+    
+  </div>
 
-      .filmList {
-        display: flex;
-        overflow-x: hidden;
-        gap: 20px;
-        padding: 20px;
-        scroll-behavior: smooth;
-        padding-top: 30%;
-      }
+  <section class="upcoming">
+    <div class="container">
 
-      .film-items {
-        border: 1px solid black;
-        min-width: 200px;
-        text-align: center;
-        border-radius: 8px;
-        transition: transform 0.3s;
-      }
+      <div class="flex-wrapper">
 
-      .film-items img {
-        border-radius: 8px;
-        width: 160px;
-        height: auto;
-      }
+        <div class="title-wrapper">
+          <h2 class="h2 section-title">Phim sắp chiếu</h2>
+        </div>
 
-      .film-items:hover {
-        border-color: white;
-      }
 
-      .film-items h2 {
-        margin: 10px 0;
-      }
-
-      .nav-buttons {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        display: flex;
-        width: calc(100% - 40px);
-        padding: 0 20px;
-        justify-content: space-between;
-      }
-
-      .nav-buttons a {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 24px;
-        /* border-radius: 50%; */
-        margin-top: 30%;
-        padding-top: 150px;
-        opacity: 30%;
-      }
-
-      .nav-buttons a:hover {
-        opacity: 100%;
-        color: black;
-      }
-
-      body::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      body::-webkit-scrollbar-track {
-        background: #280d0e;
-      }
-
-      body::-webkit-scrollbar-thumb {
-        background-color: #816956;
-        border-radius: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <section class="header-main">
-      <div class="header-left">
-          <ul>
-              <li>
-                  <img src="/assets/img/logo-removebg.png" alt="" width="100px" />
-              </li>
-              <li>
-                  <a href="">Home</a>
-              </li>
-              <li>
-                  <a href=""><i class="fa-solid fa-film"></i> Film</a>
-              </li>
-              <li>
-                <select id="genreDropdown" onchange="filterFilmsByGenre(this.value)">
-                  <option value="select">Select Genre</option>
-                  <option value="Biography">Biography</option>
-                  <option value="Drama">Drama</option>
-                  <option value="History">History</option>
-                  <option value="Comedy">Comedy</option>
-                  <option value="Romance">Romance</option>
-                  <option value="War">War</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Action">Action</option>
-                  <option value="Music">Music</option>
-                  <option value="Thriller">Thriller</option>
-                  <option value="Sport">Sport</option>
-                </select>
-              </li>
-              <li>
-                  <a href="">Favorites</a>
-              </li>
-
-              <li>
-                  <a href="">New/Popular Movies</a>
-              </li>
-          </ul>
       </div>
-      <div class="header-right">
-          <ul>
-              <li class="header-right-search">
-                  <input type="text" name="" id="searchInput" placeholder="Search" style="width: 300px;" />
-                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
-              </li>
-              <!-- ngôn ngữ -->
-              <li>
-                  <a href=""> Language <i class="fa-solid fa-caret-down"></i></a>
-                  <div class="header-right-languages">
-                      <ul>
-                          <li>
-                              <a href="">
-                                  <div style="display: flex; gap: 5px;">
-                                      <img src="/assets/img/vietNam.png" alt="" width="30px">
-                                      <p class="vietnamese">vietnamese</p>
-                                  </div>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="">
-                                  <div style="display: flex; gap: 5px;">
-                                      <img src="/assets/img/tiengAnh.png" alt="" width="30px">
-                                      <p class="english">English</p>
-                                  </div>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="">
-                      <i class="fa-regular fa-bell"></i>
-                  </a>
-                  <div class="header-right-bell">
-                      <!--====== thêm vào đây =========-->
-                  </div>
-              </li>
-              <li class="header-right-sign-in">
-                  <button>
-                      <p style="color: aliceblue">Sign in</p>
-                  </button>
-              </li>
-          </ul>
-      </div>
-  </section>
 
-    <!-- slide show -->
-    <div class="slideshow" id="slideshow"></div>
+      <ul class="movies-list ">
 
-    <!-- render film -->
-    <h1>Film-Movie</h1>
-    <div class="nav-buttons">
-      <a onclick="scrollFilms(-1)"><i class="fas fa-angle-left"></i></a>
-      <div class="filmList" id="filmList"></div>
-      <a onclick="scrollFilms(1)"><i class="fas fa-angle-right"></i></a>
+      </ul>
+
     </div>
-
-    <!-- footer -->
-    <section class="footer-main">
-      <div class="footer-top">
-          <div class="footer-top-left">
-              <p>Social network</p>
-          </div>
-          <div class="footer-top-right">
-              <a href="https://www.facebook.com/thieu879"><i class="fa-brands fa-facebook"></i></a>
-              <a href="https://www.instagram.com/giathieu879/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://twitter.com/ThieuN31812"><i class="fa-brands fa-twitter"></i></a>
-              <a href="https://www.twitch.tv/thieunguyen879"><i class="fa-brands fa-twitch"></i></a>
-              <a href="https://www.google.gg/?pli=1"><i class="fa-brands fa-google"></i></a>
-              <a href="https://github.com/thieu879"><i class="fa-brands fa-github"></i></a>
-          </div>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="footer-buttom">
-          <div class="footer-buttom-left">
-              <div class="footer-buttom-left-logo">
-                  <img src="/assets/img/logo-removebg.png" alt="" width="300px">
-              </div>
-              <p>Khiến bạn hài lòng chính là phương châm của chúng tôi.</p>
-          </div>
-          <div class="footer-buttom-right">
-              <ul>
-                  <li><b>Contact Us</b></li>
-                  <li>thieunguyen11022005@gmail.com</li>
-                  <li>linhne123@gmail.com</li>
-                  <li>dungne123@gmail.com</li>
-                  <li>hoangne123@gmail.com</li>
-              </ul>
-              <ul>
-                  <li><b>Help</b></li>
-                  <li><a href="">Support</a></li>
-                  <li><a href="">Terms of use</a></li>
-                  <li><a href="">Policy notification</a></li>
-                  <li><a href="">Privacy</a></li>
-              </ul>
-              <ul>
-                  <li><b>Contact</b></li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-house"></i>
-                          Đanh Trại - Yên Thọ - Ý Yên - Nam Định
-                      </span>
-                  </li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-envelope"></i>
-                          nguyenthieu11022005@gmail.com
-                      </span>
-                  </li>
-                  <li>
-                      <span>
-                          <i class="fa-solid fa-phone"></i>
-                          0355483082
-                      </span>
-                  </li>
-                  <li>
-                      <i class="fa-solid fa-tty"></i>
-                      0355483082
-                  </li>
-
-              </ul>
-          </div>
-      </div>
-      </div>
-      <div class="final-words">
-          &#169;
-          <p>2024 Copyright by superHeader Nguyễn Gia Thiều</p>
-      </div>
   </section>
 
-    <script
-      src="https://kit.fontawesome.com/bd9aef7112.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/data.js"></script>
-    <script>
-      films = JSON.parse(localStorage.getItem("films"));
-      images = JSON.parse(localStorage.getItem("films"));
-      function renderFilm() {
-        let filmList = document.getElementById("filmList");
-        filmList.innerHTML = "";
+  <section class="service">
+    <div class="container">
 
-        films.forEach((film, index) => {
-          let filmElement = document.createElement("div");
-          filmElement.addEventListener("click", function () {
-            window.location.href = `info.html?filmId=${index}`;
-          });
-          filmElement.id = `film-${index}`;
-          filmElement.classList.add("film-items");
+      <div class="service-banner">
+        <figure>
+          <img src="/vendor/images/Orange Phoenix Animal Gaming Logo.png" alt="HD 4k resolution! only $3.99">
+        </figure>
 
-          let imageElement = document.createElement("img");
-          imageElement.src = film.poster;
+        <a href="/pages/user/premium.html"  class="service-btn">
+          <span>Get Premium</span>
 
-          let nameElement = document.createElement("h2");
-          nameElement.innerHTML = `${film.name}`;
+          <ion-icon name="download-outline"></ion-icon>
+        </a>
+      </div>
 
-          filmElement.appendChild(imageElement);
-          filmElement.appendChild(nameElement);
+      <div class="service-content">
 
-          filmList.appendChild(filmElement);
-        });
-      }
-      // ấn nút mũi tên thì cuộn trang phim
-      function scrollFilms(direction) {
-        let container = document.getElementById("filmList");
-        let scrollAmount = 400;
-        if (direction === -1) {
-          container.scrollLeft -= scrollAmount;
-        } else {
-          container.scrollLeft += scrollAmount;
-        }
-        //khi đến cuối mà ấn tiếp thì chuyển về đầu tiên
-        let maxScrollLeft = container.scrollWidth - container.clientWidth;
-        if (direction === 1 && container.scrollLeft >= maxScrollLeft) {
-          container.scrollTo({ left: 0, behavior: "smooth" });
-        } else if (direction === -1 && container.scrollLeft === 0) {
-          container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
-        }
-      }
+        <p class="service-subtitle">Dịch vụ của StupidCíne</p>
 
-      function renderImg() {
-        let imgList = document.getElementById("slideshow");
+        <h2 class="h2 service-title">Trải nghiệm tuyệt vời với các bộ phim</h2>
 
-        images.forEach((image, index) => {
-          let imgContainer = document.createElement("div");
+        <p class="service-text">
+          Trở thành khách hàng đặc biệt của chúng tôi khi đăng kí gói Premium ngay bây giờ và
+          trải nghiệm  chương trình xem với chất lượng tốt nhất hiện nay
+        </p>
 
-          imgContainer.classList.add("slideshow-item");
-          if (index === 0) {
-            imgContainer.classList.add("active");
-          }
-          
-          imgContainer.addEventListener("click", function () {
-            window.location.href = `info.html?filmId=${index}`;
-          });
+        <ul class="service-list">
 
-          let imageElement = document.createElement("img");
-          imageElement.src = image.background_img;
+          <li>
+            <div class="service-card">
 
-          let nameElement = document.createElement("img");
-          nameElement.src = image.img;
+              <div class="card-icon">
+                <ion-icon name="tv"></ion-icon>
+              </div>
 
-          let contentElement = document.createElement("div");
-          contentElement.classList.add("slideshow-content");
-          contentElement.appendChild(nameElement);
+              <div class="card-content">
+                <h3 class="h3 card-title">Tải về các bộ phim yêu thích và xem chúng</h3>
 
-          imgContainer.appendChild(imageElement);
-          imgContainer.appendChild(contentElement);
+                <p class="card-text">
+                  Lo lắng khi không có mạng hoặc đem tivi vào núi? Đừng lo khi bạn có thể tải phim về và xem
+                  bất cứ nơi đầu kể cả khi không có mạng :3
+                </p>
+              </div>
 
-          imgList.appendChild(imgContainer);
-        });
-      }
-      //tìm kiếm sản phẩm
-      function searchFilms() {
-        // Lấy giá trị từ khóa tìm kiếm
-        let keyword = document
-          .getElementById("searchInput")
-          .value.toLowerCase()
-          .trim();
+            </div>
+          </li>
 
-        // Lặp qua danh sách sản phẩm và ẩn hoặc hiển thị tùy thuộc vào từ khóa tìm kiếm
-        let filmList = document.querySelectorAll(".film-items");
-        filmList.forEach((film) => {
-          let filmName = film.querySelector("h2").textContent.toLowerCase();
-          if (filmName.includes(keyword)) {
-            film.style.display = "block";
-          } else {
-            film.style.display = "none";
-          }
-        });
-      }
+          <li>
+            <div class="service-card">
 
-      // Gắn sự kiện keyup cho ô nhập liệu để tìm kiếm khi người dùng nhập liệu
-      document
-        .getElementById("searchInput")
-        .addEventListener("keyup", searchFilms);
+              <div class="card-icon">
+                <ion-icon name="videocam"></ion-icon>
+              </div>
 
-      renderImg();
-      renderFilm();
+              <div class="card-content">
+                <h3 class="h3 card-title">Xem bằng mọi phương tiện .</h3>
 
-      // Slideshow
-      const slides = document.querySelectorAll(".slideshow-item");
-      let currentIndex = 0;
+                <p class="card-text">
+                  Bạn không có PC? StupidCiné có trên điện thoại, bạn không có điện thoại? StupidCiné
+                  có trên cả TV, đem cả thế giới phim vào phòng ngủ của bạn.
+                </p>
+              </div>
 
-      // Tự động chuyển đổi giữa các hình ảnh sau mỗi 3 giây
-      setInterval(() => {
-        slides[currentIndex].classList.remove("active");
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add("active");
-      }, 3000);
+            </div>
+          </li>
 
-      // Hàm lọc phim theo thể loại
-      function filterFilmsByGenre(genre) {
-      // Lặp qua tất cả các phim
-      if (genre !== "select"){
-        films.forEach((film, index) => {
-        let filmElement = document.getElementById(`film-${index}`);
-        if (film.genres.includes(genre)) {
-          filmElement.style.display = "block";
-        } else {
-          filmElement.style.display = "none";
-        }
-      });
-      } 
-      else{
-        renderFilm();
-      }
-      
-}
+        </ul>
 
-    </script>
-  </body>
-</html>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="top-rated">
+    <div class="container">
+
+      <p class="section-subtitle">
+        Featured Themes</p>
+
+      <h2 class="h2 section-title">Movie Themes</h2>
+
+     <ul class="movies-list">
+
+
+
+      </ul> 
+
+    </div>
+  </section>
+
+
+  <section class="tv-series">
+    <div class="container">
+
+      <p class="section-subtitle">Best Film on StupidCiné</p>
+
+      <h2 class="h2 section-title">Top Rates</h2>
+
+       <ul class="movies-list">
+
+
+      </ul> 
+    </div>
+  </section>
+  <section class="cta">
+    <div class="container">
+
+      <div class="title-wrapper">
+        <h2 class="cta-title">Sở hữu premium ngay</h2>
+
+        <p class="cta-text">
+          Điền email của bạn để có thể bắt đầu với premium
+        </p>
+      </div>
+
+      <form action="" class="cta-form">
+        <input type="email" name="email" required placeholder="Enter your email" class="email-field">
+
+        <button type="submit" class="cta-form-btn">Bắt đầu</button>
+      </form>
+
+    </div>
+  </section>
+
+</article>
+</main>
+
+  <!-- footer -->
+  <footer>
+
+  </footer>
+  <script src="/layouts/user/js/header.js"></script>
+  <script src="/layouts/user/js/footer.js"></script>
+  <script src="https://kit.fontawesome.com/bd9aef7112.js" crossorigin="anonymous"></script>
+  <script src="/vendor/datas.js"></script>
+  <script src="/assets/user/js/display.js">
+  </script>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</html> 

@@ -1,0 +1,361 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    z-index: 2;
+    align-items: center;
+  }
+
+  .filmList {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    /* padding-top: 30%; */
+    padding-top: -20px !important;
+
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    max-width: 200px;
+    z-index: 2;
+  }
+  .container_body{
+    display: flex;
+    min-height: 50vh;
+    flex-direction: row;
+  }
+
+  .container_body .body_right{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  header {
+    left: 20%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  header {
+    display: block;
+  }
+
+  .search-box {
+    margin-top: 10px;
+  }
+
+  .search-box input {
+    padding: 8px;
+    width: 200px;
+    border-radius: 7px;
+  }
+
+  .search-box button {
+    padding: 8px 12px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+
+
+  .option {
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+  .option input {
+    width: 20px;
+  }
+
+  .option label {
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .header-main {
+    z-index: 3;
+    top: 0px;
+    padding-bottom: 20px;
+  }
+
+  .header-right ul .header-right-sign-in button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .header-right ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header-left a {
+    width: 120px;
+    padding: 10px;
+  }
+
+  .header-left a:hover {
+    color: #d5d5d5;
+  }
+
+  .header-left a:active {
+    background-color: rgb(160, 160, 160);
+    transition: all 0.01s;
+  }
+
+  .header-right ul .header-right-sign-in button:hover {
+    background-color: rgb(136, 0, 0);
+  }
+
+  .header-right .header-right-sign-in .usernameLink {
+    top: 20px;
+  }
+
+  .header-right ul,
+  li {
+    position: relative;
+  }
+
+  /* ------------------sign-in------------------------------ */
+
+
+  .header-right-sign-in-content {
+    left: -35px;
+    position: absolute;
+    background-color: #000000;
+    border-radius: 10px;
+    /* margin-left: 10px; */
+    display: none;
+    padding: 5px;
+    width: 130px;
+    text-align: center;
+    color: #fffefe;
+  }
+
+  .header-right ul li .header-right-sign-in-content a {
+    display: block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+  }
+
+  .header-right ul li .header-right-sign-in-content button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 20px;
+  }
+
+  .header-right ul li .header-right-sign-in-content a i {
+
+    color: rgb(255, 255, 255);
+
+  }
+
+  .header-right ul li .header-right-sign-in-content a:hover {
+    background-color: rgb(110, 107, 107);
+  }
+
+  .header-right ul li .header-right-sign-in-content button:hover {
+    background-color: rgb(110, 107, 107);
+  }
+
+  .header-right ul li:hover .header-right-sign-in-content {
+    display: block;
+  }
+
+  .body_left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 25% !important;
+    background-color: #000000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .body_left input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .body_left label {
+    margin-right: 15px;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-main {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right ul li {
+    margin-right: 15px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+
+  
+  .search-box button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .film-items {
+    border: 1px solid black;
+    width: 202px;
+    max-height: 325px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+
+  @media screen and (max-width:620px){
+    body{
+      font-size: 12px;
+      
+    }
+    .search-box button {
+      /* padding: 8px 12px; */
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 7px;
+    }
+    .search-box input {
+      padding: 8px;
+      width: 100px;
+      border-radius: 7px;
+    }
+    .film-items {
+      border: 1px solid black;
+      width: 60px;
+      max-height: 325px;
+      min-width: 60px;
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .film-items img {
+      border-radius: 8px;
+      width: 60px;
+      height: auto;
+    }
+
+    .film-items h2 {
+      margin: 10px 0;
+      font-size: 8px;
+    }
+  }
+
+  @media screen and (max-width:850px){
+    body{
+      font-size: 12px;
+      
+    }
+    .search-box button {
+      /* padding: 8px 12px; */
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 7px;
+    }
+    .search-box input {
+      padding: 8px;
+      width: 100px;
+      border-radius: 7px;
+    }
+    .film-items {
+      border: 1px solid black;
+      width: 60px;
+      max-height: 325px;
+      min-width: 60px;
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .film-items img {
+      border-radius: 8px;
+      width: 60px;
+      height: auto;
+    }
+
+    .film-items h2 {
+      margin: 10px 0;
+      font-size: 8px;
+    }
+    .body_left {
+      display: flex;
+      flex-direction: column;
+      width: 25% !important;
+      background-color: #000000;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      justify-content: flex-start;
+    }
+  }

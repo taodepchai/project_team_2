@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>watch</title>
+    <link rel="stylesheet" href="/assets/user/css/watchFilm.css" />
+    <link rel="stylesheet" href="/assets/user/css/info.css" />
+    <link rel="stylesheet" href="/assets/user/css/comment.css" />
+  </head>
+
+  <body>
+    <section class="watch-film">
+      <div class="film-display">
+        <iframe
+          width="900px"
+          height="700px"
+          src="https://ww1.vuaphimmoiz.net/jwplayer?source=https%3A%2F%2Fhls.streamcdn.xyz%2Fm3u8%2F1e438f10-8de2-57dd-87e3-103ccf3be6bb&id=&type=hls"
+          frameborder="0">
+        </iframe>
+        <div class="function-buttons">
+          <a href><i class="fa-solid fa-arrow-up-right-from-square"></i> Phóng
+            to</a>
+          <a href><i class="fa-solid fa-forward-step"></i> Chuyển tập</a>
+          <a href><i class="fa-solid fa-circle-exclamation"></i> Báo cáo</a>
+          <button class="add-to-library-button">
+            <i class="fa-regular fa-square-plus"></i> thêm vào danh sách
+          </button>
+        </div>
+        <div id="filmInfo"></div>
+        <div class="film-comment">pull coment</div>
+        <div class="page">
+          <div class="content__body">
+            <section>
+              <ul class="comment__container"></ul>
+
+            </section>
+            <footer>
+              <ul>
+                <li>
+                  <div class="section__comment">
+                    <div>
+                      <div class="section__avater">
+                        <img src alt />
+                      </div>
+                      <div class="section__commentbox">
+                        <textarea placeholder="Add comment"></textarea>
+                      </div>
+                      <div class="section__btn">
+                        <button class="btn">Gửi</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="model hidden">
+      <div class="model__container">
+        <div class="model__card">
+          <div class="card__header">
+            <h1>Xóa</h1>
+          </div>
+          <div class="card__body">
+            <p>Bạn có muốn xóa?</p>
+          </div>
+          <div class="card__footer">
+            <div class="btn__wrapper">
+              <a class="btn card__btn_cancel">Không</a>
+              <a class="btn card__btn_delete">Có</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+ 
+  <script
+    src="https://kit.fontawesome.com/40a8505060.js"
+    crossorigin="anonymous"></script>
+  <script src="/assets/user/js/comment.js" type="module"></script>
+  <script src="/assets/user/js/watchFilm.js">
+    
+  </script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>
