@@ -5,7 +5,7 @@
     color: aliceblue;
 }
 
-a {
+ footer a {
     text-decoration: none;
     color: black;
 }
@@ -101,7 +101,7 @@ li{
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     * {
         margin: 0px;
         padding: 0;
@@ -110,10 +110,10 @@ li{
         width: 100%;
     }
     .footer-top-left p{
-        font-size: 2vw;
+        font-size: 10px;
     }
     .footer-top-right a{
-        font-size: 2vw;
+        font-size: 10px;
         display: flex;
         gap: 0px;
     }
@@ -122,23 +122,23 @@ li{
         margin: auto;
     }
     .footer-buttom-left-logo img{
-        width: 7vw;
+        width: 70px;
     }
     .footer-buttom-right{
         display: flex;
-        gap: 2vw;
+        gap: 10px;
     }
     .footer-buttom-right ul li{
-        font-size: 1.3vw;
+        font-size: 8px;
     }
     .footer-buttom-right ul,li{
-        padding-top: 2vw;
+        padding-top: 10px;
 
     }
     .footer-buttom-left p{
-        font-size: 2vw;
+        font-size: 8px;
     }
     .final-words{
-        font-size: 2vw;
+        font-size: 8px;
     }
 }

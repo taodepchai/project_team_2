@@ -9,9 +9,9 @@ nav.innerHTML = `
             <i class="fa-solid fa-list"></i>
         </li>
         <li>
-            <a href="/pages/display.html"></a>
-            <img src="/vendor/images/logo.png" alt
-                width="200px" />
+            <a href="/pages/display.html"> <img src="/vendor/images/logo.png" alt
+                width="200px" /></a>
+           
         </li>
         <li class="hideOnMobile">
             <a href="/pages/user/deepSearch.html"
@@ -192,7 +192,29 @@ nav.innerHTML = `
 </div>
 </section>
 `;
-
+function history() {
+  window.location.href = `/pages/user/history.html?username=${username}`;
+}
+function profile() {
+  console.log(username);
+  window.location.href = `/pages/user/userinfo.html?username=${username}`;
+}
+function login() {
+  window.location.href = "/pages/user/login.html";
+}
+function logout() {
+  swal({
+    title: "có phải bạn muốn đăng xuất ra khỏi trang web!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      localStorage.removeItem("currentUser");
+      login();
+    }
+  });
+}
 function showSidebar() {
   const sidebar = document.querySelector(".mobile");
   sidebar.style.display = "flex";
